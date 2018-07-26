@@ -20,6 +20,28 @@
 		563113952109970700BC84AF /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
 		568D38C021083A1D00BFBF48 /* SLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* SLLogger.swift */; };
 		568D38C221084F5400BFBF48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
+		56AC70EE2109A58900FF04BB /* SwiftyLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC70E52109A58900FF04BB /* SwiftyLogger.framework */; };
+		56AC70F52109A58900FF04BB /* SwiftyLogger_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 56AC70E72109A58900FF04BB /* SwiftyLogger_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56AC70FC2109A64A00FF04BB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
+		56AC70FD2109A64B00FF04BB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
+		56AC70FE2109A64F00FF04BB /* SLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* SLLog.swift */; };
+		56AC70FF2109A64F00FF04BB /* SLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* SLLog.swift */; };
+		56AC71002109A65300FF04BB /* SLLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* SLLogLevel.swift */; };
+		56AC71012109A65400FF04BB /* SLLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* SLLogLevel.swift */; };
+		56AC71022109A65900FF04BB /* SLOSLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* SLOSLogDestination.swift */; };
+		56AC71032109A65A00FF04BB /* SLOSLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* SLOSLogDestination.swift */; };
+		56AC71042109A65D00FF04BB /* SLOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* SLOSLogLevelMapping.swift */; };
+		56AC71052109A65E00FF04BB /* SLOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* SLOSLogLevelMapping.swift */; };
+		56AC71062109A66200FF04BB /* SLDestinationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* SLDestinationProtocol.swift */; };
+		56AC71072109A66200FF04BB /* SLDestinationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* SLDestinationProtocol.swift */; };
+		56AC71082109A66600FF04BB /* SLBaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */; };
+		56AC71092109A66600FF04BB /* SLBaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */; };
+		56AC710A2109A66900FF04BB /* SLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* SLLogger.swift */; };
+		56AC710B2109A66A00FF04BB /* SLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* SLLogger.swift */; };
+		56AC710C2109A66D00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
+		56AC710D2109A66E00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
+		56AC71102109A68800FF04BB /* SwiftyLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* SwiftyLoggerTests.swift */; };
+		56AC71112109A68C00FF04BB /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +51,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 56049B332106DEE100EAFC44;
 			remoteInfo = SwiftyLogger;
+		};
+		56AC70EF2109A58900FF04BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56049B2B2106DEE100EAFC44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56AC70E42109A58900FF04BB;
+			remoteInfo = "SwiftyLogger tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,6 +78,10 @@
 		563113942109970700BC84AF /* DictionaryUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilsTests.swift; sourceTree = "<group>"; };
 		568D38BF21083A1D00BFBF48 /* SLLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLLogger.swift; sourceTree = "<group>"; };
 		568D38C121084F5400BFBF48 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		56AC70D72109A52E00FF04BB /* SwiftyLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AC70E52109A58900FF04BB /* SwiftyLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AC70E72109A58900FF04BB /* SwiftyLogger_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyLogger_tvOS.h; sourceTree = "<group>"; };
+		56AC70ED2109A58900FF04BB /* SwiftyLogger tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyLogger tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +100,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56AC70D32109A52E00FF04BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70E12109A58900FF04BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70EA2109A58900FF04BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56AC70EE2109A58900FF04BB /* SwiftyLogger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +130,7 @@
 			children = (
 				56049B362106DEE100EAFC44 /* SwiftyLogger */,
 				56049B412106DEE100EAFC44 /* SwiftyLoggerTests */,
+				56AC70E62109A58900FF04BB /* SwiftyLogger tvOS */,
 				56049B352106DEE100EAFC44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +140,9 @@
 			children = (
 				56049B342106DEE100EAFC44 /* SwiftyLogger.framework */,
 				56049B3D2106DEE100EAFC44 /* SwiftyLogger iOS Tests.xctest */,
+				56AC70D72109A52E00FF04BB /* SwiftyLogger.framework */,
+				56AC70E52109A58900FF04BB /* SwiftyLogger.framework */,
+				56AC70ED2109A58900FF04BB /* SwiftyLogger tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +207,14 @@
 			path = OSLog;
 			sourceTree = "<group>";
 		};
+		56AC70E62109A58900FF04BB /* SwiftyLogger tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				56AC70E72109A58900FF04BB /* SwiftyLogger_tvOS.h */,
+			);
+			path = "SwiftyLogger tvOS";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -156,6 +223,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				56049B452106DEE100EAFC44 /* SwiftyLogger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70D42109A52E00FF04BB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70E22109A58900FF04BB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56AC70F52109A58900FF04BB /* SwiftyLogger_tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +280,60 @@
 			productReference = 56049B3D2106DEE100EAFC44 /* SwiftyLogger iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		56AC70D62109A52E00FF04BB /* SwiftyLogger watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56AC70DC2109A52F00FF04BB /* Build configuration list for PBXNativeTarget "SwiftyLogger watchOS" */;
+			buildPhases = (
+				56AC70D22109A52E00FF04BB /* Sources */,
+				56AC70D32109A52E00FF04BB /* Frameworks */,
+				56AC70D42109A52E00FF04BB /* Headers */,
+				56AC70D52109A52E00FF04BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyLogger watchOS";
+			productName = "SwiftyLogger watchOS";
+			productReference = 56AC70D72109A52E00FF04BB /* SwiftyLogger.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		56AC70E42109A58900FF04BB /* SwiftyLogger tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56AC70F62109A58900FF04BB /* Build configuration list for PBXNativeTarget "SwiftyLogger tvOS" */;
+			buildPhases = (
+				56AC70E02109A58900FF04BB /* Sources */,
+				56AC70E12109A58900FF04BB /* Frameworks */,
+				56AC70E22109A58900FF04BB /* Headers */,
+				56AC70E32109A58900FF04BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyLogger tvOS";
+			productName = "SwiftyLogger tvOS";
+			productReference = 56AC70E52109A58900FF04BB /* SwiftyLogger.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		56AC70EC2109A58900FF04BB /* SwiftyLogger tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56AC70F92109A58900FF04BB /* Build configuration list for PBXNativeTarget "SwiftyLogger tvOSTests" */;
+			buildPhases = (
+				56AC70E92109A58900FF04BB /* Sources */,
+				56AC70EA2109A58900FF04BB /* Frameworks */,
+				56AC70EB2109A58900FF04BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56AC70F02109A58900FF04BB /* PBXTargetDependency */,
+			);
+			name = "SwiftyLogger tvOSTests";
+			productName = "SwiftyLogger tvOSTests";
+			productReference = 56AC70ED2109A58900FF04BB /* SwiftyLogger tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,6 +348,15 @@
 						LastSwiftMigration = 0940;
 					};
 					56049B3C2106DEE100EAFC44 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					56AC70D62109A52E00FF04BB = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					56AC70E42109A58900FF04BB = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					56AC70EC2109A58900FF04BB = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -230,6 +375,9 @@
 			targets = (
 				56049B332106DEE100EAFC44 /* SwiftyLogger iOS */,
 				56049B3C2106DEE100EAFC44 /* SwiftyLogger iOS Tests */,
+				56AC70D62109A52E00FF04BB /* SwiftyLogger watchOS */,
+				56AC70E42109A58900FF04BB /* SwiftyLogger tvOS */,
+				56AC70EC2109A58900FF04BB /* SwiftyLogger tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,6 +391,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		56049B3B2106DEE100EAFC44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70D52109A52E00FF04BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70E32109A58900FF04BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70EB2109A58900FF04BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,6 +446,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56AC70D22109A52E00FF04BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56AC710B2109A66A00FF04BB /* SLLogger.swift in Sources */,
+				56AC71022109A65900FF04BB /* SLOSLogDestination.swift in Sources */,
+				56AC710D2109A66E00FF04BB /* Utility.swift in Sources */,
+				56AC71062109A66200FF04BB /* SLDestinationProtocol.swift in Sources */,
+				56AC71002109A65300FF04BB /* SLLogLevel.swift in Sources */,
+				56AC70FC2109A64A00FF04BB /* SLLogFormatter.swift in Sources */,
+				56AC71042109A65D00FF04BB /* SLOSLogLevelMapping.swift in Sources */,
+				56AC70FE2109A64F00FF04BB /* SLLog.swift in Sources */,
+				56AC71082109A66600FF04BB /* SLBaseDestination.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70E02109A58900FF04BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56AC710A2109A66900FF04BB /* SLLogger.swift in Sources */,
+				56AC71032109A65A00FF04BB /* SLOSLogDestination.swift in Sources */,
+				56AC710C2109A66D00FF04BB /* Utility.swift in Sources */,
+				56AC71072109A66200FF04BB /* SLDestinationProtocol.swift in Sources */,
+				56AC71012109A65400FF04BB /* SLLogLevel.swift in Sources */,
+				56AC70FD2109A64B00FF04BB /* SLLogFormatter.swift in Sources */,
+				56AC71052109A65E00FF04BB /* SLOSLogLevelMapping.swift in Sources */,
+				56AC70FF2109A64F00FF04BB /* SLLog.swift in Sources */,
+				56AC71092109A66600FF04BB /* SLBaseDestination.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56AC70E92109A58900FF04BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56AC71112109A68C00FF04BB /* DictionaryUtilsTests.swift in Sources */,
+				56AC71102109A68800FF04BB /* SwiftyLoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -284,6 +494,11 @@
 			isa = PBXTargetDependency;
 			target = 56049B332106DEE100EAFC44 /* SwiftyLogger iOS */;
 			targetProxy = 56049B3F2106DEE100EAFC44 /* PBXContainerItemProxy */;
+		};
+		56AC70F02109A58900FF04BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56AC70E42109A58900FF04BB /* SwiftyLogger tvOS */;
+			targetProxy = 56AC70EF2109A58900FF04BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -497,6 +712,152 @@
 			};
 			name = Release;
 		};
+		56AC70DD2109A52F00FF04BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-watchOS";
+				PRODUCT_NAME = SwiftyLogger;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		56AC70DE2109A52F00FF04BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-watchOS";
+				PRODUCT_NAME = SwiftyLogger;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		56AC70F72109A58900FF04BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-tvOS";
+				PRODUCT_NAME = SwiftyLogger;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		56AC70F82109A58900FF04BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-tvOS";
+				PRODUCT_NAME = SwiftyLogger;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
+		56AC70FA2109A58900FF04BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Debug;
+		};
+		56AC70FB2109A58900FF04BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -523,6 +884,33 @@
 			buildConfigurations = (
 				56049B4C2106DEE100EAFC44 /* Debug */,
 				56049B4D2106DEE100EAFC44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56AC70DC2109A52F00FF04BB /* Build configuration list for PBXNativeTarget "SwiftyLogger watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56AC70DD2109A52F00FF04BB /* Debug */,
+				56AC70DE2109A52F00FF04BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56AC70F62109A58900FF04BB /* Build configuration list for PBXNativeTarget "SwiftyLogger tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56AC70F72109A58900FF04BB /* Debug */,
+				56AC70F82109A58900FF04BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56AC70F92109A58900FF04BB /* Build configuration list for PBXNativeTarget "SwiftyLogger tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56AC70FA2109A58900FF04BB /* Debug */,
+				56AC70FB2109A58900FF04BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
