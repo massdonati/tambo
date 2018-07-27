@@ -21,11 +21,14 @@ class DictionaryUtilsTests: XCTestCase {
     }
 
     func testJasonify() {
-        var invalidJSONDict = ["key": self]
+        var invalidJSONDict: [String: Any] = ["key": self, "number": 2]
         XCTAssertFalse(JSONSerialization.isValidJSONObject(invalidJSONDict))
 
         invalidJSONDict.jsonify()
 
         XCTAssertTrue(JSONSerialization.isValidJSONObject(invalidJSONDict))
+
+        XCTAssertEqual(invalidJSONDict["number"] as? Int, 2,
+                       "the jsonify method whould not change any already `Encodable` types")
     }
 }
