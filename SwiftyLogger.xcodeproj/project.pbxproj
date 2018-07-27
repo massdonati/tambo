@@ -17,11 +17,22 @@
 		56049B682106F1FC00EAFC44 /* SLOSLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* SLOSLogDestination.swift */; };
 		56049B6A2106F37C00EAFC44 /* SLOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* SLOSLogLevelMapping.swift */; };
 		56049B6C2106FE0900EAFC44 /* SLBaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */; };
+		561C8415210AB959001D28DB /* SwiftyLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561C840C210AB959001D28DB /* SwiftyLogger.framework */; };
+		561C8423210AB9AE001D28DB /* SwiftyLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* SwiftyLoggerTests.swift */; };
+		561C8424210AB9B2001D28DB /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
+		561C8425210ABA4F001D28DB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
+		561C8426210ABA53001D28DB /* SLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* SLLog.swift */; };
+		561C8427210ABA57001D28DB /* SLLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* SLLogLevel.swift */; };
+		561C8428210ABA60001D28DB /* SLOSLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* SLOSLogDestination.swift */; };
+		561C8429210ABA60001D28DB /* SLOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* SLOSLogLevelMapping.swift */; };
+		561C842A210ABA60001D28DB /* SLDestinationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* SLDestinationProtocol.swift */; };
+		561C842B210ABA60001D28DB /* SLBaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */; };
+		561C842C210ABA60001D28DB /* SLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* SLLogger.swift */; };
+		561C842D210ABA60001D28DB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		563113952109970700BC84AF /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
 		568D38C021083A1D00BFBF48 /* SLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* SLLogger.swift */; };
 		568D38C221084F5400BFBF48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC70EE2109A58900FF04BB /* SwiftyLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC70E52109A58900FF04BB /* SwiftyLogger.framework */; };
-		56AC70F52109A58900FF04BB /* SwiftyLogger_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 56AC70E72109A58900FF04BB /* SwiftyLogger_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56AC70FC2109A64A00FF04BB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
 		56AC70FD2109A64B00FF04BB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
 		56AC70FE2109A64F00FF04BB /* SLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* SLLog.swift */; };
@@ -52,6 +63,13 @@
 			remoteGlobalIDString = 56049B332106DEE100EAFC44;
 			remoteInfo = SwiftyLogger;
 		};
+		561C8416210AB959001D28DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56049B2B2106DEE100EAFC44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 561C840B210AB959001D28DB;
+			remoteInfo = "SwiftyLogger macOS";
+		};
 		56AC70EF2109A58900FF04BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56049B2B2106DEE100EAFC44 /* Project object */;
@@ -75,12 +93,13 @@
 		56049B672106F1FC00EAFC44 /* SLOSLogDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLOSLogDestination.swift; sourceTree = "<group>"; };
 		56049B692106F37C00EAFC44 /* SLOSLogLevelMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLOSLogLevelMapping.swift; sourceTree = "<group>"; };
 		56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLBaseDestination.swift; sourceTree = "<group>"; };
+		561C840C210AB959001D28DB /* SwiftyLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		561C8414210AB959001D28DB /* SwiftyLogger macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyLogger macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		563113942109970700BC84AF /* DictionaryUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilsTests.swift; sourceTree = "<group>"; };
 		568D38BF21083A1D00BFBF48 /* SLLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLLogger.swift; sourceTree = "<group>"; };
 		568D38C121084F5400BFBF48 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		56AC70D72109A52E00FF04BB /* SwiftyLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AC70E52109A58900FF04BB /* SwiftyLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		56AC70E72109A58900FF04BB /* SwiftyLogger_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyLogger_tvOS.h; sourceTree = "<group>"; };
 		56AC70ED2109A58900FF04BB /* SwiftyLogger tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyLogger tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,6 +116,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				56049B3E2106DEE100EAFC44 /* SwiftyLogger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		561C8408210AB959001D28DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		561C8411210AB959001D28DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				561C8415210AB959001D28DB /* SwiftyLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +164,6 @@
 			children = (
 				56049B362106DEE100EAFC44 /* SwiftyLogger */,
 				56049B412106DEE100EAFC44 /* SwiftyLoggerTests */,
-				56AC70E62109A58900FF04BB /* SwiftyLogger tvOS */,
 				56049B352106DEE100EAFC44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,6 +176,8 @@
 				56AC70D72109A52E00FF04BB /* SwiftyLogger.framework */,
 				56AC70E52109A58900FF04BB /* SwiftyLogger.framework */,
 				56AC70ED2109A58900FF04BB /* SwiftyLogger tvOSTests.xctest */,
+				561C840C210AB959001D28DB /* SwiftyLogger.framework */,
+				561C8414210AB959001D28DB /* SwiftyLogger macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,14 +242,6 @@
 			path = OSLog;
 			sourceTree = "<group>";
 		};
-		56AC70E62109A58900FF04BB /* SwiftyLogger tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				56AC70E72109A58900FF04BB /* SwiftyLogger_tvOS.h */,
-			);
-			path = "SwiftyLogger tvOS";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -223,6 +250,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				56049B452106DEE100EAFC44 /* SwiftyLogger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		561C8409210AB959001D28DB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +271,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56AC70F52109A58900FF04BB /* SwiftyLogger_tvOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +311,42 @@
 			name = "SwiftyLogger iOS Tests";
 			productName = SwiftyLoggerTests;
 			productReference = 56049B3D2106DEE100EAFC44 /* SwiftyLogger iOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		561C840B210AB959001D28DB /* SwiftyLogger macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 561C8421210AB959001D28DB /* Build configuration list for PBXNativeTarget "SwiftyLogger macOS" */;
+			buildPhases = (
+				561C8407210AB959001D28DB /* Sources */,
+				561C8408210AB959001D28DB /* Frameworks */,
+				561C8409210AB959001D28DB /* Headers */,
+				561C840A210AB959001D28DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyLogger macOS";
+			productName = "SwiftyLogger macOS";
+			productReference = 561C840C210AB959001D28DB /* SwiftyLogger.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		561C8413210AB959001D28DB /* SwiftyLogger macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 561C8422210AB959001D28DB /* Build configuration list for PBXNativeTarget "SwiftyLogger macOSTests" */;
+			buildPhases = (
+				561C8410210AB959001D28DB /* Sources */,
+				561C8411210AB959001D28DB /* Frameworks */,
+				561C8412210AB959001D28DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				561C8417210AB959001D28DB /* PBXTargetDependency */,
+			);
+			name = "SwiftyLogger macOSTests";
+			productName = "SwiftyLogger macOSTests";
+			productReference = 561C8414210AB959001D28DB /* SwiftyLogger macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		56AC70D62109A52E00FF04BB /* SwiftyLogger watchOS */ = {
@@ -350,6 +419,12 @@
 					56049B3C2106DEE100EAFC44 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
+					561C840B210AB959001D28DB = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					561C8413210AB959001D28DB = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					56AC70D62109A52E00FF04BB = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -378,6 +453,8 @@
 				56AC70D62109A52E00FF04BB /* SwiftyLogger watchOS */,
 				56AC70E42109A58900FF04BB /* SwiftyLogger tvOS */,
 				56AC70EC2109A58900FF04BB /* SwiftyLogger tvOSTests */,
+				561C840B210AB959001D28DB /* SwiftyLogger macOS */,
+				561C8413210AB959001D28DB /* SwiftyLogger macOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -391,6 +468,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		56049B3B2106DEE100EAFC44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		561C840A210AB959001D28DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		561C8412210AB959001D28DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -446,6 +537,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		561C8407210AB959001D28DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				561C842C210ABA60001D28DB /* SLLogger.swift in Sources */,
+				561C8428210ABA60001D28DB /* SLOSLogDestination.swift in Sources */,
+				561C842D210ABA60001D28DB /* Utility.swift in Sources */,
+				561C842A210ABA60001D28DB /* SLDestinationProtocol.swift in Sources */,
+				561C8427210ABA57001D28DB /* SLLogLevel.swift in Sources */,
+				561C8425210ABA4F001D28DB /* SLLogFormatter.swift in Sources */,
+				561C8429210ABA60001D28DB /* SLOSLogLevelMapping.swift in Sources */,
+				561C8426210ABA53001D28DB /* SLLog.swift in Sources */,
+				561C842B210ABA60001D28DB /* SLBaseDestination.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		561C8410210AB959001D28DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				561C8423210AB9AE001D28DB /* SwiftyLoggerTests.swift in Sources */,
+				561C8424210AB9B2001D28DB /* DictionaryUtilsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56AC70D22109A52E00FF04BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +610,11 @@
 			isa = PBXTargetDependency;
 			target = 56049B332106DEE100EAFC44 /* SwiftyLogger iOS */;
 			targetProxy = 56049B3F2106DEE100EAFC44 /* PBXContainerItemProxy */;
+		};
+		561C8417210AB959001D28DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 561C840B210AB959001D28DB /* SwiftyLogger macOS */;
+			targetProxy = 561C8416210AB959001D28DB /* PBXContainerItemProxy */;
 		};
 		56AC70F02109A58900FF04BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -712,6 +833,102 @@
 			};
 			name = Release;
 		};
+		561C841D210AB959001D28DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-macOS";
+				PRODUCT_NAME = SwiftyLogger;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		561C841E210AB959001D28DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-macOS";
+				PRODUCT_NAME = SwiftyLogger;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		561C841F210AB959001D28DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		561C8420210AB959001D28DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwiftyLoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		56AC70DD2109A52F00FF04BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -884,6 +1101,24 @@
 			buildConfigurations = (
 				56049B4C2106DEE100EAFC44 /* Debug */,
 				56049B4D2106DEE100EAFC44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		561C8421210AB959001D28DB /* Build configuration list for PBXNativeTarget "SwiftyLogger macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				561C841D210AB959001D28DB /* Debug */,
+				561C841E210AB959001D28DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		561C8422210AB959001D28DB /* Build configuration list for PBXNativeTarget "SwiftyLogger macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				561C841F210AB959001D28DB /* Debug */,
+				561C8420210AB959001D28DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
