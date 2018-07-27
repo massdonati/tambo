@@ -1,6 +1,6 @@
 //
-//  SLDestinationProtocol.swift
-//  SwiftyLogger
+//  TStreamProtocol.swift
+//  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
 //
@@ -8,17 +8,17 @@
 import Foundation
 
 /// Protocol for destination classes to conform to
-public protocol SLDestinationProtocol: CustomDebugStringConvertible {
+public protocol TStreamProtocol: CustomDebugStringConvertible {
     /// Identifier for the destination (should be unique)
     var identifier: String {get set}
 
     /// Log level for this destination
-    var outputLevel: SLLogLevel {get set}
+    var outputLevel: TLogLevel {get set}
 
     /// Flag whether or not we've logged the app details to this destination
     var haveLoggedAppDetails: Bool { get set }
 
-    var logFormatter: SLLogFormatterProtocol {get set}
+    var logFormatter: TLogFormatterProtocol {get set}
 
     /// Array of log filters to apply to messages before they're output
 //    var filters: [FilterProtocol]? { get set }
@@ -31,7 +31,7 @@ public protocol SLDestinationProtocol: CustomDebugStringConvertible {
      - note: this is called by the logger whenever it receive a log from the
         client.
     */
-    func process(log: SLLog)
+    func process(log: TLog)
 
     /**
      Check if the destination's log level is equal to or lower than the
@@ -40,17 +40,17 @@ public protocol SLDestinationProtocol: CustomDebugStringConvertible {
      - returns: true if the destination is at the log level specified or lower.
         false otherwise.
      */
-    func isEnabled(for level: SLLogLevel) -> Bool
+    func isEnabled(for level: TLogLevel) -> Bool
 
     /**
      Apply filters to determine if the log message should be logged.
      - parameter logDetails: The log details.
      - returns: true if the log object can be discarded
      */
-    func should(filter log: SLLog) -> Bool
+    func should(filter log: TLog) -> Bool
 }
 
-extension SLDestinationProtocol {
+extension TStreamProtocol {
 
     /// Iterate over all of the log filters in this destination, or the logger if none set for the destination.
     ///
@@ -62,7 +62,7 @@ extension SLDestinationProtocol {
     ///     - true:     Drop this log message.
     ///     - false:    Keep this log message and continue processing.
     ///
-    public func should(filter log: SLLog) -> Bool {
+    public func should(filter log: TLog) -> Bool {
         return false
 
         //        guard let filters = self.filters ?? self.owner?.filters, filters.count > 0 else { return false }
@@ -76,7 +76,7 @@ extension SLDestinationProtocol {
 //        return false
     }
 
-    public func isEnabled(for level: SLLogLevel) -> Bool {
+    public func isEnabled(for level: TLogLevel) -> Bool {
         return level <= outputLevel
     }
 

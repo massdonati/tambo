@@ -1,12 +1,12 @@
 //
 //  SLLogDefaultFormatterTests.swift
-//  SwiftyLogger
+//  Tambo
 //
 //  Created by Massimo Donati on 7/26/18.
 //
 
 import XCTest
-@testable import SwiftyLogger
+@testable import Tambo
 
 class SLLogDefaultFormatterTests: XCTestCase {
 
@@ -21,9 +21,9 @@ class SLLogDefaultFormatterTests: XCTestCase {
     }
 
     func testExample() {
-        let formatter = SLLogDefaultFormatter()
+        let formatter = tLogDefaultFormatter()
         let format = formatter.format
-        let log = SLLog(loggerID: "id",
+        let log = TLog(loggerID: "id",
                         level: .info,
                         date: Date(),
                         message: { return ""},

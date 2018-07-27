@@ -1,6 +1,6 @@
 //
-//  SLLog.swift
-//  SwiftyLogger
+//  TLog.swift
+//  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
 //
@@ -8,12 +8,12 @@
 import Foundation
 
 /// Data structure to hold all info about a log message, passed to destination classes
-public struct SLLog {
+public struct TLog {
 
     public let loggerID: String
 
     /// Log level required to display this log
-    public let level: SLLogLevel
+    public let level: TLogLevel
 
     /// Date this log was sent
     public let date: Date
@@ -54,7 +54,7 @@ public struct SLLog {
             return String(data: data, encoding: .utf8)
         } catch {
             print("""
-                SwiftyLogger could not transform the userInfo into JSON \
+                Tambo could not transform the userInfo into JSON \
                 \(uInfo). \(error)
                 """)
             return String(describing: uInfo)

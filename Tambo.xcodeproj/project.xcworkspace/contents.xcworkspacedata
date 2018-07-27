@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SwiftyLogger.xcodeproj">
+      location = "self:/Users/massimo/Projects/SwiftyLogger/Tambo.xcodeproj">
    </FileRef>
 </Workspace>

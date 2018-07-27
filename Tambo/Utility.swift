@@ -1,6 +1,6 @@
 //
 //  Utility.swift
-//  SwiftyLogger
+//  Tambo
 //
 //  Created by Massimo Donati on 7/24/18.
 //

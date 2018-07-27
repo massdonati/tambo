@@ -1,27 +1,27 @@
 //
-//  SLLogFormatterProtocol.swift
-//  SwiftyLogger
+//  TLogDefaultFormatter.swift
+//  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
 //
 
 import Foundation
 
-public enum SLLogFormatterOption {
-    case `default`, custom(SLLogFormatterProtocol)
+public enum TLogFormatterOption {
+    case `default`, custom(TLogFormatterProtocol)
 }
 
-public protocol SLLogFormatterProtocol {
+public protocol TLogFormatterProtocol {
     /**
      Formats the log details into a string.
      - parameter logDetails: The log details to convert into a string.
      - returns: The formatted string ready for output.
      */
-    func string(for log: SLLog) -> String
+    func string(for log: TLog) -> String
     var dateFormatter: DateFormatter {get set}
 }
 
-public class SLLogDefaultFormatter: SLLogFormatterProtocol {
+public class TLogDefaultFormatter: TLogFormatterProtocol {
 
     public var format = """
         [D] [l] T S F.f:# - M
@@ -35,7 +35,7 @@ public class SLLogDefaultFormatter: SLLogFormatterProtocol {
         return df
     }()
 
-    public func string(for log: SLLog) -> String {
+    public func string(for log: TLog) -> String {
         var outputString = ""
 
         format.forEach { ch in

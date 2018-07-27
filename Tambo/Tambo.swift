@@ -1,30 +1,34 @@
 //
-//  SLLogger.swift
-//  SwiftyLogger
+//  Tambo.swift
+//  Tambo
 //
 //  Created by Massimo Donati on 7/24/18.
 //
 
 import Foundation
 
-public final class SLLogger {
+public final class Tambo {
     private var _async = true
     public var isAsync: Bool {
         get {
-            return queue.sync { return _async }
+            return queue.sync {
+                return _async
+            }
         }
         set {
-            queue.sync { _async = newValue }
+            queue.sync {
+                _async = newValue
+            }
         }
     }
     private(set) var identifier: String
-    static var `default`: SLLogger = {
-        return SLLogger(identifier: "com.swiftylogger.sllogger")
+    static var `default`: Tambo = {
+        return Tambo(identifier: "com.swiftylogger.sllogger")
     }()
 
     private let queue: DispatchQueue
 
-    private var destinations: [SLDestinationProtocol] = []
+    private var destinations: [TStreamProtocol] = []
 
     public init(identifier: String, queue: DispatchQueue? = nil) {
         self.identifier = identifier
@@ -35,7 +39,7 @@ public final class SLLogger {
             target: queue)
     }
 
-    public func addDestination(_ destination: SLDestinationProtocol) {
+    public func addDestination(_ destination: TStreamProtocol) {
         queue.sync {
             self.destinations.append(destination)
         }
@@ -145,7 +149,7 @@ public final class SLLogger {
 
     private func propagateLog(
         msgClosure: @escaping () -> Any,
-        _ level: SLLogLevel,
+        _ level: TLogLevel,
         functionName: String = #function,
         filePath: String = #file,
         lineNumber: Int = #line,
@@ -154,7 +158,7 @@ public final class SLLogger {
 
         let propagateClosure = {
             let filename = Utility.filename(from: filePath) ?? "FILE_NAME_ERROR"
-            let log = SLLog(loggerID: self.identifier,
+            let log = TLog(loggerID: self.identifier,
                             level: level,
                             date: time,
                             message: msgClosure,

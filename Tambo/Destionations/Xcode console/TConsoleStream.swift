@@ -1,29 +1,30 @@
 //
-//  SLConsoleDestination.swift
-//  SwiftyLogger
+//  TConsoleStream.swift
+//  Tambo
 //
 //  Created by Massimo Donati on 7/26/18.
 //
 
 import Foundation
 
-public enum SLConsolePrintMode {
+public enum TConsolePrintMode {
     case print, nsLog
 }
 
-public final class SLConsoleDestination: SLBaseDestination {
-    let printMode: SLConsolePrintMode
-    public init(identifier: String, formatterOption: SLLogFormatterOption, printMode: SLConsolePrintMode) {
+public final class TConsoleStream: TBaseStream {
+    let printMode: TConsolePrintMode
+
+    public init(identifier: String, formatterOption: TLogFormatterOption, printMode: TConsolePrintMode) {
         self.printMode = printMode
         super.init(identifier: identifier, formatterOption: formatterOption)
     }
-    override public func output(logDetails: SLLog, message: String) {
+
+    override public func output(logDetails: TLog, message: String) {
         switch printMode {
         case .print:
             print(message)
         case .nsLog:
             NSLog("%@", message)
         }
-
     }
 }

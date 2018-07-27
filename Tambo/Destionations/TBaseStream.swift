@@ -1,27 +1,25 @@
 //
-//  SLBaseDestination.swift
-//  SwiftyLogger
+//  TBaseStream.swift
+//  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
 //
 
 import Foundation
 
-
-// MARK: - BaseDestination
 /// A base class destination that doesn't actually output the log anywhere and is intended to be subclassed
-public class SLBaseDestination: SLDestinationProtocol, CustomDebugStringConvertible {
+public class TBaseStream: TStreamProtocol {
 
     /// Identifier for the destination (should be unique)
     open var identifier: String
 
     /// Log level for this destination
-    open var outputLevel: SLLogLevel = .debug
+    open var outputLevel: TLogLevel = .debug
 
     /// Flag whether or not we've logged the app details to this destination
     open var haveLoggedAppDetails: Bool = false
 
-    public var logFormatter: SLLogFormatterProtocol
+    public var logFormatter: TLogFormatterProtocol
     /// Array of log filters to apply to messages before they're output
 //    open var filters: [FilterProtocol]? = nil
 
@@ -46,20 +44,13 @@ public class SLBaseDestination: SLDestinationProtocol, CustomDebugStringConverti
     /// Option: whether or not to output the date the log was created
     open var showDate: Bool = true
 
-    // MARK: - CustomDebugStringConvertible
-    open var debugDescription: String {
-        get {
-            return ""
-        }
-    }
-
     // MARK: - Life Cycle
-    public init(identifier: String = "", formatterOption: SLLogFormatterOption = .default) {
+    public init(identifier: String = "", formatterOption: TLogFormatterOption = .default) {
         self.identifier = identifier
 
         switch formatterOption {
         case .default:
-            logFormatter = SLLogDefaultFormatter()
+            logFormatter = TLogDefaultFormatter()
         case .custom(let formatter):
             logFormatter = formatter
         }
@@ -71,7 +62,7 @@ public class SLBaseDestination: SLDestinationProtocol, CustomDebugStringConverti
      - parameter logDetails: structure with all of the details for the log
         to process.
      */
-    open func process(log: SLLog) {
+    open func process(log: TLog) {
         let formattedMessage = logFormatter.string(for: log)
 
         output(logDetails: log, message: formattedMessage)
@@ -83,7 +74,7 @@ public class SLBaseDestination: SLDestinationProtocol, CustomDebugStringConverti
      - parameter logDetails: The log details.
      - parameter message: Formatted/processed message ready for output.
     */
-    public func output(logDetails: SLLog, message: String) {
+    public func output(logDetails: TLog, message: String) {
         precondition(false,
                      "Every subclass needs to override this method.")
     }

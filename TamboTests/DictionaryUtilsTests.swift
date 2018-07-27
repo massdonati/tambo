@@ -1,12 +1,12 @@
 //
 //  DictionaryUtilsTests.swift
-//  SwiftyLoggerTests
+//  TamboTests
 //
 //  Created by Massimo Donati on 7/25/18.
 //
 
 import XCTest
-@testable import SwiftyLogger
+@testable import Tambo
 
 class DictionaryUtilsTests: XCTestCase {
 

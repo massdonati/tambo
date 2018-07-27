@@ -1,6 +1,6 @@
 //
 //  SLOSLogLevelMapping.swift
-//  SwiftyLogger
+//  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
 //
@@ -20,7 +20,7 @@ import os
  `LogSeverity` values, `OSLogTypeTranslation` provides a mechanism for
  deriving the appropriate `OSLogType` for a given `LogEntry`.
  */
-public enum SLOSLogTypeMapper {
+public enum TOSLogTypeMapper {
     /**
      A strict translation from a `LogEntry`'s `severity` to an
      `OSLogType` value. Warnings are treated as errors; errors are
@@ -40,11 +40,11 @@ public enum SLOSLogTypeMapper {
 
     /** Uses a custom function to determine the `OSLogType` to use for each
      `LogEntry`. */
-    case function((SLLogLevel) -> OSLogType)
+    case function((TLogLevel) -> OSLogType)
 }
 
-extension SLOSLogTypeMapper {
-    internal func osLogType(for level: SLLogLevel) -> OSLogType {
+extension TOSLogTypeMapper {
+    internal func osLogType(for level: TLogLevel) -> OSLogType {
         guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
             fatalError("os.log module not supported on this platform")    // things should never get this far
         }
