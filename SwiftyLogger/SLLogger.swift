@@ -8,36 +8,48 @@
 import Foundation
 
 public final class SLLogger {
+    private var _async = true
+    public var isAsync: Bool {
+        get {
+            return queue.sync { return _async }
+        }
+        set {
+            queue.sync { _async = newValue }
+        }
+    }
     private(set) var identifier: String
-    static var shared: SLLogger = {
+    static var `default`: SLLogger = {
         return SLLogger(identifier: "com.swiftylogger.sllogger")
     }()
 
-    private(set) var queue: DispatchQueue
+    private let queue: DispatchQueue
 
-    open var destinations: [SLDestinationProtocol] = []
+    private var destinations: [SLDestinationProtocol] = []
 
     public init(identifier: String, queue: DispatchQueue? = nil) {
         self.identifier = identifier
-        self.queue = queue ?? DispatchQueue(label: "com.swiftylogger.sllogger.queue",
-                                            qos: .background)
+
+        // make sure to have a serial queue.
+        self.queue = DispatchQueue(label: "com.swiftylogger.\(identifier)",
+            qos: .background,
+            target: queue)
+    }
+
+    public func addDestination(_ destination: SLDestinationProtocol) {
+        queue.sync {
+            self.destinations.append(destination)
+        }
+    }
+
+    public func removeAllDestinations() {
+        queue.sync {
+            self.destinations = []
+        }
     }
 
     // MARK: - logging methods
-
-    /// Log something at the Verbose log level.
-    ///
-    /// - Parameters:
-    ///     - closure:      A closure that returns the object to be logged.
-    ///     - functionName: Normally omitted **Default:** *#function*.
-    ///     - fileName:     Normally omitted **Default:** *#file*.
-    ///     - lineNumber:   Normally omitted **Default:** *#line*.
-    ///     - userInfo:     Dictionary for adding arbitrary data to the log message, can be used by filters/formatters etc
-    ///
-    /// - Returns:  Nothing.
-    ///
     public func verbose(
-        _ message: @autoclosure @escaping () -> Any?,
+        _ msgClosure: @autoclosure @escaping () -> Any,
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
@@ -45,7 +57,7 @@ public final class SLLogger {
         time: Date = Date()) {
 
         propagateLog(
-            message: message,
+            msgClosure: msgClosure,
             .verbose,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
@@ -56,7 +68,7 @@ public final class SLLogger {
     }
 
     public func info(
-        _ message: @autoclosure @escaping () -> Any?,
+        _ msgClosure: @autoclosure @escaping () -> Any,
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
@@ -64,7 +76,7 @@ public final class SLLogger {
         time: Date = Date()) {
 
         propagateLog(
-            message: message,
+            msgClosure: msgClosure,
             .info,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
@@ -74,9 +86,8 @@ public final class SLLogger {
         )
     }
 
-
     public func debug(
-        _ message: @autoclosure @escaping () -> Any?,
+        _ msgClosure: @autoclosure @escaping () -> Any,
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
@@ -84,7 +95,7 @@ public final class SLLogger {
         time: Date = Date()) {
 
         propagateLog(
-            message: message,
+            msgClosure: msgClosure,
             .debug,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
@@ -95,7 +106,7 @@ public final class SLLogger {
     }
 
     public func error(
-        _ message: @autoclosure @escaping () -> Any?,
+        _ msgClosure: @autoclosure @escaping () -> Any,
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
@@ -103,7 +114,7 @@ public final class SLLogger {
         time: Date = Date()) {
 
         propagateLog(
-            message: message,
+            msgClosure: msgClosure,
             .error,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
@@ -114,7 +125,7 @@ public final class SLLogger {
     }
 
     public func warning(
-        _ message: @autoclosure @escaping () -> Any?,
+        _ msgClosure: @autoclosure @escaping () -> Any,
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
@@ -122,7 +133,7 @@ public final class SLLogger {
         time: Date = Date()) {
 
         propagateLog(
-            message: message,
+            msgClosure: msgClosure,
             .warning,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
@@ -133,26 +144,35 @@ public final class SLLogger {
     }
 
     private func propagateLog(
-        message: () -> Any?,
+        msgClosure: @escaping () -> Any,
         _ level: SLLogLevel,
         functionName: String = #function,
         filePath: String = #file,
         lineNumber: Int = #line,
         userInfo: [String: Any]?,
         time: Date) {
-        let filename = Utility.filename(from: filePath) ?? "FILE_NAME_ERROR"
-        let log = SLLog(level: level,
-                        date: time,
-                        message: message(),
-                        threadName: Utility.threadName(),
-                        functionName: functionName,
-                        fileName: filename,
-                        lineNumber: lineNumber,
-                        userInfo: userInfo)
 
-        destinations.forEach { dest in
-            guard dest.isEnabled(for: level) else { return }
-            dest.process(log: log)
+        let propagateClosure = {
+            let filename = Utility.filename(from: filePath) ?? "FILE_NAME_ERROR"
+            let log = SLLog(loggerID: self.identifier,
+                            level: level,
+                            date: time,
+                            message: msgClosure,
+                            threadName: Utility.threadName(),
+                            functionName: functionName,
+                            fileName: filename,
+                            lineNumber: lineNumber,
+                            userInfo: userInfo)
+            self.destinations.forEach { dest in
+                guard dest.isEnabled(for: level) else { return }
+                dest.process(log: log)
+            }
+        }
+
+        if isAsync {
+            queue.async(execute: propagateClosure)
+        } else {
+            queue.sync(execute: propagateClosure)
         }
     }
 }

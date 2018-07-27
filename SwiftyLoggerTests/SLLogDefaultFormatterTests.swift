@@ -23,9 +23,10 @@ class SLLogDefaultFormatterTests: XCTestCase {
     func testExample() {
         let formatter = SLLogDefaultFormatter()
         let format = formatter.format
-        let log = SLLog(level: .info,
+        let log = SLLog(loggerID: "id",
+                        level: .info,
                         date: Date(),
-                        message: "",
+                        message: { return ""},
                         threadName: "main", functionName: "ciccio",
                         fileName: "Ciccio.swift",
                         lineNumber: 12,

@@ -10,6 +10,8 @@ import Foundation
 /// Data structure to hold all info about a log message, passed to destination classes
 public struct SLLog {
 
+    public let loggerID: String
+
     /// Log level required to display this log
     public let level: SLLogLevel
 
@@ -17,7 +19,7 @@ public struct SLLog {
     public let date: Date
 
     /// The log message to display
-    public let message: Any?
+    public let message: (() -> Any)
 
     public let threadName: String
 

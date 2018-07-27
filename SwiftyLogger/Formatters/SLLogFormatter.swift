@@ -24,7 +24,7 @@ public protocol SLLogFormatterProtocol {
 public class SLLogDefaultFormatter: SLLogFormatterProtocol {
 
     public var format = """
-        [D] T S F.f:# - M
+        [D] [l] T S F.f:# - M
         I
         """
 
@@ -42,12 +42,14 @@ public class SLLogDefaultFormatter: SLLogFormatterProtocol {
             switch ch {
             case SLLogFormatKey.date.rawValue:
                 outputString += dateFormatter.string(from: log.date)
+            case SLLogFormatKey.logger.rawValue:
+                outputString += log.loggerID
             case SLLogFormatKey.level.rawValue:
                 outputString += log.level.name
             case SLLogFormatKey.levelSymbol.rawValue:
                 outputString += log.level.symbol
             case SLLogFormatKey.message.rawValue:
-                outputString += String(describing: log.message ?? "")
+                outputString += String(describing: log.message())
             case SLLogFormatKey.thread.rawValue:
                 outputString += log.threadName
             case SLLogFormatKey.function.rawValue:
@@ -70,6 +72,7 @@ public class SLLogDefaultFormatter: SLLogFormatterProtocol {
 
 enum SLLogFormatKey: Character {
     case date = "D"
+    case logger = "l"
     case level = "L"
     case levelSymbol = "S"
     case message = "M"

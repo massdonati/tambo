@@ -440,9 +440,11 @@
 					};
 					561C840B210AB959001D28DB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					561C8413210AB959001D28DB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					56AC70D62109A52E00FF04BB = {
 						CreatedOnToolsVersion = 9.4.1;

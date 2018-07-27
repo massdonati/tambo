@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Dispatch
 
 struct Utility {
     /// returns the current thread name
@@ -18,13 +19,15 @@ struct Utility {
         return ""
         #else
         if Thread.isMainThread {
-            return "[main_thread]"
+            return "main_thread"
         } else {
             let threadName = Thread.current.name
             if let threadName = threadName, !threadName.isEmpty {
                 return threadName
             } else {
-                return String(format: "[%p]", Thread.current)
+                var threadID: UInt64 = 0
+                pthread_threadid_np(nil, &threadID)
+                return "bg_thread_\(threadID)"
             }
         }
         #endif
@@ -42,7 +45,8 @@ extension Dictionary where Key : StringProtocol, Value : Any {
     mutating func jsonify() {
         keys.forEach { key in
             guard let value = self[key] else { return }
-            if !JSONSerialization.isValidJSONObject(value) {
+            if (JSONSerialization.isValidJSONObject(value) == false
+                && (value is Encodable) == false) {
                 self[key] = String(describing: value) as? Value
             }
         }

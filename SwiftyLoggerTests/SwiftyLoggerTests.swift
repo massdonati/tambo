@@ -25,17 +25,20 @@ class SwiftyLoggerTests: XCTestCase {
         let osLog = SLOSLogDestination(identifier: "os_log",
                                        subsystem: "logger.test.subsystem",
                                        category: "logger.test.category")
-        logger.destinations.append(osLog)
+        logger.addDestination(osLog)
         logger.info("ciccio", userInfo: ["some": "info", "test": self])
     }
 
     func testXcodeConsoleInfoLevel() {
         logger = SLLogger(identifier: "loggerIdentifier")
+        logger.isAsync = false
         let consolDest = SLConsoleDestination(identifier: "consoleID",
                                               formatterOption: .default,
-                                              printMode: .nsLog)
+                                              printMode: .print)
 
-        logger.destinations.append(consolDest)
-        logger.info(nil, userInfo: ["some": "info", "test": self])
+        logger.addDestination(consolDest)
+        DispatchQueue.concurrentPerform(iterations: 2) { _ in
+            logger.info("", userInfo: ["some": 2, "test": self])
+        }
     }
 }
