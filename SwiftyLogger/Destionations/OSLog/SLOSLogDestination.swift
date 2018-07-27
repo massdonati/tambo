@@ -23,7 +23,7 @@ public final class SLOSLogDestination: SLBaseDestination {
         super.init(identifier: identifier, formatterOption: formatterOption)
     }
 
-    public override func output(logDetails: SLLog, message: String) {
+    override public func output(logDetails: SLLog, message: String) {
         let type = mapping.osLogType(for: logDetails.level)
         os_log("%{public}@", log: log, type: type, message)
     }

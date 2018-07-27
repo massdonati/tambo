@@ -12,11 +12,7 @@ class SwiftyLoggerTests: XCTestCase {
     var logger: SLLogger!
     override func setUp() {
         super.setUp()
-        logger = SLLogger(identifier: "loggerIdentifier")
-        let osLog = SLOSLogDestination(identifier: "os_log",
-                                       subsystem: "logger.test.subsystem",
-                                       category: "logger.test.category")
-        logger.destinations.append(osLog)
+
     }
     
     override func tearDown() {
@@ -24,7 +20,22 @@ class SwiftyLoggerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testLogInfoLevel() {
+    func testOSLogInfoLevel() {
+        logger = SLLogger(identifier: "loggerIdentifier")
+        let osLog = SLOSLogDestination(identifier: "os_log",
+                                       subsystem: "logger.test.subsystem",
+                                       category: "logger.test.category")
+        logger.destinations.append(osLog)
         logger.info("ciccio", userInfo: ["some": "info", "test": self])
+    }
+
+    func testXcodeConsoleInfoLevel() {
+        logger = SLLogger(identifier: "loggerIdentifier")
+        let consolDest = SLConsoleDestination(identifier: "consoleID",
+                                              formatterOption: .default,
+                                              printMode: .nsLog)
+
+        logger.destinations.append(consolDest)
+        logger.info(nil, userInfo: ["some": "info", "test": self])
     }
 }

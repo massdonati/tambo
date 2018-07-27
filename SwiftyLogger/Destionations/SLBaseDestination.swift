@@ -83,7 +83,7 @@ public class SLBaseDestination: SLDestinationProtocol, CustomDebugStringConverti
      - parameter logDetails: The log details.
      - parameter message: Formatted/processed message ready for output.
     */
-    open func output(logDetails: SLLog, message: String) {
+    public func output(logDetails: SLLog, message: String) {
         precondition(false,
                      "Every subclass needs to override this method.")
     }

@@ -29,6 +29,13 @@
 		561C842B210ABA60001D28DB /* SLBaseDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */; };
 		561C842C210ABA60001D28DB /* SLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* SLLogger.swift */; };
 		561C842D210ABA60001D28DB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
+		561C8430210AC594001D28DB /* SLConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* SLConsoleDestination.swift */; };
+		561C8431210AC594001D28DB /* SLConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* SLConsoleDestination.swift */; };
+		561C8432210AC594001D28DB /* SLConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* SLConsoleDestination.swift */; };
+		561C8433210AC703001D28DB /* SLConsoleDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* SLConsoleDestination.swift */; };
+		561C8435210AC90C001D28DB /* SLLogDefaultFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C8434210AC90C001D28DB /* SLLogDefaultFormatterTests.swift */; };
+		561C8436210AC90C001D28DB /* SLLogDefaultFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C8434210AC90C001D28DB /* SLLogDefaultFormatterTests.swift */; };
+		561C8437210AC90C001D28DB /* SLLogDefaultFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C8434210AC90C001D28DB /* SLLogDefaultFormatterTests.swift */; };
 		563113952109970700BC84AF /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
 		568D38C021083A1D00BFBF48 /* SLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* SLLogger.swift */; };
 		568D38C221084F5400BFBF48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
@@ -95,6 +102,8 @@
 		56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLBaseDestination.swift; sourceTree = "<group>"; };
 		561C840C210AB959001D28DB /* SwiftyLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C8414210AB959001D28DB /* SwiftyLogger macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftyLogger macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		561C842F210AC594001D28DB /* SLConsoleDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLConsoleDestination.swift; sourceTree = "<group>"; };
+		561C8434210AC90C001D28DB /* SLLogDefaultFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLLogDefaultFormatterTests.swift; sourceTree = "<group>"; };
 		563113942109970700BC84AF /* DictionaryUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilsTests.swift; sourceTree = "<group>"; };
 		568D38BF21083A1D00BFBF48 /* SLLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLLogger.swift; sourceTree = "<group>"; };
 		568D38C121084F5400BFBF48 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -202,6 +211,7 @@
 				56049B422106DEE100EAFC44 /* SwiftyLoggerTests.swift */,
 				56049B442106DEE100EAFC44 /* Info.plist */,
 				563113942109970700BC84AF /* DictionaryUtilsTests.swift */,
+				561C8434210AC90C001D28DB /* SLLogDefaultFormatterTests.swift */,
 			);
 			path = SwiftyLoggerTests;
 			sourceTree = "<group>";
@@ -218,6 +228,7 @@
 		56049B632106EF6400EAFC44 /* Destionations */ = {
 			isa = PBXGroup;
 			children = (
+				561C842E210AC56D001D28DB /* Xcode console */,
 				563113912109874200BC84AF /* OSLog */,
 				56049B612106EBD300EAFC44 /* SLDestinationProtocol.swift */,
 				56049B6B2106FE0900EAFC44 /* SLBaseDestination.swift */,
@@ -231,6 +242,14 @@
 				56049B652106EFC600EAFC44 /* SLLogFormatter.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		561C842E210AC56D001D28DB /* Xcode console */ = {
+			isa = PBXGroup;
+			children = (
+				561C842F210AC594001D28DB /* SLConsoleDestination.swift */,
+			);
+			path = "Xcode console";
 			sourceTree = "<group>";
 		};
 		563113912109874200BC84AF /* OSLog */ = {
@@ -521,6 +540,7 @@
 				568D38C221084F5400BFBF48 /* Utility.swift in Sources */,
 				56049B602106E86A00EAFC44 /* SLLogLevel.swift in Sources */,
 				56049B622106EBD300EAFC44 /* SLDestinationProtocol.swift in Sources */,
+				561C8430210AC594001D28DB /* SLConsoleDestination.swift in Sources */,
 				56049B662106EFC600EAFC44 /* SLLogFormatter.swift in Sources */,
 				56049B5D2106E7F300EAFC44 /* SLLog.swift in Sources */,
 				56049B6A2106F37C00EAFC44 /* SLOSLogLevelMapping.swift in Sources */,
@@ -534,6 +554,7 @@
 			files = (
 				56049B432106DEE100EAFC44 /* SwiftyLoggerTests.swift in Sources */,
 				563113952109970700BC84AF /* DictionaryUtilsTests.swift in Sources */,
+				561C8435210AC90C001D28DB /* SLLogDefaultFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +567,7 @@
 				561C842D210ABA60001D28DB /* Utility.swift in Sources */,
 				561C842A210ABA60001D28DB /* SLDestinationProtocol.swift in Sources */,
 				561C8427210ABA57001D28DB /* SLLogLevel.swift in Sources */,
+				561C8433210AC703001D28DB /* SLConsoleDestination.swift in Sources */,
 				561C8425210ABA4F001D28DB /* SLLogFormatter.swift in Sources */,
 				561C8429210ABA60001D28DB /* SLOSLogLevelMapping.swift in Sources */,
 				561C8426210ABA53001D28DB /* SLLog.swift in Sources */,
@@ -559,6 +581,7 @@
 			files = (
 				561C8423210AB9AE001D28DB /* SwiftyLoggerTests.swift in Sources */,
 				561C8424210AB9B2001D28DB /* DictionaryUtilsTests.swift in Sources */,
+				561C8437210AC90C001D28DB /* SLLogDefaultFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +594,7 @@
 				56AC710D2109A66E00FF04BB /* Utility.swift in Sources */,
 				56AC71062109A66200FF04BB /* SLDestinationProtocol.swift in Sources */,
 				56AC71002109A65300FF04BB /* SLLogLevel.swift in Sources */,
+				561C8431210AC594001D28DB /* SLConsoleDestination.swift in Sources */,
 				56AC70FC2109A64A00FF04BB /* SLLogFormatter.swift in Sources */,
 				56AC71042109A65D00FF04BB /* SLOSLogLevelMapping.swift in Sources */,
 				56AC70FE2109A64F00FF04BB /* SLLog.swift in Sources */,
@@ -587,6 +611,7 @@
 				56AC710C2109A66D00FF04BB /* Utility.swift in Sources */,
 				56AC71072109A66200FF04BB /* SLDestinationProtocol.swift in Sources */,
 				56AC71012109A65400FF04BB /* SLLogLevel.swift in Sources */,
+				561C8432210AC594001D28DB /* SLConsoleDestination.swift in Sources */,
 				56AC70FD2109A64B00FF04BB /* SLLogFormatter.swift in Sources */,
 				56AC71052109A65E00FF04BB /* SLOSLogLevelMapping.swift in Sources */,
 				56AC70FF2109A64F00FF04BB /* SLLog.swift in Sources */,
@@ -600,6 +625,7 @@
 			files = (
 				56AC71112109A68C00FF04BB /* DictionaryUtilsTests.swift in Sources */,
 				56AC71102109A68800FF04BB /* SwiftyLoggerTests.swift in Sources */,
+				561C8436210AC90C001D28DB /* SLLogDefaultFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
