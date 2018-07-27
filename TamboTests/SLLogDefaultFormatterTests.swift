@@ -21,7 +21,7 @@ class SLLogDefaultFormatterTests: XCTestCase {
     }
 
     func testExample() {
-        let formatter = tLogDefaultFormatter()
+        let formatter = TLogDefaultFormatter()
         let format = formatter.format
         let log = TLog(loggerID: "id",
                         level: .info,
