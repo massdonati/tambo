@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Data structure to hold all info about a log message, passed to destination classes
+/// Data structure to hold all info about a log message, passed to stream classes
 public struct TLog {
 
     public let loggerID: String

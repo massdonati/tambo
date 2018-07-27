@@ -22,23 +22,32 @@ class TamboTests: XCTestCase {
     
     func testOSLogInfoLevel() {
         logger = Tambo(identifier: "loggerIdentifier")
-        let osLog = TOSLogStream(identifier: "os_log",
-                                 subsystem: "logger.test.subsystem",
-                                 category: "logger.test.category")
-        logger.addDestination(osLog)
+        let osLog = TOSLogStream(
+            identifier: "os_log",
+            subsystem: "logger.test.subsystem",
+            category: "logger.test.category"
+        )
+        logger.add(stream: osLog)
         logger.info("ciccio", userInfo: ["some": "info", "test": self])
     }
 
     func testXcodeConsoleInfoLevel() {
         logger = Tambo(identifier: "loggerIdentifier")
         logger.isAsync = false
-        let consolDest = TConsoleStream(identifier: "consoleID",
-                                        formatterOption: .default,
-                                        printMode: .print)
+        let consolDest = TConsoleStream(
+            identifier: "consoleID",
+            formatterOption: .default,
+            printMode: .print
+        )
 
-        logger.addDestination(consolDest)
+        logger.add(stream: consolDest)
         DispatchQueue.concurrentPerform(iterations: 2) { _ in
-            logger.info("", userInfo: ["some": 2, "test": self])
+            XCTAssertNoThrow(
+                logger.info("", userInfo: ["some": 2, "test": self]), """
+                Placing `self` in the userInfo dictionary should not throw:
+                the conversation to JSON should convert `self` with the string
+                description i.e. "-[TamboTests testOSLogInfoLevel]".
+                """)
         }
     }
 }

@@ -14,7 +14,9 @@ public enum TConsolePrintMode {
 public final class TConsoleStream: TBaseStream {
     let printMode: TConsolePrintMode
 
-    public init(identifier: String, formatterOption: TLogFormatterOption, printMode: TConsolePrintMode) {
+    public init(identifier: String,
+                formatterOption: TLogFormatterOption = .default,
+                printMode: TConsolePrintMode = .print) {
         self.printMode = printMode
         super.init(identifier: identifier, formatterOption: formatterOption)
     }

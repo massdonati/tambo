@@ -1,5 +1,5 @@
 //
-//  SLOSLogDestination.swift
+//  SLOSLogStream.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.

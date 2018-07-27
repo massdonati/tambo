@@ -7,16 +7,16 @@
 
 import Foundation
 
-/// A base class destination that doesn't actually output the log anywhere and is intended to be subclassed
+/// A base class stream that doesn't actually output the log anywhere and is intended to be subclassed
 public class TBaseStream: TStreamProtocol {
 
-    /// Identifier for the destination (should be unique)
+    /// Identifier for the stream (should be unique)
     open var identifier: String
 
-    /// Log level for this destination
+    /// Log level for this stream
     open var outputLevel: TLogLevel = .debug
 
-    /// Flag whether or not we've logged the app details to this destination
+    /// Flag whether or not we've logged the app details to this stream
     open var haveLoggedAppDetails: Bool = false
 
     public var logFormatter: TLogFormatterProtocol
@@ -70,7 +70,7 @@ public class TBaseStream: TStreamProtocol {
 
     // MARK: - Methods that must be overridden in subclasses
     /**
-     Output the log to the destination i.e. file, backend, db etc.
+     Output the log to the stream i.e. file, backend, db etc.
      - parameter logDetails: The log details.
      - parameter message: Formatted/processed message ready for output.
     */

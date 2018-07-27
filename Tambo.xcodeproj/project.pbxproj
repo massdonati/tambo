@@ -13,14 +13,14 @@
 		56049B5D2106E7F300EAFC44 /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
 		56049B602106E86A00EAFC44 /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
 		56049B622106EBD300EAFC44 /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
-		56049B662106EFC600EAFC44 /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
+		56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
 		56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
 		56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
 		56049B6C2106FE0900EAFC44 /* TBaseStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseStream.swift */; };
 		561C8415210AB959001D28DB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561C840C210AB959001D28DB /* Tambo.framework */; };
 		561C8423210AB9AE001D28DB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
 		561C8424210AB9B2001D28DB /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
-		561C8425210ABA4F001D28DB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
+		561C8425210ABA4F001D28DB /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
 		561C8426210ABA53001D28DB /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
 		561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
 		561C8428210ABA60001D28DB /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
@@ -40,8 +40,8 @@
 		568D38C021083A1D00BFBF48 /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		568D38C221084F5400BFBF48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC70EE2109A58900FF04BB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC70E52109A58900FF04BB /* Tambo.framework */; };
-		56AC70FC2109A64A00FF04BB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
-		56AC70FD2109A64B00FF04BB /* SLLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* SLLogFormatter.swift */; };
+		56AC70FC2109A64A00FF04BB /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
+		56AC70FD2109A64B00FF04BB /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
 		56AC70FE2109A64F00FF04BB /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
 		56AC70FF2109A64F00FF04BB /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
 		56AC71002109A65300FF04BB /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
@@ -96,7 +96,7 @@
 		56049B5C2106E7F300EAFC44 /* TLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLog.swift; sourceTree = "<group>"; };
 		56049B5F2106E86A00EAFC44 /* TLogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogLevel.swift; sourceTree = "<group>"; };
 		56049B612106EBD300EAFC44 /* TStreamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamProtocol.swift; sourceTree = "<group>"; };
-		56049B652106EFC600EAFC44 /* SLLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLLogFormatter.swift; sourceTree = "<group>"; };
+		56049B652106EFC600EAFC44 /* TLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFormatter.swift; sourceTree = "<group>"; };
 		56049B672106F1FC00EAFC44 /* TOSLogStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogStream.swift; sourceTree = "<group>"; };
 		56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogLevelMapping.swift; sourceTree = "<group>"; };
 		56049B6B2106FE0900EAFC44 /* TBaseStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBaseStream.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				56049B382106DEE100EAFC44 /* Info.plist */,
 				56049B642106EFAF00EAFC44 /* Formatters */,
 				56049B5E2106E81300EAFC44 /* Models */,
-				56049B632106EF6400EAFC44 /* Destionations */,
+				56049B632106EF6400EAFC44 /* Streams */,
 				568D38BF21083A1D00BFBF48 /* Tambo.swift */,
 				568D38C121084F5400BFBF48 /* Utility.swift */,
 			);
@@ -225,7 +225,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		56049B632106EF6400EAFC44 /* Destionations */ = {
+		56049B632106EF6400EAFC44 /* Streams */ = {
 			isa = PBXGroup;
 			children = (
 				561C842E210AC56D001D28DB /* Xcode console */,
@@ -233,13 +233,13 @@
 				56049B612106EBD300EAFC44 /* TStreamProtocol.swift */,
 				56049B6B2106FE0900EAFC44 /* TBaseStream.swift */,
 			);
-			path = Destionations;
+			path = Streams;
 			sourceTree = "<group>";
 		};
 		56049B642106EFAF00EAFC44 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				56049B652106EFC600EAFC44 /* SLLogFormatter.swift */,
+				56049B652106EFC600EAFC44 /* TLogFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -547,7 +547,7 @@
 				56049B602106E86A00EAFC44 /* TLogLevel.swift in Sources */,
 				56049B622106EBD300EAFC44 /* TStreamProtocol.swift in Sources */,
 				561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */,
-				56049B662106EFC600EAFC44 /* SLLogFormatter.swift in Sources */,
+				56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */,
 				56049B5D2106E7F300EAFC44 /* TLog.swift in Sources */,
 				56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */,
 				56049B6C2106FE0900EAFC44 /* TBaseStream.swift in Sources */,
@@ -574,7 +574,7 @@
 				561C842A210ABA60001D28DB /* TStreamProtocol.swift in Sources */,
 				561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */,
 				561C8433210AC703001D28DB /* TConsoleStream.swift in Sources */,
-				561C8425210ABA4F001D28DB /* SLLogFormatter.swift in Sources */,
+				561C8425210ABA4F001D28DB /* TLogFormatter.swift in Sources */,
 				561C8429210ABA60001D28DB /* TOSLogLevelMapping.swift in Sources */,
 				561C8426210ABA53001D28DB /* TLog.swift in Sources */,
 				561C842B210ABA60001D28DB /* TBaseStream.swift in Sources */,
@@ -601,7 +601,7 @@
 				56AC71062109A66200FF04BB /* TStreamProtocol.swift in Sources */,
 				56AC71002109A65300FF04BB /* TLogLevel.swift in Sources */,
 				561C8431210AC594001D28DB /* TConsoleStream.swift in Sources */,
-				56AC70FC2109A64A00FF04BB /* SLLogFormatter.swift in Sources */,
+				56AC70FC2109A64A00FF04BB /* TLogFormatter.swift in Sources */,
 				56AC71042109A65D00FF04BB /* TOSLogLevelMapping.swift in Sources */,
 				56AC70FE2109A64F00FF04BB /* TLog.swift in Sources */,
 				56AC71082109A66600FF04BB /* TBaseStream.swift in Sources */,
@@ -618,7 +618,7 @@
 				56AC71072109A66200FF04BB /* TStreamProtocol.swift in Sources */,
 				56AC71012109A65400FF04BB /* TLogLevel.swift in Sources */,
 				561C8432210AC594001D28DB /* TConsoleStream.swift in Sources */,
-				56AC70FD2109A64B00FF04BB /* SLLogFormatter.swift in Sources */,
+				56AC70FD2109A64B00FF04BB /* TLogFormatter.swift in Sources */,
 				56AC71052109A65E00FF04BB /* TOSLogLevelMapping.swift in Sources */,
 				56AC70FF2109A64F00FF04BB /* TLog.swift in Sources */,
 				56AC71092109A66600FF04BB /* TBaseStream.swift in Sources */,
@@ -840,7 +840,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = swiftyLogger.SwiftyLoggerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -858,7 +858,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = swiftyLogger.SwiftyLoggerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -933,7 +933,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-macOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 4.0;
@@ -954,7 +954,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-macOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 4.0;
@@ -1078,7 +1078,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 4.2;
@@ -1098,7 +1098,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.swiftyLogger.SwiftyLogger-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 4.2;

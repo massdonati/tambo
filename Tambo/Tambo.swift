@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ Tambo is the main class to
+ */
 public final class Tambo {
     private var _async = true
     public var isAsync: Bool {
@@ -23,31 +26,38 @@ public final class Tambo {
     }
     private(set) var identifier: String
     static var `default`: Tambo = {
-        return Tambo(identifier: "com.swiftylogger.sllogger")
+        let logger = Tambo(identifier: "com.tambo.default.logger")
+        let console = TConsoleStream(
+            identifier: "com.tambo.default.consoleStream"
+        )
+        logger.add(stream: console)
+        return logger
     }()
 
     private let queue: DispatchQueue
 
-    private var destinations: [TStreamProtocol] = []
+    private var streams: [TStreamProtocol] = []
 
     public init(identifier: String, queue: DispatchQueue? = nil) {
         self.identifier = identifier
 
         // make sure to have a serial queue.
-        self.queue = DispatchQueue(label: "com.swiftylogger.\(identifier)",
+        self.queue = DispatchQueue(
+            label: "com.tambo.\(identifier)",
             qos: .background,
-            target: queue)
+            target: queue
+        )
     }
 
-    public func addDestination(_ destination: TStreamProtocol) {
+    public func add(stream: TStreamProtocol) {
         queue.sync {
-            self.destinations.append(destination)
+            self.streams.append(stream)
         }
     }
 
-    public func removeAllDestinations() {
+    public func removeAllStreams() {
         queue.sync {
-            self.destinations = []
+            self.streams = []
         }
     }
 
@@ -62,7 +72,7 @@ public final class Tambo {
 
         propagateLog(
             msgClosure: msgClosure,
-            .verbose,
+            level: .verbose,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
@@ -81,7 +91,7 @@ public final class Tambo {
 
         propagateLog(
             msgClosure: msgClosure,
-            .info,
+            level: .info,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
@@ -100,7 +110,7 @@ public final class Tambo {
 
         propagateLog(
             msgClosure: msgClosure,
-            .debug,
+            level: .debug,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
@@ -119,7 +129,7 @@ public final class Tambo {
 
         propagateLog(
             msgClosure: msgClosure,
-            .error,
+            level: .error,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
@@ -138,7 +148,7 @@ public final class Tambo {
 
         propagateLog(
             msgClosure: msgClosure,
-            .warning,
+            level: .warning,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
@@ -149,34 +159,36 @@ public final class Tambo {
 
     private func propagateLog(
         msgClosure: @escaping () -> Any,
-        _ level: TLogLevel,
+        level: TLogLevel,
         functionName: String = #function,
         filePath: String = #file,
         lineNumber: Int = #line,
         userInfo: [String: Any]?,
         time: Date) {
 
-        let propagateClosure = {
+        let propagateToStreamsClosure = {
             let filename = Utility.filename(from: filePath) ?? "FILE_NAME_ERROR"
-            let log = TLog(loggerID: self.identifier,
-                            level: level,
-                            date: time,
-                            message: msgClosure,
-                            threadName: Utility.threadName(),
-                            functionName: functionName,
-                            fileName: filename,
-                            lineNumber: lineNumber,
-                            userInfo: userInfo)
-            self.destinations.forEach { dest in
+            let log = TLog(
+                loggerID: self.identifier,
+                level: level,
+                date: time,
+                message: msgClosure,
+                threadName: Utility.threadName(),
+                functionName: functionName,
+                fileName: filename,
+                lineNumber: lineNumber,
+                userInfo: userInfo
+            )
+            self.streams.forEach { dest in
                 guard dest.isEnabled(for: level) else { return }
                 dest.process(log: log)
             }
         }
 
         if isAsync {
-            queue.async(execute: propagateClosure)
+            queue.async(execute: propagateToStreamsClosure)
         } else {
-            queue.sync(execute: propagateClosure)
+            queue.sync(execute: propagateToStreamsClosure)
         }
     }
 }

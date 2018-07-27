@@ -7,15 +7,15 @@
 
 import Foundation
 
-/// Protocol for destination classes to conform to
+/// Protocol for stream classes to conform to
 public protocol TStreamProtocol: CustomDebugStringConvertible {
-    /// Identifier for the destination (should be unique)
+    /// Identifier for the stream (should be unique)
     var identifier: String {get set}
 
-    /// Log level for this destination
+    /// Log level for this stream
     var outputLevel: TLogLevel {get set}
 
-    /// Flag whether or not we've logged the app details to this destination
+    /// Flag whether or not we've logged the app details to this stream
     var haveLoggedAppDetails: Bool { get set }
 
     var logFormatter: TLogFormatterProtocol {get set}
@@ -34,10 +34,10 @@ public protocol TStreamProtocol: CustomDebugStringConvertible {
     func process(log: TLog)
 
     /**
-     Check if the destination's log level is equal to or lower than the
+     Check if the stream's log level is equal to or lower than the
      specified level.
      - parameter level: The log level to check.
-     - returns: true if the destination is at the log level specified or lower.
+     - returns: true if the stream is at the log level specified or lower.
         false otherwise.
      */
     func isEnabled(for level: TLogLevel) -> Bool
@@ -52,7 +52,7 @@ public protocol TStreamProtocol: CustomDebugStringConvertible {
 
 extension TStreamProtocol {
 
-    /// Iterate over all of the log filters in this destination, or the logger if none set for the destination.
+    /// Iterate over all of the log filters in this stream, or the logger if none set for the stream.
     ///
     /// - Parameters:
     ///     - logDetails: The log details.
