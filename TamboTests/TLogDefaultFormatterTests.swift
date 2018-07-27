@@ -1,5 +1,5 @@
 //
-//  SLLogDefaultFormatterTests.swift
+//  TLogDefaultFormatterTests.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/26/18.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Tambo
 
-class SLLogDefaultFormatterTests: XCTestCase {
+class TLogDefaultFormatterTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
