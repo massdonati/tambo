@@ -179,9 +179,11 @@ public final class Tambo {
                 lineNumber: lineNumber,
                 userInfo: userInfo
             )
-            self.streams.forEach { dest in
-                guard dest.isEnabled(for: level) else { return }
-                dest.process(log: log)
+
+            DispatchQueue.concurrentPerform(iterations: self.streams.count) { index in
+                let stream = self.streams[index]
+                guard stream.isEnabled(for: level) else { return }
+                stream.process(log: log)
             }
         }
 
