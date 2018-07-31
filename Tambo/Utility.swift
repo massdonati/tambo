@@ -9,34 +9,27 @@ import Foundation
 import Dispatch
 
 struct Utility {
-    /// returns the current thread name
+    /**
+     returns the current thread name
+     */
     static func threadName() -> String {
-
-        #if os(Linux)
-        // on 9/30/2016 not yet implemented in server-side Swift:
-        // > import Foundation
-        // > Thread.isMainThread
-        return ""
-        #else
         if Thread.isMainThread {
             return "main_thread"
-        } else {
-            let threadName = Thread.current.name
-            if let threadName = threadName, !threadName.isEmpty {
-                return threadName
-            } else {
-                var threadID: UInt64 = 0
-                pthread_threadid_np(nil, &threadID)
-                return "bg_thread_\(threadID)"
-            }
         }
-        #endif
+
+        let threadName = Thread.current.name
+        if let threadName = threadName, !threadName.isEmpty {
+            return threadName
+        }
+
+        return String(describing: Thread.current)
     }
 
-    static func filename(from path: String) -> String? {
+    static func filename(from path: String, chopExtension: Bool = true) -> String? {
         guard var url = URL(string: path) else { return nil }
-
-        url.deletePathExtension()
+        if chopExtension {
+            url.deletePathExtension()
+        }
         return url.pathComponents.last
     }
 }
@@ -50,5 +43,30 @@ extension Dictionary where Key : StringProtocol, Value : Any {
                 self[key] = String(describing: value) as? Value
             }
         }
+    }
+}
+
+public class TThreadProtector<T> {
+    private var resource: T
+    private let recLock = NSRecursiveLock()
+    init(_ resource: T) {
+        recLock.name = "TThreadProtector.recLock"
+        self.resource = resource
+    }
+
+    func read<U>(_ closure: (T) -> U) -> U {
+        recLock.lock()
+        defer {
+            recLock.unlock()
+        }
+        return closure(resource)
+    }
+
+    func write<U>(_ closure: (inout T) -> U) -> U {
+        recLock.lock()
+        defer {
+            recLock.unlock()
+        }
+        return closure(&resource)
     }
 }

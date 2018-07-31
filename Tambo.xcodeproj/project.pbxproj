@@ -16,7 +16,7 @@
 		56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
 		56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
 		56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
-		56049B6C2106FE0900EAFC44 /* TBaseStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseStream.swift */; };
+		56049B6C2106FE0900EAFC44 /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
 		561C8415210AB959001D28DB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561C840C210AB959001D28DB /* Tambo.framework */; };
 		561C8423210AB9AE001D28DB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
 		561C8424210AB9B2001D28DB /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
@@ -26,7 +26,7 @@
 		561C8428210ABA60001D28DB /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
 		561C8429210ABA60001D28DB /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
 		561C842A210ABA60001D28DB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
-		561C842B210ABA60001D28DB /* TBaseStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseStream.swift */; };
+		561C842B210ABA60001D28DB /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
 		561C842C210ABA60001D28DB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		561C842D210ABA60001D28DB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
@@ -52,14 +52,26 @@
 		56AC71052109A65E00FF04BB /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
 		56AC71062109A66200FF04BB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
 		56AC71072109A66200FF04BB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
-		56AC71082109A66600FF04BB /* TBaseStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseStream.swift */; };
-		56AC71092109A66600FF04BB /* TBaseStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseStream.swift */; };
+		56AC71082109A66600FF04BB /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
+		56AC71092109A66600FF04BB /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
 		56AC710A2109A66900FF04BB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		56AC710B2109A66A00FF04BB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		56AC710C2109A66D00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC710D2109A66E00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC71102109A68800FF04BB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
 		56AC71112109A68C00FF04BB /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
+		56C6954E210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
+		56C6954F210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
+		56C69550210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
+		56C69551210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
+		56C69554210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
+		56C69555210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
+		56C69556210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
+		56C69557210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
+		56C69559210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
+		56C6955A210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
+		56C6955B210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
+		56C6955C210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +111,7 @@
 		56049B652106EFC600EAFC44 /* TLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFormatter.swift; sourceTree = "<group>"; };
 		56049B672106F1FC00EAFC44 /* TOSLogStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogStream.swift; sourceTree = "<group>"; };
 		56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogLevelMapping.swift; sourceTree = "<group>"; };
-		56049B6B2106FE0900EAFC44 /* TBaseStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBaseStream.swift; sourceTree = "<group>"; };
+		56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBaseQueuedStream.swift; sourceTree = "<group>"; };
 		561C840C210AB959001D28DB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C8414210AB959001D28DB /* Tambo macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C842F210AC594001D28DB /* TConsoleStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TConsoleStream.swift; sourceTree = "<group>"; };
@@ -110,6 +122,9 @@
 		56AC70D72109A52E00FF04BB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AC70E52109A58900FF04BB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AC70ED2109A58900FF04BB /* Tambo tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C6954D210E7349002E7F2D /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogToStringFormatter.swift; sourceTree = "<group>"; };
+		56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogToJSONFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +216,7 @@
 				56049B632106EF6400EAFC44 /* Streams */,
 				568D38BF21083A1D00BFBF48 /* Tambo.swift */,
 				568D38C121084F5400BFBF48 /* Utility.swift */,
+				56C6954D210E7349002E7F2D /* TypeAliases.swift */,
 			);
 			path = Tambo;
 			sourceTree = "<group>";
@@ -231,7 +247,7 @@
 				561C842E210AC56D001D28DB /* Xcode console */,
 				563113912109874200BC84AF /* OSLog */,
 				56049B612106EBD300EAFC44 /* TStreamProtocol.swift */,
-				56049B6B2106FE0900EAFC44 /* TBaseStream.swift */,
+				56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */,
 			);
 			path = Streams;
 			sourceTree = "<group>";
@@ -240,6 +256,8 @@
 			isa = PBXGroup;
 			children = (
 				56049B652106EFC600EAFC44 /* TLogFormatter.swift */,
+				56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */,
+				56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -543,14 +561,17 @@
 			files = (
 				568D38C021083A1D00BFBF48 /* Tambo.swift in Sources */,
 				56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */,
+				56C69554210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
 				568D38C221084F5400BFBF48 /* Utility.swift in Sources */,
 				56049B602106E86A00EAFC44 /* TLogLevel.swift in Sources */,
 				56049B622106EBD300EAFC44 /* TStreamProtocol.swift in Sources */,
+				56C69559210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C6954E210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */,
 				56049B5D2106E7F300EAFC44 /* TLog.swift in Sources */,
 				56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */,
-				56049B6C2106FE0900EAFC44 /* TBaseStream.swift in Sources */,
+				56049B6C2106FE0900EAFC44 /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,14 +591,17 @@
 			files = (
 				561C842C210ABA60001D28DB /* Tambo.swift in Sources */,
 				561C8428210ABA60001D28DB /* TOSLogStream.swift in Sources */,
+				56C69557210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
 				561C842D210ABA60001D28DB /* Utility.swift in Sources */,
 				561C842A210ABA60001D28DB /* TStreamProtocol.swift in Sources */,
 				561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */,
+				56C6955C210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C69551210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8433210AC703001D28DB /* TConsoleStream.swift in Sources */,
 				561C8425210ABA4F001D28DB /* TLogFormatter.swift in Sources */,
 				561C8429210ABA60001D28DB /* TOSLogLevelMapping.swift in Sources */,
 				561C8426210ABA53001D28DB /* TLog.swift in Sources */,
-				561C842B210ABA60001D28DB /* TBaseStream.swift in Sources */,
+				561C842B210ABA60001D28DB /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,14 +621,17 @@
 			files = (
 				56AC710B2109A66A00FF04BB /* Tambo.swift in Sources */,
 				56AC71022109A65900FF04BB /* TOSLogStream.swift in Sources */,
+				56C69555210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
 				56AC710D2109A66E00FF04BB /* Utility.swift in Sources */,
 				56AC71062109A66200FF04BB /* TStreamProtocol.swift in Sources */,
 				56AC71002109A65300FF04BB /* TLogLevel.swift in Sources */,
+				56C6955A210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C6954F210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8431210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56AC70FC2109A64A00FF04BB /* TLogFormatter.swift in Sources */,
 				56AC71042109A65D00FF04BB /* TOSLogLevelMapping.swift in Sources */,
 				56AC70FE2109A64F00FF04BB /* TLog.swift in Sources */,
-				56AC71082109A66600FF04BB /* TBaseStream.swift in Sources */,
+				56AC71082109A66600FF04BB /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,14 +641,17 @@
 			files = (
 				56AC710A2109A66900FF04BB /* Tambo.swift in Sources */,
 				56AC71032109A65A00FF04BB /* TOSLogStream.swift in Sources */,
+				56C69556210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
 				56AC710C2109A66D00FF04BB /* Utility.swift in Sources */,
 				56AC71072109A66200FF04BB /* TStreamProtocol.swift in Sources */,
 				56AC71012109A65400FF04BB /* TLogLevel.swift in Sources */,
+				56C6955B210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C69550210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8432210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56AC70FD2109A64B00FF04BB /* TLogFormatter.swift in Sources */,
 				56AC71052109A65E00FF04BB /* TOSLogLevelMapping.swift in Sources */,
 				56AC70FF2109A64F00FF04BB /* TLog.swift in Sources */,
-				56AC71092109A66600FF04BB /* TBaseStream.swift in Sources */,
+				56AC71092109A66600FF04BB /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
