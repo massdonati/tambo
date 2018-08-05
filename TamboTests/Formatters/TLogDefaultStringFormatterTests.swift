@@ -19,11 +19,49 @@ class TLogDefaultStringFormatterTests: XCTestCase {
     }
 
     func testDefaultFormatString() {
-        XCTAssertEqual(formatter.format, "[D] [L] T S F.f:# - M\nI")
+        XCTAssertEqual(formatter.logFormat, "[D] [L] T S F.f:# - M\nI")
+    }
+
+    func testDefaultDateFormatterFormat() {
+        XCTAssertEqual(formatter.dateFormatter.dateFormat, "HH:mm:ss.SSS")
+    }
+
+    func testLogFormatDoesntChange() {
+        let formatter = TLogDefaultStringFormatter()
+        let format = formatter.logFormat
+        let log = TLog(loggerID: "id",
+                       level: .info,
+                       date: Date(),
+                       message: { return ""},
+                       threadName: "main", functionName: "ciccio",
+                       fileName: "Ciccio.swift",
+                       lineNumber: 12,
+                       userInfo: ["ciccio": "ciccio"])
+
+        _ = formatter.string(for: log)
+
+        XCTAssertEqual(format, formatter.logFormat)
+    }
+
+    func testFormatFunction() {
+        let formatter = TLogDefaultStringFormatter()
+        let log = TLog(loggerID: "id",
+                       level: .info,
+                       date: Date(),
+                       message: { return ""},
+                       threadName: "main", functionName: "ciccio",
+                       fileName: "Ciccio.swift",
+                       lineNumber: 12,
+                       userInfo: ["ciccio": "ciccio"])
+
+        let expectedString = formatter.string(for: log)
+        XCTAssertTrue(formatter.format(log) is String)
+        let generatedString = formatter.format(log) as! String
+        XCTAssertEqual(generatedString, expectedString)
     }
 
     func testDateOnly() {
-        formatter.format = "D"
+        formatter.logFormat = "D"
         let date = Date()
         let log = TLog(loggerID: "test",
                        level: .debug,
@@ -40,13 +78,13 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[D]"
+        formatter.logFormat = "[D]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(stringDate)]", outStringTwo)
     }
 
     func testLoggerNameOnly() {
-        formatter.format = "L"
+        formatter.logFormat = "L"
         let loggerID = "com.tambo.logger"
         let log = TLog(loggerID: loggerID,
                        level: .debug,
@@ -63,13 +101,13 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[L]"
+        formatter.logFormat = "[L]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(loggerID)]", outStringTwo)
     }
 
     func testThreadNameOnly() {
-        formatter.format = "T"
+        formatter.logFormat = "T"
         let threadName = "main"
         let log = TLog(loggerID: "test",
                        level: .debug,
@@ -86,7 +124,7 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[T]"
+        formatter.logFormat = "[T]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(threadName)]", outStringTwo)
     }
@@ -94,7 +132,7 @@ class TLogDefaultStringFormatterTests: XCTestCase {
     func testLevelNameOnly() {
         let levels: [TLogLevel] = [.info, .debug, .error, .verbose, .warning]
         levels.forEach { level in
-            formatter.format = "l"
+            formatter.logFormat = "l"
 
             let log = TLog(loggerID: "test",
                            level: level,
@@ -111,7 +149,7 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
             // test additional text
 
-            formatter.format = "[l]"
+            formatter.logFormat = "[l]"
             let outStringTwo = formatter.string(for: log)
             XCTAssertEqual("[\(level.name)]", outStringTwo)
         }
@@ -120,7 +158,7 @@ class TLogDefaultStringFormatterTests: XCTestCase {
     func testLevelSymbolOnly() {
         let levels: [TLogLevel] = [.info, .debug, .error, .verbose, .warning]
         levels.forEach { level in
-            formatter.format = "S"
+            formatter.logFormat = "S"
 
             let log = TLog(loggerID: "test",
                            level: level,
@@ -137,7 +175,7 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
             // test additional text
 
-            formatter.format = "[S]"
+            formatter.logFormat = "[S]"
             let outStringTwo = formatter.string(for: log)
             XCTAssertEqual("[\(level.symbol)]", outStringTwo)
         }
@@ -145,7 +183,7 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
     func testFileNameOnly() {
         let fileName = "TamboViewController"
-        formatter.format = "F"
+        formatter.logFormat = "F"
 
         let log = TLog(loggerID: "test",
                        level: .info,
@@ -162,14 +200,14 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[F]"
+        formatter.logFormat = "[F]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(fileName)]", outStringTwo)
     }
 
     func testFunctionNameOnly() {
         let functionName = "viewDidLoad()"
-        formatter.format = "f"
+        formatter.logFormat = "f"
 
         let log = TLog(loggerID: "test",
                        level: .info,
@@ -186,14 +224,14 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[f]"
+        formatter.logFormat = "[f]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(functionName)]", outStringTwo)
     }
 
     func testLineNumberOnly() {
         let lineNumber = 24
-        formatter.format = "#"
+        formatter.logFormat = "#"
 
         let log = TLog(loggerID: "test",
                        level: .info,
@@ -210,14 +248,14 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[#]"
+        formatter.logFormat = "[#]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(lineNumber)]", outStringTwo)
     }
 
     func testMessageOnly() {
         let messageText = "some info message"
-        formatter.format = "M"
+        formatter.logFormat = "M"
 
         let log = TLog(loggerID: "test",
                        level: .info,
@@ -234,14 +272,14 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[M]"
+        formatter.logFormat = "[M]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(messageText)]", outStringTwo)
     }
 
     func testUserInfoOnly() {
         let userInfo = ["one": 1]
-        formatter.format = "I"
+        formatter.logFormat = "I"
 
         let log = TLog(loggerID: "test",
                        level: .info,
@@ -258,7 +296,7 @@ class TLogDefaultStringFormatterTests: XCTestCase {
 
         // test additional text
 
-        formatter.format = "[I]"
+        formatter.logFormat = "[I]"
         let outStringTwo = formatter.string(for: log)
         XCTAssertEqual("[\(log.userInfoJSONString!)]", outStringTwo)
     }

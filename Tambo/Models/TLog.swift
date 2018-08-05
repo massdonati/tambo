@@ -63,20 +63,8 @@ public struct TLog {
 
         uInfo.jsonify()
 
-        guard JSONSerialization.isValidJSONObject(uInfo) else {
-            return String(describing: uInfo)
-        }
-        
-        do {
-            let data = try JSONSerialization.data(withJSONObject: uInfo,
-                                                  options: .prettyPrinted)
-            return String(data: data, encoding: .utf8)
-        } catch {
-            print("""
-                Tambo could not transform the userInfo into JSON \
-                \(uInfo). \(error)
-                """)
-            return String(describing: uInfo)
-        }
+        let data = try! JSONSerialization.data(withJSONObject: uInfo,
+                                               options: .prettyPrinted)
+        return String(data: data, encoding: .utf8)
     }
 }

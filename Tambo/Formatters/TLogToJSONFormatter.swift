@@ -16,16 +16,13 @@ protocol TLogToJSONFormatterProtocol: TLogFormatterProtocol {
      - returns: A valid JSON serializable dictionary. That is saying that
         JSONSerialization.isValidJSONObject(dict) will return true.
      */
-    func json(for log: TLog) -> JSONType
+    func json(for log: TLog) -> TamboJSONType
 
     /**
      Helper method to get a Data object back.
      - parameter log: the [TLog](x-source-tag://T.TLog) object to convert to
-        JSON.
-     - returns: A serialized jsonObject result of the
-        `JSONSerialization.data(withJSONObject: jsonDict)` api.
-     - note: this method doesn't throw because it calls json(for:) under the
-        hood which by design returns a valid JSON dictionary.
+        JSON data.
+     - returns: A serialized jsonObject data using .utf8 encoding.
      */
     func jsonObject(for log: TLog) -> Data
 }
@@ -41,18 +38,20 @@ public class TLogDefaultJSONFormatter: TLogToJSONFormatterProtocol {
      The date formatter to be used to produce the string value.
      - note: The default one will format the date using `yyyy-MM-dd HH:mm:ss Z`.
      */
-    public var dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        return df
-    }()
+    public var dateFormatter: DateFormatter
+
+    /// Designated initializer.
+    public init() {
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+    }
 
     /**
      Conformace to the
      [TLogToJSONFormatterProtocol](x-source-tag://T.TLogToJSONFormatterProtocol).
      */
-    func json(for log: TLog) -> JSONType {
-        var json: JSONType = [:]
+    public func json(for log: TLog) -> TamboJSONType {
+        var json: TamboJSONType = [:]
 
         json["logger_id"] = log.loggerID
         json["level"] = log.level.name
@@ -65,7 +64,7 @@ public class TLogDefaultJSONFormatter: TLogToJSONFormatterProtocol {
 
         if var userInfo = log.userInfo {
             userInfo.jsonify()
-            json["metadata"] = userInfo
+            json["user_info"] = userInfo
         }
 
         return json
@@ -74,15 +73,18 @@ public class TLogDefaultJSONFormatter: TLogToJSONFormatterProtocol {
     /**
      Conformace to the
      [TLogToJSONFormatterProtocol](x-source-tag://T.TLogToJSONFormatterProtocol).
+     - note: is subclasses will not return a valid JSONObject from the
+        json(for:) method this is also safe because it calls `jsonify`
+        on the returned dictionary which is guaranteed to be converted in a
+        valid JSON object.
+     - note: uses `JSONSerialization.data(withJSONObject:)`.
      */
-    func jsonObject(for log: TLog) -> Data {
-        let jsonDict = json(for: log)
+    public func jsonObject(for log: TLog) -> Data {
+        var jsonDict = json(for: log)
 
-        precondition(JSONSerialization.isValidJSONObject(jsonDict), """
-            Something went wrong, jsonDict is supposed to return a valid \
-            serializable object. Please open an issue in the github repo with \
-            as many info as you can.
-            """)
+        if !JSONSerialization.isValidJSONObject(jsonDict) {
+            jsonDict.jsonify()
+        }
 
         return try! JSONSerialization.data(withJSONObject: jsonDict)
     }

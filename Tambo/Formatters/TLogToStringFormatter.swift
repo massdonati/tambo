@@ -45,7 +45,7 @@ public class TLogDefaultStringFormatter: TLogToStringFormatterProtocol {
      - note: The keys are documented in the
      [SLLogFormatKey](xc-source-tag://T.SLLogFormatKey)
      */
-    public var format = """
+    public var logFormat = """
         [D] [L] T S F.f:# - M
         I
         """
@@ -54,17 +54,12 @@ public class TLogDefaultStringFormatter: TLogToStringFormatterProtocol {
      The date formatter to be used to produce the string value.
      - note: The default one will format the date using `"HH:mm:ss.SSS"`
      */
-    public var dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "HH:mm:ss.SSS"
-        return df
-    }()
+    public var dateFormatter: DateFormatter
 
-    /**
-     Designated initializer.
-     */
+    /// Designated initializer.
     public init() {
-        // NOTE: this is defined because otherwise it would be internal.
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss.SSS"
     }
 
     /**
@@ -75,7 +70,7 @@ public class TLogDefaultStringFormatter: TLogToStringFormatterProtocol {
     func string(for log: TLog) -> String  {
         var outputString = ""
 
-        format.forEach { ch in
+        logFormat.forEach { ch in
             switch ch {
             case SLLogFormatKey.date.rawValue:
                 outputString += dateFormatter.string(from: log.date)
