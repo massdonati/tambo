@@ -61,6 +61,13 @@ public class TLogDefaultStringFormatter: TLogToStringFormatterProtocol {
     }()
 
     /**
+     Designated initializer.
+     */
+    public init() {
+        // NOTE: this is defined because otherwise it would be internal.
+    }
+
+    /**
      Produces a string from a [TLog](x-source-tag://T.TLog) object.
      - parameter log: The TLog object we want to convert into a string.
      - seealso: [TLogToStringFormatterProtocol](x-source-tag://T.TLogToStringFormatterProtocol)
