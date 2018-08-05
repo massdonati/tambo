@@ -33,14 +33,14 @@ class TamboTests: XCTestCase {
 
     func testXcodeConsoleInfoLevel() {
         logger = Tambo(identifier: "loggerIdentifier")
-        logger.isAsync = false
-        let consolDest = TConsoleStream(
+        let consoleStream = TConsoleStream(
             identifier: "consoleID",
-            formatterOption: .default,
+            formatterOption: .defaultString,
             printMode: .print
         )
+        consoleStream.isAsync = false
 
-        logger.add(stream: consolDest)
+        logger.add(stream: consoleStream)
         DispatchQueue.concurrentPerform(iterations: 2) { _ in
             XCTAssertNoThrow(
                 logger.info("", userInfo: ["some": 2, "test": self]), """

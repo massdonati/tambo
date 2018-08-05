@@ -8,22 +8,12 @@
 import Foundation
 
 /**
- Tambo is the main class to
+ Tambo is the main class that the user will use to start logging.
+ It provides two ways to log:
+    1. A `default`, singleton, logger instance to start logging right away
+    2. An instantiatable logger instance for fine grane control.
  */
 public final class Tambo {
-    private var _async = true
-    public var isAsync: Bool {
-        get {
-            return queue.sync {
-                return _async
-            }
-        }
-        set {
-            queue.sync {
-                _async = newValue
-            }
-        }
-    }
     private(set) var identifier: String
     static var `default`: Tambo = {
         let logger = Tambo(identifier: "com.tambo.default.logger")
@@ -34,30 +24,21 @@ public final class Tambo {
         return logger
     }()
 
-    private let queue: DispatchQueue
+    private let protectedStreams = TThreadProtector([TStreamProtocol]())
 
-    private var streams: [TStreamProtocol] = []
-
-    public init(identifier: String, queue: DispatchQueue? = nil) {
+    public init(identifier: String) {
         self.identifier = identifier
-
-        // make sure to have a serial queue.
-        self.queue = DispatchQueue(
-            label: "com.tambo.\(identifier)",
-            qos: .background,
-            target: queue
-        )
     }
 
     public func add(stream: TStreamProtocol) {
-        queue.sync {
-            self.streams.append(stream)
+        protectedStreams.write { streams in
+            streams.append(stream)
         }
     }
 
     public func removeAllStreams() {
-        queue.sync {
-            self.streams = []
+        protectedStreams.write { streams in
+            streams.removeAll()
         }
     }
 
@@ -157,38 +138,32 @@ public final class Tambo {
         )
     }
 
-    private func propagateLog(
-        msgClosure: @escaping () -> Any,
-        level: TLogLevel,
-        functionName: String = #function,
-        filePath: String = #file,
-        lineNumber: Int = #line,
-        userInfo: [String: Any]?,
-        time: Date) {
+    private func propagateLog(msgClosure: @escaping () -> Any,
+                              level: TLogLevel,
+                              functionName: String = #function,
+                              filePath: String = #file,
+                              lineNumber: Int = #line,
+                              userInfo: [String: Any]?,
+                              time: Date) {
 
-        let propagateToStreamsClosure = {
-            let filename = Utility.filename(from: filePath) ?? "FILE_NAME_ERROR"
-            let log = TLog(
-                loggerID: self.identifier,
-                level: level,
-                date: time,
-                message: msgClosure,
-                threadName: Utility.threadName(),
-                functionName: functionName,
-                fileName: filename,
-                lineNumber: lineNumber,
-                userInfo: userInfo
-            )
-            self.streams.forEach { dest in
-                guard dest.isEnabled(for: level) else { return }
-                dest.process(log: log)
+        let filename = Utility.filename(from: filePath) ?? "FILE_NAME_ERROR"
+        let log = TLog(
+            loggerID: self.identifier,
+            level: level,
+            date: time,
+            message: msgClosure,
+            threadName: Utility.threadName(),
+            functionName: functionName,
+            fileName: filename,
+            lineNumber: lineNumber,
+            userInfo: userInfo
+        )
+        self.protectedStreams.read { streams in
+            DispatchQueue.concurrentPerform(iterations: streams.count) { index in
+                let stream = streams[index]
+                guard stream.isEnabled(for: level) else { return }
+                stream.process(log)
             }
-        }
-
-        if isAsync {
-            queue.async(execute: propagateToStreamsClosure)
-        } else {
-            queue.sync(execute: propagateToStreamsClosure)
         }
     }
 }
