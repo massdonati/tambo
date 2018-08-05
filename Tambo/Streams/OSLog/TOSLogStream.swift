@@ -58,12 +58,9 @@ public final class TOSLogStream: TBaseQueuedStream {
     }
 
     override public func output(log: TLog, formattedLog: Any) {
-        precondition(formattedLog is String, """
-            Override TOSLogStream.output method if you want to use a type \
-            different then a String.
-            """)
+        let stringMessage = String(describing: formattedLog)
 
         let type = mapping.osLogType(for: log.level)
-        os_log("%{public}@", log: osLog, type: type, String(describing: stringMessage))
+        os_log("%{public}@", log: osLog, type: type, stringMessage)
     }
 }
