@@ -27,7 +27,7 @@ public enum TLogFormatterOption {
      let myFormatterOpt: TLogFormatterOption = .custom(MyFormatter())
      ```
      */
-    case custom(TLogFormatterProtocol)
+    case custom(PATWrapper)
 }
 
 /**
@@ -36,6 +36,7 @@ public enum TLogFormatterOption {
  - Tag: T.TLogFormatterProtocol
  */
 public protocol TLogFormatterProtocol {
+    associatedtype FormattedType
     /**
      Formats a [TLog](x-source-tag://T.TLog) object into anything.
      - parameter log: The TLog object that needs formatting.
@@ -45,8 +46,20 @@ public protocol TLogFormatterProtocol {
      - note: This function will be invoked right befor outputting the log
         from watever stream this message was invoked.
      */
-    func format(_ log: TLog) -> Any
+    func format(_ log: TLog) -> FormattedType
 
     /// The date formatter used to convert the log's date into a string.
     var dateFormatter: DateFormatter {get set}
+}
+
+public final class PATWrapper {
+    private let obj: Any
+
+    init<T: TLogFormatterProtocol>(obj: T) {
+        self.obj = obj
+    }
+
+    func wrappedObj<T: TLogFormatterProtocol>() -> T {
+        return obj as! T
+    }
 }

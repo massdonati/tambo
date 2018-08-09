@@ -18,13 +18,14 @@ public final class Tambo {
     static var `default`: Tambo = {
         let logger = Tambo(identifier: "com.tambo.default.logger")
         let console = TConsoleStream(
-            identifier: "com.tambo.default.consoleStream"
+            identifier: "com.tambo.default.consoleStream",
+            printMode: .print
         )
         logger.add(stream: console)
         return logger
     }()
 
-    private let protectedStreams = TThreadProtector([TStreamProtocol]())
+    private var protectedStreams = TThreadProtector([TStreamProtocol]())
 
     public init(identifier: String) {
         self.identifier = identifier

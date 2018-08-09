@@ -35,7 +35,6 @@ class TamboTests: XCTestCase {
         logger = Tambo(identifier: "loggerIdentifier")
         let consoleStream = TConsoleStream(
             identifier: "consoleID",
-            formatterOption: .defaultString,
             printMode: .print
         )
         consoleStream.isAsync = false

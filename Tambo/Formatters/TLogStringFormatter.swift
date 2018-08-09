@@ -7,23 +7,23 @@
 
 import Foundation
 
-/**
- - Tag: T.TLogToStringFormatterProtocol
- */
-protocol TLogToStringFormatterProtocol: TLogFormatterProtocol {
-    /**
-     Formats the log details into a string.
-     - parameter log: The [TLog](x-source-tag://T.TLog) to convert into a string.
-     - returns: The formatted string ready for output.
-     */
-    func string(for log: TLog) -> String
-}
-
-extension TLogToStringFormatterProtocol {
-    public func format(_ log: TLog) -> Any {
-        return string(for: log)
-    }
-}
+///**
+// - Tag: T.TLogToStringFormatterProtocol
+// */
+//protocol TLogToStringFormatterProtocol: TLogFormatterProtocol {
+//    /**
+//     Formats the log details into a string.
+//     - parameter log: The [TLog](x-source-tag://T.TLog) to convert into a string.
+//     - returns: The formatted string ready for output.
+//     */
+//    func string(for log: TLog) -> String
+//}
+//
+//extension TLogToStringFormatterProtocol {
+//    public func format(_ log: TLog) -> Any {
+//        return string(for: log)
+//    }
+//}
 
 /**
  The Tambo default formatter.
@@ -38,7 +38,7 @@ extension TLogToStringFormatterProtocol {
  one of the `Streams` provided by Tambo.
  - Tag: T.TLogDefaultStringFormatter
  */
-public class TLogDefaultStringFormatter: TLogToStringFormatterProtocol {
+public class TLogStringFormatter: TLogFormatterProtocol {
 
     /**
      The formate rule this formatter will follow to present the log information.
@@ -67,7 +67,7 @@ public class TLogDefaultStringFormatter: TLogToStringFormatterProtocol {
      - parameter log: The TLog object we want to convert into a string.
      - seealso: [TLogToStringFormatterProtocol](x-source-tag://T.TLogToStringFormatterProtocol)
      */
-    func string(for log: TLog) -> String  {
+    public func format(_ log: TLog) -> String  {
         var outputString = ""
 
         logFormat.forEach { ch in
