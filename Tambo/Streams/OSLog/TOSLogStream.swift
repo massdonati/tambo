@@ -13,7 +13,17 @@ import os
  - seealso: [Apple logging](https://developer.apple.com/documentation/os/logging)
  - important: everything logged by this stream will use the "{public}@" format.
  */
-public final class TOSLogStream: TBaseQueuedStream {
+public final class TOSLogStream: TStreamFormattable {
+    public var isAsync: Bool = true
+
+    public var identifier: String
+
+    public var outputLevel: TLogLevel = .verbose
+
+    public var queue: DispatchQueue = DispatchQueue(label: "")
+
+    public var logFormatter = TLogStringFormatter()
+
     let osLog: OSLog
     let mapping: TOSLogTypeMapper
 
@@ -38,29 +48,15 @@ public final class TOSLogStream: TBaseQueuedStream {
         category: String,
         mapping: TOSLogTypeMapper = .default) {
 
+        self.identifier = identifier
         osLog = OSLog(subsystem: subsystem, category: category)
         self.mapping = mapping
-        super.init(identifier: identifier,
-                   formatterOption: .defaultString,
-                   queue: queue)
+        self.queue = streamQueue(with: queue)
     }
-
-    override public func process(_ log: TLog) {
-        let processClosure = {
-            let formattedLog = self.logFormatter.format(log)
-            self.output(log: log, formattedLog: formattedLog)
-        }
-        if isAsync {
-            queue.async(execute: processClosure)
-        } else {
-            queue.sync(execute: processClosure)
-        }
-    }
-
-    override public func output(log: TLog, formattedLog: Any) {
-        let stringMessage = String(describing: formattedLog)
+    
+    public func output(log: TLog, formattedLog: String) {
 
         let type = mapping.osLogType(for: log.level)
-        os_log("%{public}@", log: osLog, type: type, stringMessage)
+        os_log("%{public}@", log: osLog, type: type, formattedLog)
     }
 }

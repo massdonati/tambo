@@ -7,4 +7,4 @@
 
 import Foundation
 
-public typealias TamboJSONType = [String: Any]
+public typealias TJSONType = [String: Any]

@@ -25,6 +25,12 @@ struct Utility {
         return String(describing: Thread.current)
     }
 
+    /**
+     - returns: The fileName of a file from its complete path.
+     - parameter path: the file string URL.
+     - parameter chopExtension: wether we want to remove the file extension.
+     - note: This method will return nil if the path string is not a valid URL.
+     */
     static func filename(from path: String, chopExtension: Bool = true) -> String? {
         guard var url = URL(string: path) else { return nil }
         if chopExtension {
@@ -36,10 +42,10 @@ struct Utility {
 
 extension Dictionary where Key : StringProtocol, Value : Any {
     mutating func jsonify() {
-        keys.forEach { key in
-            guard let value = self[key] else { return }
+        for (key, value) in self {
             if (JSONSerialization.isValidJSONObject(value) == false
                 && (value is Encodable) == false) {
+
                 self[key] = String(describing: value) as? Value
             }
         }
