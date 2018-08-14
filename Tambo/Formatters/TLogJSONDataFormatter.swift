@@ -7,7 +7,12 @@
 
 import Foundation
 
-public class TLogJSONDictionaryFormatter: TLogFormatterProtocol {
+public protocol TLogToDictConversionProtocol {
+    func dictionary(from log: TLog) -> TJSONType
+}
+
+public class TLogToJSONConverter: TLogToDictConversionProtocol {
+
     /**
      The date formatter to be used to produce the string value.
      - note: The default one will format the date using `yyyy-MM-dd HH:mm:ss Z`.
@@ -20,12 +25,8 @@ public class TLogJSONDictionaryFormatter: TLogFormatterProtocol {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
     }
 
-    /**
-     Conformace to the
-     [TLogToJSONFormatterProtocol](x-source-tag://T.TLogToJSONFormatterProtocol).
-     */
-    public func format(_ log: TLog) -> TamboJSONType {
-        var json: TamboJSONType = [:]
+    public func dictionary(from log: TLog) -> TJSONType {
+        var json: TJSONType = [:]
 
         json["logger_id"] = log.loggerID
         json["level"] = log.level.name
@@ -47,16 +48,19 @@ public class TLogJSONDictionaryFormatter: TLogFormatterProtocol {
 
 public class TLogJSONDataFormatter: TLogFormatterProtocol {
     public typealias FormattedType = Data
-    public var dateFormatter: DateFormatter
+    public var logToDictConverter: TLogToDictConversionProtocol
 
     /// Designated initializer.
-    public init() {
-        dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+    public init(with logConverter: TLogToDictConversionProtocol? = nil) {
+        if let converter = logConverter {
+            logToDictConverter = converter
+        } else {
+            logToDictConverter = TLogToJSONConverter()
+        }
     }
 
     public func format(_ log: TLog) -> Data {
-        var logDict = TLogJSONDictionaryFormatter().format(log)
+        var logDict = logToDictConverter.dictionary(from: log)
         if !JSONSerialization.isValidJSONObject(logDict) {
             logDict.jsonify()
         }

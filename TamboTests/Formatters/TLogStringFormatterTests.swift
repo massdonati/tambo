@@ -11,11 +11,13 @@ import XCTest
 class TLogStringFormatterTests: XCTestCase {
     var formatter: TLogStringFormatter!
     override func setUp() {
+        super.setUp()
         formatter = TLogStringFormatter()
     }
 
     override func tearDown() {
         formatter = nil
+        super.tearDown()
     }
 
     func testDefaultFormatString() {

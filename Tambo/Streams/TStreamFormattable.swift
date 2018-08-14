@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TStreamFormattable: TStreamProtocol {
+public protocol TStreamFormattable: TStreamProtocol {
     associatedtype FormattingType: TLogFormatterProtocol
     /**
      The Object responsible to convert the Tlog object into whatever the stream
@@ -28,8 +28,6 @@ protocol TStreamFormattable: TStreamProtocol {
 
 extension TStreamFormattable {
     public func process(_ log: TLog) {
-        guard should(process: log) == true else { return }
-
         let processClosure = {
             let formattedLog = self.logFormatter.format(log)
             self.output(log: log, formattedLog: formattedLog)

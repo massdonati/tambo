@@ -17,7 +17,7 @@ public enum TConsolePrintMode {
 
 /// The Xcode console stream. It will output the logs to the Xcode console.
 public final class TConsoleStream: TStreamFormattable {
-    public var isAsync: Bool
+    public var isAsync: Bool = true
 
     public var identifier: String
 
@@ -32,7 +32,6 @@ public final class TConsoleStream: TStreamFormattable {
                 printMode: TConsolePrintMode) {
         self.printMode = printMode
         self.identifier = identifier
-        isAsync = true
         outputLevel = .verbose
         self.queue = streamQueue()
     }

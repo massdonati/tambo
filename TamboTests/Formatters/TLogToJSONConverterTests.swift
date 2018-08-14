@@ -8,18 +8,20 @@
 import XCTest
 @testable import Tambo
 
-class TLogJSONDictionaryFormatterTests: XCTestCase {
-    var formatter: TLogJSONDictionaryFormatter!
+class TLogToJSONConverterTests: XCTestCase {
+    var converter: TLogToJSONConverter!
     override func setUp() {
-        formatter = TLogJSONDictionaryFormatter()
+        super.setUp()
+        converter = TLogToJSONConverter()
     }
 
     override func tearDown() {
-        formatter = nil
+        converter = nil
+        super.tearDown()
     }
 
     func testDefaultDateFormatterFormat() {
-        XCTAssertEqual(formatter.dateFormatter.dateFormat,
+        XCTAssertEqual(converter.dateFormatter.dateFormat,
                        "yyyy-MM-dd HH:mm:ss Z")
     }
 
@@ -43,12 +45,12 @@ class TLogJSONDictionaryFormatterTests: XCTestCase {
                        lineNumber: line,
                        userInfo: nil)
 
-        let jsonDict = formatter.format(log)
+        let jsonDict = converter.dictionary(from: log)
 
         XCTAssertEqual((jsonDict["logger_id"] as! String), loggerId)
         XCTAssertEqual((jsonDict["level"] as! String), level)
         XCTAssertEqual((jsonDict["date"] as! String),
-                       formatter.dateFormatter.string(from: log.date))
+                       converter.dateFormatter.string(from: log.date))
         XCTAssertEqual((jsonDict["message"] as! String), message)
         XCTAssertEqual((jsonDict["thread"] as! String), thread)
         XCTAssertEqual((jsonDict["function"] as! String), function)
@@ -77,12 +79,12 @@ class TLogJSONDictionaryFormatterTests: XCTestCase {
                        lineNumber: line,
                        userInfo: userInfo)
 
-        let jsonDict = formatter.format(log)
+        let jsonDict = converter.dictionary(from: log)
 
         XCTAssertEqual((jsonDict["logger_id"] as! String), loggerId)
         XCTAssertEqual((jsonDict["level"] as! String), level)
         XCTAssertEqual((jsonDict["date"] as! String),
-                       formatter.dateFormatter.string(from: log.date))
+                       converter.dateFormatter.string(from: log.date))
         XCTAssertEqual((jsonDict["message"] as! String), message)
         XCTAssertEqual((jsonDict["thread"] as! String), thread)
         XCTAssertEqual((jsonDict["function"] as! String), function)
@@ -90,6 +92,6 @@ class TLogJSONDictionaryFormatterTests: XCTestCase {
         XCTAssertEqual((jsonDict["line"] as! Int), line)
 
         XCTAssertEqual((jsonDict["user_info"] as! [String: String]),
-                       ["one": "-[TLogJSONDictionaryFormatterTests testLogToJSONWithUserInfo]"])
+                       ["one": "-[TLogToJSONConverterTests testLogToJSONWithUserInfo]"])
     }
 }

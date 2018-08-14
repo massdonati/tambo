@@ -67,10 +67,6 @@ extension TStreamProtocol {
         )
     }
 
-    public var isAsync: Bool {
-        return true
-    }
-
     public func isEnabled(for level: TLogLevel) -> Bool {
         return level <= outputLevel
     }
