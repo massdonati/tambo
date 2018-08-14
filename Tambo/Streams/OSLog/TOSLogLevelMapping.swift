@@ -20,6 +20,7 @@ import os
  `LogSeverity` values, `OSLogTypeTranslation` provides a mechanism for
  deriving the appropriate `OSLogType` for a given `LogEntry`.
  */
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
 public enum TOSLogTypeMapper {
     /**
      A strict translation from a `LogEntry`'s `severity` to an
@@ -45,10 +46,6 @@ public enum TOSLogTypeMapper {
 
 extension TOSLogTypeMapper {
     internal func osLogType(for level: TLogLevel) -> OSLogType {
-        guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
-            fatalError("os.log module not supported on this platform")    // things should never get this far
-        }
-
         switch self {
         case .default:
                 switch level {

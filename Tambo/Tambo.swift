@@ -15,16 +15,17 @@ import Foundation
  */
 public final class Tambo {
     private(set) var identifier: String
-    static var `default`: Tambo = {
+    static public var `default`: Tambo = {
         let logger = Tambo(identifier: "com.tambo.default.logger")
         let console = TConsoleStream(
-            identifier: "com.tambo.default.consoleStream"
+            identifier: "com.tambo.default.consoleStream",
+            printMode: .print
         )
         logger.add(stream: console)
         return logger
     }()
 
-    private let protectedStreams = TThreadProtector([TStreamProtocol]())
+    private var protectedStreams = TThreadProtector([TStreamProtocol]())
 
     public init(identifier: String) {
         self.identifier = identifier
@@ -158,11 +159,16 @@ public final class Tambo {
             lineNumber: lineNumber,
             userInfo: userInfo
         )
-        self.protectedStreams.read { streams in
-            DispatchQueue.concurrentPerform(iterations: streams.count) { index in
-                let stream = streams[index]
-                guard stream.isEnabled(for: level) else { return }
-                stream.process(log)
+        protectedStreams.read { streams in
+            DispatchQueue
+                .concurrentPerform(iterations: streams.count) { index in
+                    let stream = streams[index]
+                    guard
+                        stream.isEnabled(for: level),
+                        stream.should(process: log)
+                        else { return }
+
+                    stream.process(log)
             }
         }
     }

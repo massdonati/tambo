@@ -16,33 +16,31 @@
 		56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
 		56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
 		56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
-		56049B6C2106FE0900EAFC44 /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
 		561C8415210AB959001D28DB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561C840C210AB959001D28DB /* Tambo.framework */; };
 		561C8423210AB9AE001D28DB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
-		561C8424210AB9B2001D28DB /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
+		561C8424210AB9B2001D28DB /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* UtilsTests.swift */; };
 		561C8425210ABA4F001D28DB /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
 		561C8426210ABA53001D28DB /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
 		561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
 		561C8428210ABA60001D28DB /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
 		561C8429210ABA60001D28DB /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
 		561C842A210ABA60001D28DB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
-		561C842B210ABA60001D28DB /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
 		561C842C210ABA60001D28DB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		561C842D210ABA60001D28DB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
 		561C8431210AC594001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
 		561C8432210AC594001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
 		561C8433210AC703001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
-		563113952109970700BC84AF /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
-		5665F18F21166B5B00D603FF /* TLogDefaultStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogDefaultStringFormatterTests.swift */; };
-		5665F19021166B5B00D603FF /* TLogDefaultStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogDefaultStringFormatterTests.swift */; };
-		5665F19121166B5B00D603FF /* TLogDefaultStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogDefaultStringFormatterTests.swift */; };
+		563113952109970700BC84AF /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* UtilsTests.swift */; };
+		5665F18F21166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */; };
+		5665F19021166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */; };
+		5665F19121166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */; };
 		567A95B721175CB80026383F /* TLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95B621175CB80026383F /* TLogTests.swift */; };
 		567A95B821175CB80026383F /* TLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95B621175CB80026383F /* TLogTests.swift */; };
 		567A95B921175CB80026383F /* TLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95B621175CB80026383F /* TLogTests.swift */; };
-		567A95BB211762FF0026383F /* TLogDefaultJSONFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95BA211762FF0026383F /* TLogDefaultJSONFormatterTests.swift */; };
-		567A95BC211762FF0026383F /* TLogDefaultJSONFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95BA211762FF0026383F /* TLogDefaultJSONFormatterTests.swift */; };
-		567A95BD211762FF0026383F /* TLogDefaultJSONFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95BA211762FF0026383F /* TLogDefaultJSONFormatterTests.swift */; };
+		567A95BB211762FF0026383F /* TLogToJSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95BA211762FF0026383F /* TLogToJSONConverterTests.swift */; };
+		567A95BC211762FF0026383F /* TLogToJSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95BA211762FF0026383F /* TLogToJSONConverterTests.swift */; };
+		567A95BD211762FF0026383F /* TLogToJSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A95BA211762FF0026383F /* TLogToJSONConverterTests.swift */; };
 		568D38C021083A1D00BFBF48 /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		568D38C221084F5400BFBF48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC70EE2109A58900FF04BB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC70E52109A58900FF04BB /* Tambo.framework */; };
@@ -58,26 +56,46 @@
 		56AC71052109A65E00FF04BB /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
 		56AC71062109A66200FF04BB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
 		56AC71072109A66200FF04BB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
-		56AC71082109A66600FF04BB /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
-		56AC71092109A66600FF04BB /* TBaseQueuedStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */; };
 		56AC710A2109A66900FF04BB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		56AC710B2109A66A00FF04BB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		56AC710C2109A66D00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC710D2109A66E00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC71102109A68800FF04BB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
-		56AC71112109A68C00FF04BB /* DictionaryUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* DictionaryUtilsTests.swift */; };
+		56AC71112109A68C00FF04BB /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* UtilsTests.swift */; };
+		56BA605E211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
+		56BA605F211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
+		56BA6060211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
+		56BA6061211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
+		56BA6063211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */; };
+		56BA6064211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */; };
+		56BA6065211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */; };
 		56C6954E210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
 		56C6954F210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
 		56C69550210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
 		56C69551210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
-		56C69554210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
-		56C69555210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
-		56C69556210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
-		56C69557210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */; };
-		56C69559210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
-		56C6955A210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
-		56C6955B210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
-		56C6955C210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */; };
+		56C69554210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
+		56C69555210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
+		56C69556210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
+		56C69557210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
+		56C69559210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONDataFormatter.swift */; };
+		56C6955A210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONDataFormatter.swift */; };
+		56C6955B210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONDataFormatter.swift */; };
+		56C6955C210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONDataFormatter.swift */; };
+		56D18F302122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */; };
+		56D18F312122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */; };
+		56D18F322122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */; };
+		56FB64F4211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64F3211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift */; };
+		56FB64F5211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64F3211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift */; };
+		56FB64F6211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64F3211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift */; };
+		56FB64F8211D546500BA00D6 /* TStreamProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */; };
+		56FB64F9211D546500BA00D6 /* TStreamProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */; };
+		56FB64FA211D546500BA00D6 /* TStreamProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */; };
+		56FB64FC211D578000BA00D6 /* TamboMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FB211D578000BA00D6 /* TamboMocks.swift */; };
+		56FB64FD211D578000BA00D6 /* TamboMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FB211D578000BA00D6 /* TamboMocks.swift */; };
+		56FB64FE211D578000BA00D6 /* TamboMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FB211D578000BA00D6 /* TamboMocks.swift */; };
+		56FB6500211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
+		56FB6501211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
+		56FB6502211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,22 +135,28 @@
 		56049B652106EFC600EAFC44 /* TLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFormatter.swift; sourceTree = "<group>"; };
 		56049B672106F1FC00EAFC44 /* TOSLogStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogStream.swift; sourceTree = "<group>"; };
 		56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogLevelMapping.swift; sourceTree = "<group>"; };
-		56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBaseQueuedStream.swift; sourceTree = "<group>"; };
 		561C840C210AB959001D28DB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C8414210AB959001D28DB /* Tambo macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C842F210AC594001D28DB /* TConsoleStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TConsoleStream.swift; sourceTree = "<group>"; };
-		563113942109970700BC84AF /* DictionaryUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryUtilsTests.swift; sourceTree = "<group>"; };
-		5665F18E21166B5B00D603FF /* TLogDefaultStringFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogDefaultStringFormatterTests.swift; sourceTree = "<group>"; };
+		563113942109970700BC84AF /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
+		5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogStringFormatterTests.swift; sourceTree = "<group>"; };
 		567A95B621175CB80026383F /* TLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogTests.swift; sourceTree = "<group>"; };
-		567A95BA211762FF0026383F /* TLogDefaultJSONFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogDefaultJSONFormatterTests.swift; sourceTree = "<group>"; };
+		567A95BA211762FF0026383F /* TLogToJSONConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogToJSONConverterTests.swift; sourceTree = "<group>"; };
 		568D38BF21083A1D00BFBF48 /* Tambo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tambo.swift; sourceTree = "<group>"; };
 		568D38C121084F5400BFBF48 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		56AC70D72109A52E00FF04BB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AC70E52109A58900FF04BB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AC70ED2109A58900FF04BB /* Tambo tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamFormattable.swift; sourceTree = "<group>"; };
+		56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogJSONDataFormatterTests.swift; sourceTree = "<group>"; };
 		56C6954D210E7349002E7F2D /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
-		56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogToStringFormatter.swift; sourceTree = "<group>"; };
-		56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogToJSONFormatter.swift; sourceTree = "<group>"; };
+		56C69553210E761C002E7F2D /* TLogStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogStringFormatter.swift; sourceTree = "<group>"; };
+		56C69558210E7689002E7F2D /* TLogJSONDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogJSONDataFormatter.swift; sourceTree = "<group>"; };
+		56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogStreamTests.swift; sourceTree = "<group>"; };
+		56FB64F3211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogTypeMapperTests.swift; sourceTree = "<group>"; };
+		56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamProtocolTests.swift; sourceTree = "<group>"; };
+		56FB64FB211D578000BA00D6 /* TamboMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboMocks.swift; sourceTree = "<group>"; };
+		56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamFormattableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,11 +256,15 @@
 		56049B412106DEE100EAFC44 /* TamboTests */ = {
 			isa = PBXGroup;
 			children = (
+				56FB64F2211D519A00BA00D6 /* OSLog */,
 				567A95C2211770C50026383F /* Formatters */,
 				56049B422106DEE100EAFC44 /* TamboTests.swift */,
 				56049B442106DEE100EAFC44 /* Info.plist */,
-				563113942109970700BC84AF /* DictionaryUtilsTests.swift */,
+				563113942109970700BC84AF /* UtilsTests.swift */,
 				567A95B621175CB80026383F /* TLogTests.swift */,
+				56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */,
+				56FB64FB211D578000BA00D6 /* TamboMocks.swift */,
+				56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */,
 			);
 			path = TamboTests;
 			sourceTree = "<group>";
@@ -253,10 +281,10 @@
 		56049B632106EF6400EAFC44 /* Streams */ = {
 			isa = PBXGroup;
 			children = (
+				56049B612106EBD300EAFC44 /* TStreamProtocol.swift */,
+				56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */,
 				561C842E210AC56D001D28DB /* Xcode console */,
 				563113912109874200BC84AF /* OSLog */,
-				56049B612106EBD300EAFC44 /* TStreamProtocol.swift */,
-				56049B6B2106FE0900EAFC44 /* TBaseQueuedStream.swift */,
 			);
 			path = Streams;
 			sourceTree = "<group>";
@@ -265,8 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				56049B652106EFC600EAFC44 /* TLogFormatter.swift */,
-				56C69553210E761C002E7F2D /* TLogToStringFormatter.swift */,
-				56C69558210E7689002E7F2D /* TLogToJSONFormatter.swift */,
+				56C69553210E761C002E7F2D /* TLogStringFormatter.swift */,
+				56C69558210E7689002E7F2D /* TLogJSONDataFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -291,10 +319,20 @@
 		567A95C2211770C50026383F /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				5665F18E21166B5B00D603FF /* TLogDefaultStringFormatterTests.swift */,
-				567A95BA211762FF0026383F /* TLogDefaultJSONFormatterTests.swift */,
+				5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */,
+				567A95BA211762FF0026383F /* TLogToJSONConverterTests.swift */,
+				56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		56FB64F2211D519A00BA00D6 /* OSLog */ = {
+			isa = PBXGroup;
+			children = (
+				56FB64F3211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift */,
+				56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */,
+			);
+			path = OSLog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,17 +617,17 @@
 			files = (
 				568D38C021083A1D00BFBF48 /* Tambo.swift in Sources */,
 				56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */,
-				56C69554210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
+				56C69554210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
 				568D38C221084F5400BFBF48 /* Utility.swift in Sources */,
 				56049B602106E86A00EAFC44 /* TLogLevel.swift in Sources */,
 				56049B622106EBD300EAFC44 /* TStreamProtocol.swift in Sources */,
-				56C69559210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C69559210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
+				56BA605E211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
 				56C6954E210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */,
 				56049B5D2106E7F300EAFC44 /* TLog.swift in Sources */,
 				56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */,
-				56049B6C2106FE0900EAFC44 /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,11 +635,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FB6500211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */,
+				56BA6063211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */,
 				567A95B721175CB80026383F /* TLogTests.swift in Sources */,
+				56FB64F8211D546500BA00D6 /* TStreamProtocolTests.swift in Sources */,
 				56049B432106DEE100EAFC44 /* TamboTests.swift in Sources */,
-				567A95BB211762FF0026383F /* TLogDefaultJSONFormatterTests.swift in Sources */,
-				5665F18F21166B5B00D603FF /* TLogDefaultStringFormatterTests.swift in Sources */,
-				563113952109970700BC84AF /* DictionaryUtilsTests.swift in Sources */,
+				56FB64FC211D578000BA00D6 /* TamboMocks.swift in Sources */,
+				567A95BB211762FF0026383F /* TLogToJSONConverterTests.swift in Sources */,
+				56D18F302122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */,
+				56FB64F4211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift in Sources */,
+				5665F18F21166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */,
+				563113952109970700BC84AF /* UtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,17 +655,17 @@
 			files = (
 				561C842C210ABA60001D28DB /* Tambo.swift in Sources */,
 				561C8428210ABA60001D28DB /* TOSLogStream.swift in Sources */,
-				56C69557210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
+				56C69557210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
 				561C842D210ABA60001D28DB /* Utility.swift in Sources */,
 				561C842A210ABA60001D28DB /* TStreamProtocol.swift in Sources */,
 				561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */,
-				56C6955C210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C6955C210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
+				56BA6061211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
 				56C69551210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8433210AC703001D28DB /* TConsoleStream.swift in Sources */,
 				561C8425210ABA4F001D28DB /* TLogFormatter.swift in Sources */,
 				561C8429210ABA60001D28DB /* TOSLogLevelMapping.swift in Sources */,
 				561C8426210ABA53001D28DB /* TLog.swift in Sources */,
-				561C842B210ABA60001D28DB /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,11 +673,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FB6502211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */,
+				56BA6065211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */,
 				567A95B921175CB80026383F /* TLogTests.swift in Sources */,
+				56FB64FA211D546500BA00D6 /* TStreamProtocolTests.swift in Sources */,
 				561C8423210AB9AE001D28DB /* TamboTests.swift in Sources */,
-				567A95BD211762FF0026383F /* TLogDefaultJSONFormatterTests.swift in Sources */,
-				5665F19121166B5B00D603FF /* TLogDefaultStringFormatterTests.swift in Sources */,
-				561C8424210AB9B2001D28DB /* DictionaryUtilsTests.swift in Sources */,
+				56FB64FE211D578000BA00D6 /* TamboMocks.swift in Sources */,
+				567A95BD211762FF0026383F /* TLogToJSONConverterTests.swift in Sources */,
+				56D18F322122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */,
+				56FB64F6211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift in Sources */,
+				5665F19121166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */,
+				561C8424210AB9B2001D28DB /* UtilsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,17 +693,17 @@
 			files = (
 				56AC710B2109A66A00FF04BB /* Tambo.swift in Sources */,
 				56AC71022109A65900FF04BB /* TOSLogStream.swift in Sources */,
-				56C69555210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
+				56C69555210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
 				56AC710D2109A66E00FF04BB /* Utility.swift in Sources */,
 				56AC71062109A66200FF04BB /* TStreamProtocol.swift in Sources */,
 				56AC71002109A65300FF04BB /* TLogLevel.swift in Sources */,
-				56C6955A210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C6955A210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
+				56BA605F211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
 				56C6954F210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8431210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56AC70FC2109A64A00FF04BB /* TLogFormatter.swift in Sources */,
 				56AC71042109A65D00FF04BB /* TOSLogLevelMapping.swift in Sources */,
 				56AC70FE2109A64F00FF04BB /* TLog.swift in Sources */,
-				56AC71082109A66600FF04BB /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,17 +713,17 @@
 			files = (
 				56AC710A2109A66900FF04BB /* Tambo.swift in Sources */,
 				56AC71032109A65A00FF04BB /* TOSLogStream.swift in Sources */,
-				56C69556210E761C002E7F2D /* TLogToStringFormatter.swift in Sources */,
+				56C69556210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
 				56AC710C2109A66D00FF04BB /* Utility.swift in Sources */,
 				56AC71072109A66200FF04BB /* TStreamProtocol.swift in Sources */,
 				56AC71012109A65400FF04BB /* TLogLevel.swift in Sources */,
-				56C6955B210E7689002E7F2D /* TLogToJSONFormatter.swift in Sources */,
+				56C6955B210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
+				56BA6060211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
 				56C69550210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8432210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56AC70FD2109A64B00FF04BB /* TLogFormatter.swift in Sources */,
 				56AC71052109A65E00FF04BB /* TOSLogLevelMapping.swift in Sources */,
 				56AC70FF2109A64F00FF04BB /* TLog.swift in Sources */,
-				56AC71092109A66600FF04BB /* TBaseQueuedStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,10 +731,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FB6501211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */,
+				56BA6064211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */,
 				567A95B821175CB80026383F /* TLogTests.swift in Sources */,
-				56AC71112109A68C00FF04BB /* DictionaryUtilsTests.swift in Sources */,
-				567A95BC211762FF0026383F /* TLogDefaultJSONFormatterTests.swift in Sources */,
-				5665F19021166B5B00D603FF /* TLogDefaultStringFormatterTests.swift in Sources */,
+				56FB64F9211D546500BA00D6 /* TStreamProtocolTests.swift in Sources */,
+				56AC71112109A68C00FF04BB /* UtilsTests.swift in Sources */,
+				56FB64FD211D578000BA00D6 /* TamboMocks.swift in Sources */,
+				567A95BC211762FF0026383F /* TLogToJSONConverterTests.swift in Sources */,
+				56D18F312122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */,
+				56FB64F5211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift in Sources */,
+				5665F19021166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */,
 				56AC71102109A68800FF04BB /* TamboTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

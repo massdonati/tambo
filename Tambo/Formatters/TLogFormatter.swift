@@ -8,34 +8,12 @@
 import Foundation
 
 /**
- These are the possible options to select a `LogFormatter`.
- - Tag: T.TLogFormatterOption
- */
-public enum TLogFormatterOption {
-    /**
-     [TLogDefaultStringFormatter](x-source-tag://T.TLogDefaultStringFormatter)
-     will be used.
-     */
-    case defaultString
-
-    case defaultJSON
-
-    /**
-     A custom user-defined formatter.
-     *USE*:
-     ```
-     let myFormatterOpt: TLogFormatterOption = .custom(MyFormatter())
-     ```
-     */
-    case custom(TLogFormatterProtocol)
-}
-
-/**
  Defines a public interface that every user-defined formatter needs to
  conform to.
  - Tag: T.TLogFormatterProtocol
  */
 public protocol TLogFormatterProtocol {
+    associatedtype FormattedType
     /**
      Formats a [TLog](x-source-tag://T.TLog) object into anything.
      - parameter log: The TLog object that needs formatting.
@@ -45,8 +23,5 @@ public protocol TLogFormatterProtocol {
      - note: This function will be invoked right befor outputting the log
         from watever stream this message was invoked.
      */
-    func format(_ log: TLog) -> Any
-
-    /// The date formatter used to convert the log's date into a string.
-    var dateFormatter: DateFormatter {get set}
+    func format(_ log: TLog) -> FormattedType
 }

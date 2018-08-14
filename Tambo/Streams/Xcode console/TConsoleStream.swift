@@ -16,39 +16,28 @@ public enum TConsolePrintMode {
 }
 
 /// The Xcode console stream. It will output the logs to the Xcode console.
-public final class TConsoleStream: TBaseQueuedStream {
-    private let printMode: TConsolePrintMode
+public final class TConsoleStream: TStreamFormattable {
+    public var isAsync: Bool = true
+
+    public var identifier: String
+
+    public var outputLevel: TLogLevel
+
+    public var queue = DispatchQueue(label: "")
+
+    public var logFormatter = TLogStringFormatter()
+    private var printMode: TConsolePrintMode = .print
 
     public init(identifier: String,
-                formatterOption: TLogFormatterOption = .defaultString,
-                printMode: TConsolePrintMode = .print) {
+                printMode: TConsolePrintMode) {
         self.printMode = printMode
-        super.init(identifier: identifier, formatterOption: formatterOption)
+        self.identifier = identifier
+        outputLevel = .verbose
+        self.queue = streamQueue()
     }
-
-    /**
-     This stream will output the logs to the console either as a String.
-     - note: If `JSONSerialization.isValidJSONObject(formattedLog)` a
-        prettyPrinted string version will be printed to the console instead.
-     - seealso: [TStreamProtocol](x-source-tag://T.TStreamProtocol)
-     */
-    override public func output(log: TLog, formattedLog: Any) {
-        if let textMessage = formattedLog as? String {
-            print(message: textMessage)
-        }
-
-        guard JSONSerialization.isValidJSONObject(formattedLog) else {
-            print(message: String(describing: formattedLog))
-            return
-        }
-
-        if let jsonData = try? JSONSerialization.data(withJSONObject: formattedLog,
-                                                      options: .prettyPrinted) {
-            print(message: String(data: jsonData, encoding: .utf8) ?? "")
-        } else {
-            // just for safety.
-            print(message: String(describing: formattedLog))
-        }
+    
+    public func output(log: TLog, formattedLog: String) {
+        print(message: formattedLog)
     }
 
     private func print(message: String) {
