@@ -28,7 +28,7 @@ class TLogTests: XCTestCase {
                        message: { return "" },
                        threadName: "main",
                        functionName: "test()",
-                       fileName: "TLogTests",
+                       filePath: "TLogTests",
                        lineNumber: 24,
                        userInfo: userInfo)
 
@@ -53,7 +53,7 @@ class TLogTests: XCTestCase {
                        message: { return "" },
                        threadName: "main",
                        functionName: "test()",
-                       fileName: "TLogTests",
+                       filePath: "TLogTests",
                        lineNumber: 24,
                        userInfo: nil)
 

@@ -11,7 +11,7 @@ import Foundation
  Protocol for stream classes to conform to.
  - Tag: T.TStreamProtocol
  */
-public protocol TStreamProtocol: class {
+public protocol TStreamProtocol: TStreamFilterable {
 
     var isAsync: Bool {get set}
 
@@ -23,9 +23,6 @@ public protocol TStreamProtocol: class {
 
     /// The queue the base stream is serially dispatching to.
     var queue: DispatchQueue {get set}
-
-    /// Array of log filters to apply to messages before they're output
-//    var filters: [FilterProtocol]? { get set }
 
     /**
      Process the log details.
@@ -44,20 +41,9 @@ public protocol TStreamProtocol: class {
         false otherwise.
      */
     func isEnabled(for level: TLogLevel) -> Bool
-
-    /**
-     Applies the filters to determine if the log object should be processed.
-     - parameter log: The log object the stream should decide if it should be processed or not.
-     - returns: false if the log object can be discarded, true if the stream should process and output the log.
-     */
-    func should(process log: TLog) -> Bool
 }
 
 extension TStreamProtocol {
-
-    public func should(process log: TLog) -> Bool {
-        return true
-    }
 
     public func streamQueue(with q: DispatchQueue? = nil) -> DispatchQueue {
         return DispatchQueue(

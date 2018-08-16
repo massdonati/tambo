@@ -16,6 +16,7 @@ class JSONConverterMock: TLogToDictConversionProtocol {
 }
 
 class StreamMock: TStreamProtocol {
+    var filters: [FilterProtocol] = []
     var isAsync: Bool = true
     var identifier: String = ""
     var outputLevel: TLogLevel = .debug
@@ -33,6 +34,7 @@ class StreamMock: TStreamProtocol {
 }
 
 class FormattableStreamMock: TStreamFormattable {
+    var filters: [FilterProtocol] = []
     var logFormatter = FormatterMock()
     var isAsync: Bool = true
     var identifier: String = ""
@@ -60,6 +62,6 @@ let logMock = TLog(loggerID: "test",
                message: { return "" },
                threadName: "main",
                functionName: "",
-               fileName: "nil",
+               filePath: "nil",
                lineNumber: 0,
                userInfo: ["hello": "world"])

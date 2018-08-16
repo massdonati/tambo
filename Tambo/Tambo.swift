@@ -141,13 +141,12 @@ public final class Tambo {
 
     private func propagateLog(msgClosure: @escaping () -> Any,
                               level: TLogLevel,
-                              functionName: String = #function,
-                              filePath: String = #file,
-                              lineNumber: Int = #line,
+                              functionName: String,
+                              filePath: String,
+                              lineNumber: Int,
                               userInfo: [String: Any]?,
                               time: Date) {
 
-        let filename = Utility.filename(from: filePath) ?? "FILE_NAME_ERROR"
         let log = TLog(
             loggerID: self.identifier,
             level: level,
@@ -155,7 +154,7 @@ public final class Tambo {
             message: msgClosure,
             threadName: Utility.threadName(),
             functionName: functionName,
-            fileName: filename,
+            filePath: filePath,
             lineNumber: lineNumber,
             userInfo: userInfo
         )

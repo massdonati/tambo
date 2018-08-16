@@ -26,7 +26,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
         let message = "some message"
         let thread = "main"
         let function = "test()"
-        let file = "MainVC"
+        let filePath = "/proj/MainVC.swift"
         let line = 123
         let userInfo = ["one": self]
 
@@ -36,7 +36,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
                        message: { return message },
                        threadName: thread,
                        functionName: function,
-                       fileName: file,
+                       filePath: filePath,
                        lineNumber: line,
                        userInfo: userInfo)
 
@@ -60,7 +60,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
                        message: { return "message" },
                        threadName: "thread",
                        functionName: "function",
-                       fileName: "file",
+                       filePath: "/proj/file.swift",
                        lineNumber: 12,
                        userInfo: nil)
 

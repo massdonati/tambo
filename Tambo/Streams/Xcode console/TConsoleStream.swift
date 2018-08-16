@@ -17,14 +17,11 @@ public enum TConsolePrintMode {
 
 /// The Xcode console stream. It will output the logs to the Xcode console.
 public final class TConsoleStream: TStreamFormattable {
+    public var filters: [FilterProtocol] = []
     public var isAsync: Bool = true
-
     public var identifier: String
-
     public var outputLevel: TLogLevel
-
     public var queue = DispatchQueue(label: "")
-
     public var logFormatter = TLogStringFormatter()
     private var printMode: TConsolePrintMode = .print
 

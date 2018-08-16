@@ -43,8 +43,13 @@ public struct TLog {
     /// The name of the function that generated this log.
     public let functionName: String
 
-    /// The name of the file the function exists in.
-    public let fileName: String
+    /// The name of the file the log was generated from, computed from the filePath.
+    public var fileName: String {
+        return Utility.filename(from: filePath) ?? ""
+    }
+
+    /// The full path of the file the log was generated from.
+    public let filePath: String
 
     /// The line number that generated this log.
     public let lineNumber: Int

@@ -32,7 +32,7 @@ class TLogToJSONConverterTests: XCTestCase {
         let message = "some message"
         let thread = "main"
         let function = "test()"
-        let file = "MainVC"
+        let filePath = "/proj/MainVC.swift"
         let line = 123
 
         let log = TLog(loggerID: loggerId,
@@ -41,11 +41,12 @@ class TLogToJSONConverterTests: XCTestCase {
                        message: { return message },
                        threadName: thread,
                        functionName: function,
-                       fileName: file,
+                       filePath: filePath,
                        lineNumber: line,
                        userInfo: nil)
 
         let jsonDict = converter.dictionary(from: log)
+        let fileName = Utility.filename(from: filePath)
 
         XCTAssertEqual((jsonDict["logger_id"] as! String), loggerId)
         XCTAssertEqual((jsonDict["level"] as! String), level)
@@ -54,7 +55,7 @@ class TLogToJSONConverterTests: XCTestCase {
         XCTAssertEqual((jsonDict["message"] as! String), message)
         XCTAssertEqual((jsonDict["thread"] as! String), thread)
         XCTAssertEqual((jsonDict["function"] as! String), function)
-        XCTAssertEqual((jsonDict["file"] as! String), file)
+        XCTAssertEqual((jsonDict["file"] as! String), fileName)
         XCTAssertEqual((jsonDict["line"] as! Int), line)
     }
 
@@ -65,7 +66,7 @@ class TLogToJSONConverterTests: XCTestCase {
         let message = "some message"
         let thread = "main"
         let function = "test()"
-        let file = "MainVC"
+        let filePath = "/proj/MainVC.swift"
         let line = 123
         let userInfo = ["one": self]
 
@@ -75,11 +76,12 @@ class TLogToJSONConverterTests: XCTestCase {
                        message: { return message },
                        threadName: thread,
                        functionName: function,
-                       fileName: file,
+                       filePath: filePath,
                        lineNumber: line,
                        userInfo: userInfo)
 
         let jsonDict = converter.dictionary(from: log)
+        let fileName = Utility.filename(from: filePath)
 
         XCTAssertEqual((jsonDict["logger_id"] as! String), loggerId)
         XCTAssertEqual((jsonDict["level"] as! String), level)
@@ -88,7 +90,7 @@ class TLogToJSONConverterTests: XCTestCase {
         XCTAssertEqual((jsonDict["message"] as! String), message)
         XCTAssertEqual((jsonDict["thread"] as! String), thread)
         XCTAssertEqual((jsonDict["function"] as! String), function)
-        XCTAssertEqual((jsonDict["file"] as! String), file)
+        XCTAssertEqual((jsonDict["file"] as! String), fileName)
         XCTAssertEqual((jsonDict["line"] as! Int), line)
 
         XCTAssertEqual((jsonDict["user_info"] as! [String: String]),
