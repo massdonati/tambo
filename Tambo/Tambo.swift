@@ -10,8 +10,9 @@ import Foundation
 /**
  Tambo is the main class that the user will use to start logging.
  It provides two ways to log:
-    1. A `default`, singleton, logger instance to start logging right away
-    2. An instantiatable logger instance for fine grane control.
+    1. A `default`, singleton, logger instance with a console stream already
+        cofigured in it.
+    2. Create a Tambo instance.
  */
 public final class Tambo {
     private(set) var identifier: String
@@ -139,13 +140,14 @@ public final class Tambo {
         )
     }
 
-    private func propagateLog(msgClosure: @escaping () -> Any,
-                              level: TLogLevel,
-                              functionName: String,
-                              filePath: String,
-                              lineNumber: Int,
-                              userInfo: [String: Any]?,
-                              time: Date) {
+    private func propagateLog(
+        msgClosure: @escaping () -> Any,
+        level: TLogLevel,
+        functionName: String,
+        filePath: String,
+        lineNumber: Int,
+        userInfo: [String: Any]?,
+        time: Date) {
 
         let log = TLog(
             loggerID: self.identifier,
@@ -164,7 +166,7 @@ public final class Tambo {
                     let stream = streams[index]
                     guard
                         stream.isEnabled(for: level),
-                        stream.should(process: log)
+                        stream.should(filter: log) == false
                         else { return }
 
                     stream.process(log)

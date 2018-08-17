@@ -60,4 +60,18 @@ class TLogTests: XCTestCase {
         XCTAssertNoThrow(log.userInfoJSONString)
         XCTAssertNil(log.userInfoJSONString)
     }
+
+    func testEmptyFileName() {
+        let log = TLog(loggerID: "some.logger",
+                       level: .verbose,
+                       date: Date(),
+                       message: { return "" },
+                       threadName: "main",
+                       functionName: "test()",
+                       filePath: "",
+                       lineNumber: 24,
+                       userInfo: nil)
+
+        XCTAssertEqual(log.fileName, "")
+    }
 }

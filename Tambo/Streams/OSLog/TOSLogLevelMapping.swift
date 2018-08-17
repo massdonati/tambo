@@ -31,33 +31,36 @@ public enum TOSLogTypeMapper {
      and is not recommended unless you have a specific need for this.
      LogSeverity|OSLogType
      -----------|---------
-     `.verbose`|`.debug`
-     `.debug`|`.debug`
-     `.info`|`.default`
-     `.warning`|`.error`
-     `.error`|`.fault`
+     `.verbose` | `.debug`
+     `.debug`   | `.debug`
+     `.info`    | `.info`
+     `.warning` | `.error`
+     `.error`   | `.fault`
      */
     case `default`
 
     /** Uses a custom function to determine the `OSLogType` to use for each
      `LogEntry`. */
     case function((TLogLevel) -> OSLogType)
-}
 
-extension TOSLogTypeMapper {
+    /**
+     Maps Tambo `TLog`s levels into `OSLogType`s.
+     - parameter level: The TLogLevel to be mapped.
+     - returns: The corresponding OSLogType.
+     */
     internal func osLogType(for level: TLogLevel) -> OSLogType {
         switch self {
         case .default:
                 switch level {
                 case .verbose: return .debug
                 case .debug: return .debug
-                case .info: return .default
+                case .info: return .info
                 case .warning: return .error
                 case .error: return .fault
                 }
 
-        case .function(let slLevelMapper):
-            return slLevelMapper(level)
+        case .function(let mapperFunc):
+            return mapperFunc(level)
         }
     }
 }

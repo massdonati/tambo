@@ -11,7 +11,7 @@ import Foundation
  Protocol for stream classes to conform to.
  - Tag: T.TStreamProtocol
  */
-public protocol TStreamProtocol: TStreamFilterable {
+public protocol TStreamProtocol: TLogFilterer {
 
     var isAsync: Bool {get set}
 
@@ -49,7 +49,7 @@ extension TStreamProtocol {
         return DispatchQueue(
             label: "com.tambo.stream.\(identifier)",
             qos: .background,
-            target: queue
+            target: q
         )
     }
 
