@@ -98,9 +98,9 @@ class TamboTests: XCTestCase {
                 """)
         }
         var shouldProcessClosureCalled = false
-        mockStream.shouldProcessClosure = { _ in
+        mockStream.shouldFilterClosure = { _ in
             shouldProcessClosureCalled = true
-            return false
+            return true
         }
 
         logger.verbose(message, userInfo: userinfo)

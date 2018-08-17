@@ -16,6 +16,13 @@
 		56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatter.swift */; };
 		56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
 		56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
+		56128DE521251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
+		56128DE621251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
+		56128DE721251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
+		56128DE821251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
+		56128DEB2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */; };
+		56128DEC2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */; };
+		56128DED2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */; };
 		561C8415210AB959001D28DB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561C840C210AB959001D28DB /* Tambo.framework */; };
 		561C8423210AB9AE001D28DB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
 		561C8424210AB9B2001D28DB /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* UtilsTests.swift */; };
@@ -135,6 +142,8 @@
 		56049B652106EFC600EAFC44 /* TLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFormatter.swift; sourceTree = "<group>"; };
 		56049B672106F1FC00EAFC44 /* TOSLogStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogStream.swift; sourceTree = "<group>"; };
 		56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogLevelMapping.swift; sourceTree = "<group>"; };
+		56128DE421251C2B00AD89B1 /* TLogFilterer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFilterer.swift; sourceTree = "<group>"; };
+		56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFiltererTests.swift; sourceTree = "<group>"; };
 		561C840C210AB959001D28DB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C8414210AB959001D28DB /* Tambo macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C842F210AC594001D28DB /* TConsoleStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TConsoleStream.swift; sourceTree = "<group>"; };
@@ -243,8 +252,9 @@
 			children = (
 				56049B372106DEE100EAFC44 /* Tambo.h */,
 				56049B382106DEE100EAFC44 /* Info.plist */,
-				56049B642106EFAF00EAFC44 /* Formatters */,
 				56049B5E2106E81300EAFC44 /* Models */,
+				56049B642106EFAF00EAFC44 /* Formatters */,
+				56128DE9212538E300AD89B1 /* Filters */,
 				56049B632106EF6400EAFC44 /* Streams */,
 				568D38BF21083A1D00BFBF48 /* Tambo.swift */,
 				568D38C121084F5400BFBF48 /* Utility.swift */,
@@ -265,6 +275,7 @@
 				56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */,
 				56FB64FB211D578000BA00D6 /* TamboMocks.swift */,
 				56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */,
+				56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */,
 			);
 			path = TamboTests;
 			sourceTree = "<group>";
@@ -297,6 +308,14 @@
 				56C69558210E7689002E7F2D /* TLogJSONDataFormatter.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		56128DE9212538E300AD89B1 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				56128DE421251C2B00AD89B1 /* TLogFilterer.swift */,
+			);
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		561C842E210AC56D001D28DB /* Xcode console */ = {
@@ -623,6 +642,7 @@
 				56049B622106EBD300EAFC44 /* TStreamProtocol.swift in Sources */,
 				56C69559210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
 				56BA605E211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
+				56128DE521251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
 				56C6954E210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */,
@@ -635,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56128DEB2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */,
 				56FB6500211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */,
 				56BA6063211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */,
 				567A95B721175CB80026383F /* TLogTests.swift in Sources */,
@@ -661,6 +682,7 @@
 				561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */,
 				56C6955C210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
 				56BA6061211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
+				56128DE821251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
 				56C69551210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8433210AC703001D28DB /* TConsoleStream.swift in Sources */,
 				561C8425210ABA4F001D28DB /* TLogFormatter.swift in Sources */,
@@ -673,6 +695,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56128DED2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */,
 				56FB6502211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */,
 				56BA6065211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */,
 				567A95B921175CB80026383F /* TLogTests.swift in Sources */,
@@ -699,6 +722,7 @@
 				56AC71002109A65300FF04BB /* TLogLevel.swift in Sources */,
 				56C6955A210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
 				56BA605F211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
+				56128DE621251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
 				56C6954F210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8431210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56AC70FC2109A64A00FF04BB /* TLogFormatter.swift in Sources */,
@@ -719,6 +743,7 @@
 				56AC71012109A65400FF04BB /* TLogLevel.swift in Sources */,
 				56C6955B210E7689002E7F2D /* TLogJSONDataFormatter.swift in Sources */,
 				56BA6060211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
+				56128DE721251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
 				56C69550210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8432210AC594001D28DB /* TConsoleStream.swift in Sources */,
 				56AC70FD2109A64B00FF04BB /* TLogFormatter.swift in Sources */,
@@ -731,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56128DEC2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */,
 				56FB6501211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */,
 				56BA6064211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */,
 				567A95B821175CB80026383F /* TLogTests.swift in Sources */,
