@@ -17,14 +17,11 @@ public enum TConsolePrintMode {
 
 /// The Xcode console stream. It will output the logs to the Xcode console.
 public final class TConsoleStream: TStreamFormattable {
+    public let filters: TThreadProtector<[TFilterClosure]>
     public var isAsync: Bool = true
-
     public var identifier: String
-
     public var outputLevel: TLogLevel
-
     public var queue = DispatchQueue(label: "")
-
     public var logFormatter = TLogStringFormatter()
     private var printMode: TConsolePrintMode = .print
 
@@ -33,17 +30,18 @@ public final class TConsoleStream: TStreamFormattable {
         self.printMode = printMode
         self.identifier = identifier
         outputLevel = .verbose
+        filters = TThreadProtector<[TFilterClosure]>([])
         self.queue = streamQueue()
     }
     
     public func output(log: TLog, formattedLog: String) {
-        print(message: formattedLog)
+        tamboPrint(message: formattedLog)
     }
 
-    private func print(message: String) {
+    private func tamboPrint(message: String) {
         switch printMode {
         case .print:
-            Swift.print(message)
+            print(message)
         case .nsLog:
             NSLog("%@", message)
         }

@@ -16,23 +16,25 @@ class JSONConverterMock: TLogToDictConversionProtocol {
 }
 
 class StreamMock: TStreamProtocol {
+    var filters = TThreadProtector<[TFilterClosure]>([])
     var isAsync: Bool = true
     var identifier: String = ""
     var outputLevel: TLogLevel = .debug
     var queue: DispatchQueue = DispatchQueue(label: "")
     var processClosure: ((TLog) -> Void)? = nil
-    var shouldProcessClosure: ((TLog) -> Bool)? = nil
+    var shouldFilterClosure: ((TLog) -> Bool)? = nil
 
     func process(_ log: TLog) {
         processClosure?(log)
     }
 
-    func should(process log: TLog) -> Bool {
-        return shouldProcessClosure?(log) ?? true
+    public func should(filter log: TLog) -> Bool {
+        return shouldFilterClosure?(log) ?? false
     }
 }
 
 class FormattableStreamMock: TStreamFormattable {
+    var filters = TThreadProtector<[TFilterClosure]>([])
     var logFormatter = FormatterMock()
     var isAsync: Bool = true
     var identifier: String = ""
@@ -60,6 +62,6 @@ let logMock = TLog(loggerID: "test",
                message: { return "" },
                threadName: "main",
                functionName: "",
-               fileName: "nil",
+               filePath: "nil",
                lineNumber: 0,
                userInfo: ["hello": "world"])

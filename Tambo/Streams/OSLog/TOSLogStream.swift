@@ -14,16 +14,12 @@ import os
  - important: everything logged by this stream will use the "{public}@" format.
  */
 public final class TOSLogStream: TStreamFormattable {
+    public let filters: TThreadProtector<[TFilterClosure]>
     public var isAsync: Bool = true
-
     public var identifier: String
-
     public var outputLevel: TLogLevel = .verbose
-
     public var queue: DispatchQueue = DispatchQueue(label: "")
-
     public var logFormatter = TLogStringFormatter()
-
     let osLog: OSLog
     let mapping: TOSLogTypeMapper
 
@@ -51,6 +47,7 @@ public final class TOSLogStream: TStreamFormattable {
         self.identifier = identifier
         osLog = OSLog(subsystem: subsystem, category: category)
         self.mapping = mapping
+        filters = TThreadProtector<[TFilterClosure]>([])
         self.queue = streamQueue(with: queue)
     }
     

@@ -36,7 +36,7 @@ class TLogStringFormatterTests: XCTestCase {
                        date: Date(),
                        message: { return ""},
                        threadName: "main", functionName: "ciccio",
-                       fileName: "Ciccio.swift",
+                       filePath: "/proj/Ciccio.swift",
                        lineNumber: 12,
                        userInfo: ["ciccio": "ciccio"])
 
@@ -54,7 +54,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return "" },
                        threadName: "",
                        functionName: "",
-                       fileName: "nil",
+                       filePath: "nil",
                        lineNumber: 0,
                        userInfo: nil)
         let stringDate = formatter.dateFormatter.string(from: date)
@@ -77,7 +77,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return "" },
                        threadName: "",
                        functionName: "",
-                       fileName: "nil",
+                       filePath: "nil",
                        lineNumber: 0,
                        userInfo: nil)
 
@@ -100,7 +100,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return "" },
                        threadName: threadName,
                        functionName: "",
-                       fileName: "nil",
+                       filePath: "nil",
                        lineNumber: 0,
                        userInfo: nil)
 
@@ -125,7 +125,7 @@ class TLogStringFormatterTests: XCTestCase {
                            message: { return "" },
                            threadName: "main",
                            functionName: "",
-                           fileName: "nil",
+                           filePath: "nil",
                            lineNumber: 0,
                            userInfo: nil)
 
@@ -151,7 +151,7 @@ class TLogStringFormatterTests: XCTestCase {
                            message: { return "" },
                            threadName: "main",
                            functionName: "",
-                           fileName: "nil",
+                           filePath: "nil",
                            lineNumber: 0,
                            userInfo: nil)
 
@@ -168,6 +168,7 @@ class TLogStringFormatterTests: XCTestCase {
 
     func testFileNameOnly() {
         let fileName = "TamboViewController"
+        let filePath = "/proj/\(fileName).swift"
         formatter.logFormat = "F"
 
         let log = TLog(loggerID: "test",
@@ -176,7 +177,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return "" },
                        threadName: "main",
                        functionName: "",
-                       fileName: fileName,
+                       filePath: filePath,
                        lineNumber: 0,
                        userInfo: nil)
 
@@ -200,7 +201,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return "" },
                        threadName: "main",
                        functionName: functionName,
-                       fileName: "",
+                       filePath: "",
                        lineNumber: 0,
                        userInfo: nil)
 
@@ -224,7 +225,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return "" },
                        threadName: "main",
                        functionName: "",
-                       fileName: "",
+                       filePath: "",
                        lineNumber: lineNumber,
                        userInfo: nil)
 
@@ -248,7 +249,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return messageText },
                        threadName: "main",
                        functionName: "",
-                       fileName: "nil",
+                       filePath: "nil",
                        lineNumber: 0,
                        userInfo: nil)
 
@@ -272,7 +273,7 @@ class TLogStringFormatterTests: XCTestCase {
                        message: { return userInfo },
                        threadName: "main",
                        functionName: "",
-                       fileName: "nil",
+                       filePath: "nil",
                        lineNumber: 0,
                        userInfo: userInfo)
 

@@ -26,7 +26,7 @@ class TOSLogTypeMapperTests: XCTestCase {
 
         XCTAssertEqual(defaultMapping.osLogType(for: .verbose), .debug)
         XCTAssertEqual(defaultMapping.osLogType(for: .debug), .debug)
-        XCTAssertEqual(defaultMapping.osLogType(for: .info), .default)
+        XCTAssertEqual(defaultMapping.osLogType(for: .info), .info)
         XCTAssertEqual(defaultMapping.osLogType(for: .warning), .error)
         XCTAssertEqual(defaultMapping.osLogType(for: .error), .fault)
 
