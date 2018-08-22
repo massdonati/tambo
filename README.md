@@ -4,4 +4,4 @@
 
 
 
-Tambo is a versatile and logging framework. 
+Tambo is a versatile logging framework currently in development.
