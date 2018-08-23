@@ -151,6 +151,7 @@
 		5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogStringFormatterTests.swift; sourceTree = "<group>"; };
 		567A95B621175CB80026383F /* TLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogTests.swift; sourceTree = "<group>"; };
 		567A95BA211762FF0026383F /* TLogToJSONConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogToJSONConverterTests.swift; sourceTree = "<group>"; };
+		56863593212E589600131FBC /* Tambo.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Tambo.podspec; sourceTree = SOURCE_ROOT; };
 		568D38BF21083A1D00BFBF48 /* Tambo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tambo.swift; sourceTree = "<group>"; };
 		568D38C121084F5400BFBF48 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		56AC70D72109A52E00FF04BB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +251,7 @@
 		56049B362106DEE100EAFC44 /* Tambo */ = {
 			isa = PBXGroup;
 			children = (
+				56863593212E589600131FBC /* Tambo.podspec */,
 				56049B372106DEE100EAFC44 /* Tambo.h */,
 				56049B382106DEE100EAFC44 /* Info.plist */,
 				56049B5E2106E81300EAFC44 /* Models */,

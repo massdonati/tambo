@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Tambo"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Logging framework for linux and Apple platforms."
 
   # This description is used to generate tags and improve search results.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = "3.0"
   s.tvos.deployment_target = "10.0"
   s.osx.deployment_target = "10.12"
-  s.source       = { :git => "https://github.com/massdonati/tambo.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/massdonati/tambo.git", :tag => "0.0.2" }
   s.source_files  = 'Tambo/***/**/*.swift', 'Tambo/*.swift'
   s.swift_version = "4.1"
 end
