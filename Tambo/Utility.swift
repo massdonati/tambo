@@ -77,3 +77,6 @@ public class TThreadProtector<T> {
         return closure(&resource)
     }
 }
+
+
+
