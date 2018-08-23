@@ -21,7 +21,7 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testDefaultFormatString() {
-        XCTAssertEqual(formatter.logFormat, "[D] [L] T S F.f:# - M\nC")
+        XCTAssertEqual(formatter.logFormat, "[D] [L] T S F:# f - M\nC")
         let format = "some string format"
         formatter = TLogStringFormatter(with: format)
         XCTAssertEqual(formatter.logFormat, format)

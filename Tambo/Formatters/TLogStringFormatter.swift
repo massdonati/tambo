@@ -24,7 +24,7 @@ public class TLogStringFormatter: TLogFormatterProtocol {
      [SLLogFormatKey](xc-source-tag://T.SLLogFormatKey)
      */
     public var logFormat = """
-        [D] [L] T S F.f:# - M
+        [D] [L] T S F:# f - M
         C
         """
 

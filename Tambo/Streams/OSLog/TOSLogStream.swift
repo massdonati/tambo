@@ -15,7 +15,7 @@ import os
  */
 public final class TOSLogStream: TStreamFormattable {
     static let defaultFormat = """
-        S F.f:# - M
+        S F:# f - M
         C
         """
     public let filters: TThreadProtector<[TFilterClosure]>
