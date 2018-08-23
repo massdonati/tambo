@@ -32,7 +32,8 @@ struct Utility {
      - note: This method will return nil if the path string is not a valid URL.
      */
     static func filename(from path: String, chopExtension: Bool = true) -> String? {
-        guard var url = URL(string: path) else { return nil }
+        guard path.isEmpty == false else { return nil }
+        var url = URL(fileURLWithPath: path)
         if chopExtension {
             url.deletePathExtension()
         }

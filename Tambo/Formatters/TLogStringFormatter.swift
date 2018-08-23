@@ -35,9 +35,12 @@ public class TLogStringFormatter: TLogFormatterProtocol {
     public var dateFormatter: DateFormatter
 
     /// Designated initializer.
-    public init() {
+    public init(with format: String? = nil) {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss.SSS"
+        if let format = format {
+            logFormat = format
+        }
     }
 
     /**

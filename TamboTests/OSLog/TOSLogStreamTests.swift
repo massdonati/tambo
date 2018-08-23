@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import Tambo
+@testable import Tambo
 
 class TOSLogStreamTests: XCTestCase {
 
@@ -22,8 +22,14 @@ class TOSLogStreamTests: XCTestCase {
         let osLogStream = TOSLogStream(identifier: "some_id",
                                        subsystem: "subsystem",
                                        category:"category")
-        Tambo.default.removeAllStreams()
-        Tambo.default.add(stream: osLogStream)
-        Tambo.default.debug("some debug message")
+
+        XCTAssertEqual(osLogStream.logFormatter.logFormat, TOSLogStream.defaultFormat)
+
+        let log = Tambo(identifier: "test-logger")
+
+
+        log.add(stream: osLogStream)
+        log.debug("some debug message")
+
     }
 }
