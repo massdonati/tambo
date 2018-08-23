@@ -24,7 +24,7 @@ public class TLogStringFormatter: TLogFormatterProtocol {
      [SLLogFormatKey](xc-source-tag://T.SLLogFormatKey)
      */
     public var logFormat = """
-        [D] [L] T S F.f:# - M
+        [D] [L] T S F:# f - M
         C
         """
 
@@ -35,9 +35,12 @@ public class TLogStringFormatter: TLogFormatterProtocol {
     public var dateFormatter: DateFormatter
 
     /// Designated initializer.
-    public init() {
+    public init(with format: String? = nil) {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss.SSS"
+        if let format = format {
+            logFormat = format
+        }
     }
 
     /**

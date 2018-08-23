@@ -54,6 +54,14 @@ class UtilsTests: XCTestCase {
         XCTAssertEqual(fileName4, "TOSLogStreamTests")
     }
 
+    func testFileNameFromPathWithSpaces() {
+        let fileName = "TOSLogStreamTests"
+        let invalidPath = "/Users/massimo/Projects/Tambo/Tambo Tests/OSLog/\(fileName).swift"
+        let fileName1 = Utility.filename(from: invalidPath)
+        XCTAssertNotNil(fileName1)
+        XCTAssertEqual(fileName, fileName1)
+    }
+
     func testThreadName() {
         XCTAssertEqual(Utility.threadName(), "main_thread")
 
