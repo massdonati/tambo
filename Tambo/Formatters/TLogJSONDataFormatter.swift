@@ -37,9 +37,9 @@ public class TLogToJSONConverter: TLogToDictConversionProtocol {
         json["file"] = log.fileName
         json["line"] = log.lineNumber
 
-        if var userInfo = log.userInfo {
-            userInfo.jsonify()
-            json["user_info"] = userInfo
+        if var ctx = log.context {
+            ctx.jsonify()
+            json["context"] = ctx
         }
 
         return json

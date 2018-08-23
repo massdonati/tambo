@@ -26,7 +26,7 @@ class TamboTests: XCTestCase {
         let mockStream = StreamMock()
         mockStream.outputLevel = .verbose
         logger.add(stream: mockStream)
-        let userinfo: TJSONType = ["some": "info", "test": self]
+        let context: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
         let exp = expectation(description: "Wait for the log to be processed")
@@ -34,14 +34,14 @@ class TamboTests: XCTestCase {
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .info)
             XCTAssertEqual(log.message() as! String, message)
-            XCTAssertEqual(log.userInfo!.keys.count, 2)
-            XCTAssertEqual(log.userInfo!["some"] as! String, "info")
-            XCTAssertEqual(log.userInfo!["test"] as! XCTestCase, self)
+            XCTAssertEqual(log.context!.keys.count, 2)
+            XCTAssertEqual(log.context!["some"] as! String, "info")
+            XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
             exp.fulfill()
         }
 
-        logger.info(message, userInfo: userinfo)
+        logger.info(message, context: context)
 
         waitForExpectations(timeout: 6) { error in
             guard let err = error else { return }
@@ -69,7 +69,7 @@ class TamboTests: XCTestCase {
                 """)
         }
 
-        logger.verbose(message, userInfo: userinfo)
+        logger.verbose(message, context: userinfo)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             exp.fulfill()
@@ -103,7 +103,7 @@ class TamboTests: XCTestCase {
             return true
         }
 
-        logger.verbose(message, userInfo: userinfo)
+        logger.verbose(message, context: userinfo)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             exp.fulfill()
@@ -131,14 +131,14 @@ class TamboTests: XCTestCase {
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .verbose)
             XCTAssertEqual(log.message() as! String, message)
-            XCTAssertEqual(log.userInfo!.keys.count, 2)
-            XCTAssertEqual(log.userInfo!["some"] as! String, "info")
-            XCTAssertEqual(log.userInfo!["test"] as! XCTestCase, self)
+            XCTAssertEqual(log.context!.keys.count, 2)
+            XCTAssertEqual(log.context!["some"] as! String, "info")
+            XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
             exp.fulfill()
         }
 
-        logger.verbose(message, userInfo: userinfo)
+        logger.verbose(message, context: userinfo)
 
         waitForExpectations(timeout: 6) { error in
             guard let err = error else { return }
@@ -162,14 +162,14 @@ class TamboTests: XCTestCase {
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .debug)
             XCTAssertEqual(log.message() as! String, message)
-            XCTAssertEqual(log.userInfo!.keys.count, 2)
-            XCTAssertEqual(log.userInfo!["some"] as! String, "info")
-            XCTAssertEqual(log.userInfo!["test"] as! XCTestCase, self)
+            XCTAssertEqual(log.context!.keys.count, 2)
+            XCTAssertEqual(log.context!["some"] as! String, "info")
+            XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
             exp.fulfill()
         }
 
-        logger.debug(message, userInfo: userinfo)
+        logger.debug(message, context: userinfo)
 
         waitForExpectations(timeout: 6) { error in
             guard let err = error else { return }
@@ -193,14 +193,14 @@ class TamboTests: XCTestCase {
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .info)
             XCTAssertEqual(log.message() as! String, message)
-            XCTAssertEqual(log.userInfo!.keys.count, 2)
-            XCTAssertEqual(log.userInfo!["some"] as! String, "info")
-            XCTAssertEqual(log.userInfo!["test"] as! XCTestCase, self)
+            XCTAssertEqual(log.context!.keys.count, 2)
+            XCTAssertEqual(log.context!["some"] as! String, "info")
+            XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
             exp.fulfill()
         }
 
-        logger.info(message, userInfo: userinfo)
+        logger.info(message, context: userinfo)
 
         waitForExpectations(timeout: 6) { error in
             guard let err = error else { return }
@@ -224,14 +224,14 @@ class TamboTests: XCTestCase {
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .warning)
             XCTAssertEqual(log.message() as! String, message)
-            XCTAssertEqual(log.userInfo!.keys.count, 2)
-            XCTAssertEqual(log.userInfo!["some"] as! String, "info")
-            XCTAssertEqual(log.userInfo!["test"] as! XCTestCase, self)
+            XCTAssertEqual(log.context!.keys.count, 2)
+            XCTAssertEqual(log.context!["some"] as! String, "info")
+            XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
             exp.fulfill()
         }
 
-        logger.warning(message, userInfo: userinfo)
+        logger.warning(message, context: userinfo)
 
         waitForExpectations(timeout: 6) { error in
             guard let err = error else { return }
@@ -255,14 +255,14 @@ class TamboTests: XCTestCase {
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .error)
             XCTAssertEqual(log.message() as! String, message)
-            XCTAssertEqual(log.userInfo!.keys.count, 2)
-            XCTAssertEqual(log.userInfo!["some"] as! String, "info")
-            XCTAssertEqual(log.userInfo!["test"] as! XCTestCase, self)
+            XCTAssertEqual(log.context!.keys.count, 2)
+            XCTAssertEqual(log.context!["some"] as! String, "info")
+            XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
             exp.fulfill()
         }
 
-        logger.error(message, userInfo: userinfo)
+        logger.error(message, context: userinfo)
 
         waitForExpectations(timeout: 6) { error in
             guard let err = error else { return }
@@ -283,7 +283,7 @@ class TamboTests: XCTestCase {
         logger.add(stream: consoleStream)
         DispatchQueue.concurrentPerform(iterations: 2) { _ in
             XCTAssertNoThrow(
-                logger.info("", userInfo: ["some": 2, "test": self]), """
+                logger.info("", context: ["some": 2, "test": self]), """
                 Placing `self` in the userInfo dictionary should not throw:
                 the conversation to JSON should convert `self` with the string
                 description i.e. "-[TamboTests testOSLogInfoLevel]".

@@ -21,7 +21,7 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testDefaultFormatString() {
-        XCTAssertEqual(formatter.logFormat, "[D] [L] T S F.f:# - M\nI")
+        XCTAssertEqual(formatter.logFormat, "[D] [L] T S F.f:# - M\nC")
     }
 
     func testDefaultDateFormatterFormat() {
@@ -38,7 +38,7 @@ class TLogStringFormatterTests: XCTestCase {
                        threadName: "main", functionName: "ciccio",
                        filePath: "/proj/Ciccio.swift",
                        lineNumber: 12,
-                       userInfo: ["ciccio": "ciccio"])
+                       context: ["ciccio": "ciccio"])
 
         _ = formatter.format(log)
 
@@ -56,7 +56,7 @@ class TLogStringFormatterTests: XCTestCase {
                        functionName: "",
                        filePath: "nil",
                        lineNumber: 0,
-                       userInfo: nil)
+                       context: nil)
         let stringDate = formatter.dateFormatter.string(from: date)
         let outString = formatter.format(log)
         XCTAssertEqual(stringDate, outString)
@@ -79,7 +79,7 @@ class TLogStringFormatterTests: XCTestCase {
                        functionName: "",
                        filePath: "nil",
                        lineNumber: 0,
-                       userInfo: nil)
+                       context: nil)
 
         let outString = formatter.format(log)
         XCTAssertEqual(loggerID, outString)
@@ -102,7 +102,7 @@ class TLogStringFormatterTests: XCTestCase {
                        functionName: "",
                        filePath: "nil",
                        lineNumber: 0,
-                       userInfo: nil)
+                       context: nil)
 
         let outString = formatter.format(log)
         XCTAssertEqual(threadName, outString)
@@ -127,7 +127,7 @@ class TLogStringFormatterTests: XCTestCase {
                            functionName: "",
                            filePath: "nil",
                            lineNumber: 0,
-                           userInfo: nil)
+                           context: nil)
 
             let outString = formatter.format(log)
             XCTAssertEqual(level.name, outString)
@@ -153,7 +153,7 @@ class TLogStringFormatterTests: XCTestCase {
                            functionName: "",
                            filePath: "nil",
                            lineNumber: 0,
-                           userInfo: nil)
+                           context: nil)
 
             let outString = formatter.format(log)
             XCTAssertEqual(level.symbol, outString)
@@ -179,7 +179,7 @@ class TLogStringFormatterTests: XCTestCase {
                        functionName: "",
                        filePath: filePath,
                        lineNumber: 0,
-                       userInfo: nil)
+                       context: nil)
 
         let outString = formatter.format(log)
         XCTAssertEqual(fileName, outString)
@@ -203,7 +203,7 @@ class TLogStringFormatterTests: XCTestCase {
                        functionName: functionName,
                        filePath: "",
                        lineNumber: 0,
-                       userInfo: nil)
+                       context: nil)
 
         let outString = formatter.format(log)
         XCTAssertEqual(functionName, outString)
@@ -227,7 +227,7 @@ class TLogStringFormatterTests: XCTestCase {
                        functionName: "",
                        filePath: "",
                        lineNumber: lineNumber,
-                       userInfo: nil)
+                       context: nil)
 
         let outString = formatter.format(log)
         XCTAssertEqual("\(lineNumber)", outString)
@@ -251,7 +251,7 @@ class TLogStringFormatterTests: XCTestCase {
                        functionName: "",
                        filePath: "nil",
                        lineNumber: 0,
-                       userInfo: nil)
+                       context: nil)
 
         let outString = formatter.format(log)
         XCTAssertEqual(messageText, outString)
@@ -264,26 +264,26 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testUserInfoOnly() {
-        let userInfo = ["one": 1]
-        formatter.logFormat = "I"
+        let context = ["one": 1]
+        formatter.logFormat = "C"
 
         let log = TLog(loggerID: "test",
                        level: .info,
                        date: Date(),
-                       message: { return userInfo },
+                       message: { return context },
                        threadName: "main",
                        functionName: "",
                        filePath: "nil",
                        lineNumber: 0,
-                       userInfo: userInfo)
+                       context: context)
 
         let outString = formatter.format(log)
-        XCTAssertEqual(log.userInfoJSONString, outString)
+        XCTAssertEqual(log.contextJSONString, outString)
 
         // test additional text
 
-        formatter.logFormat = "[I]"
+        formatter.logFormat = "[C]"
         let outStringTwo = formatter.format(log)
-        XCTAssertEqual("[\(log.userInfoJSONString!)]", outStringTwo)
+        XCTAssertEqual("[\(log.contextJSONString!)]", outStringTwo)
     }
 }

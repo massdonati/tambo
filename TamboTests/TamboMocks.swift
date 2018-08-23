@@ -64,4 +64,4 @@ let logMock = TLog(loggerID: "test",
                functionName: "",
                filePath: "nil",
                lineNumber: 0,
-               userInfo: ["hello": "world"])
+               context: ["hello": "world"])
