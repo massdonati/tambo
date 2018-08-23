@@ -20,8 +20,8 @@ class TLogTests: XCTestCase {
         super.tearDown()
     }
 
-    func testUserInfoJSONString() {
-        var userInfo: [String: Any] = ["test_instance": self, "val": 2]
+    func testcontextJSONString() {
+        var context: [String: Any] = ["test_instance": self, "val": 2]
         let log = TLog(loggerID: "some.logger",
                        level: .verbose,
                        date: Date(),
@@ -30,23 +30,23 @@ class TLogTests: XCTestCase {
                        functionName: "test()",
                        filePath: "TLogTests",
                        lineNumber: 24,
-                       userInfo: userInfo)
+                       context: context)
 
-        userInfo.jsonify()
-        XCTAssertNoThrow(try JSONSerialization.data(withJSONObject: userInfo,
+        context.jsonify()
+        XCTAssertNoThrow(try JSONSerialization.data(withJSONObject: context,
                                                     options: .prettyPrinted))
 
-        let jsonData = try! JSONSerialization.data(withJSONObject: userInfo,
+        let jsonData = try! JSONSerialization.data(withJSONObject: context,
                                                    options: .prettyPrinted)
 
         let expectedJSONString = String(data: jsonData, encoding: .utf8)!
 
-        XCTAssertNoThrow(log.userInfoJSONString)
-        let str = log.userInfoJSONString
+        XCTAssertNoThrow(log.contextJSONString)
+        let str = log.contextJSONString
         XCTAssertEqual(str, expectedJSONString)
     }
 
-    func testNilUserInfoJSONString() {
+    func testNilcontextJSONString() {
         let log = TLog(loggerID: "some.logger",
                        level: .verbose,
                        date: Date(),
@@ -55,10 +55,10 @@ class TLogTests: XCTestCase {
                        functionName: "test()",
                        filePath: "TLogTests",
                        lineNumber: 24,
-                       userInfo: nil)
+                       context: nil)
 
-        XCTAssertNoThrow(log.userInfoJSONString)
-        XCTAssertNil(log.userInfoJSONString)
+        XCTAssertNoThrow(log.contextJSONString)
+        XCTAssertNil(log.contextJSONString)
     }
 
     func testEmptyFileName() {
@@ -70,7 +70,7 @@ class TLogTests: XCTestCase {
                        functionName: "test()",
                        filePath: "",
                        lineNumber: 24,
-                       userInfo: nil)
+                       context: nil)
 
         XCTAssertEqual(log.fileName, "")
     }

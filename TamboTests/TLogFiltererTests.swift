@@ -18,7 +18,7 @@ class TLogFiltererTests: XCTestCase {
                        functionName: "",
                        filePath: "nil",
                        lineNumber: 0,
-                       userInfo: ["hello": "world"])
+                       context: ["hello": "world"])
 
     override func setUp() {
         filterableClass = FilterableClass()

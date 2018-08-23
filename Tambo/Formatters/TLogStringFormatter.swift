@@ -25,7 +25,7 @@ public class TLogStringFormatter: TLogFormatterProtocol {
      */
     public var logFormat = """
         [D] [L] T S F.f:# - M
-        I
+        C
         """
 
     /**
@@ -68,9 +68,9 @@ public class TLogStringFormatter: TLogFormatterProtocol {
                 outputString += log.fileName
             case SLLogFormatKey.line.rawValue:
                 outputString += String(describing: log.lineNumber)
-            case SLLogFormatKey.userInfo.rawValue:
-                if let userInfoString = log.userInfoJSONString {
-                    outputString += "\(userInfoString)"
+            case SLLogFormatKey.context.rawValue:
+                if let contextString = log.contextJSONString {
+                    outputString += "\(contextString)"
                 }
             default:
                 outputString += String(ch)
@@ -124,5 +124,5 @@ enum SLLogFormatKey: Character {
     case line = "#"
 
     /// Any additional metadata useful to give more context to the logs.
-    case userInfo = "I"
+    case context = "C"
 }

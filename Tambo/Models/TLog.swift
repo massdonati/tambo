@@ -55,7 +55,7 @@ public struct TLog {
     public let lineNumber: Int
 
     /// Dictionary to store useful metadata about the log.
-    public let userInfo: [String: Any]?
+    public let context: [String: Any]?
 
     /**
      Computed property to convert the userInfo dictionary into a `prettyPrinted`
@@ -63,12 +63,12 @@ public struct TLog {
      - note: Uses `JSONSerialization` under the hood but it doesn't `throw`
         eny exception thanks to the `jsonify` `Disctionary` extension method.
      */
-    public var userInfoJSONString: String? {
-        guard var uInfo = userInfo else { return nil }
+    public var contextJSONString: String? {
+        guard var info = context else { return nil }
 
-        uInfo.jsonify()
+        info.jsonify()
 
-        let data = try! JSONSerialization.data(withJSONObject: uInfo,
+        let data = try! JSONSerialization.data(withJSONObject: info,
                                                options: .prettyPrinted)
         return String(data: data, encoding: .utf8)
     }

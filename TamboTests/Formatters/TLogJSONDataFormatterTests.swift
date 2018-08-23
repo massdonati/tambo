@@ -28,7 +28,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
         let function = "test()"
         let filePath = "/proj/MainVC.swift"
         let line = 123
-        let userInfo = ["one": self]
+        let context = ["one": self]
 
         let log = TLog(loggerID: loggerId,
                        level: .debug,
@@ -38,7 +38,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
                        functionName: function,
                        filePath: filePath,
                        lineNumber: line,
-                       userInfo: userInfo)
+                       context: context)
 
         let jsonDict = TLogToJSONConverter().dictionary(from: log)
 
@@ -62,7 +62,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
                        functionName: "function",
                        filePath: "/proj/file.swift",
                        lineNumber: 12,
-                       userInfo: nil)
+                       context: nil)
 
         let jsonConverter = JSONConverterMock()
         let jsonDataFormatter = TLogJSONDataFormatter(with: jsonConverter)
@@ -77,7 +77,5 @@ class TLogJSONDataFormatterTests: XCTestCase {
         let jsonData = jsonDataFormatter.format(log)
 
         XCTAssertEqual(jsonData, expectedJsonData)
-
-
     }
 }

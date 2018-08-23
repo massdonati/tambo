@@ -50,7 +50,7 @@ public final class Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        userInfo: [String: Any]? = nil) {
+        context: [String: Any]? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -58,7 +58,7 @@ public final class Tambo {
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
-            userInfo: userInfo
+            context: context
         )
     }
 
@@ -67,7 +67,7 @@ public final class Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        userInfo: [String: Any]? = nil) {
+        context: [String: Any]? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -75,7 +75,7 @@ public final class Tambo {
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
-            userInfo: userInfo
+            context: context
         )
     }
 
@@ -84,7 +84,7 @@ public final class Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        userInfo: [String: Any]? = nil) {
+        context: [String: Any]? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -92,7 +92,7 @@ public final class Tambo {
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
-            userInfo: userInfo
+            context: context
         )
     }
 
@@ -101,7 +101,7 @@ public final class Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        userInfo: [String: Any]? = nil) {
+        context: [String: Any]? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -109,7 +109,7 @@ public final class Tambo {
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
-            userInfo: userInfo
+            context: context
         )
     }
 
@@ -118,7 +118,7 @@ public final class Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        userInfo: [String: Any]? = nil) {
+        context: [String: Any]? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -126,7 +126,7 @@ public final class Tambo {
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
-            userInfo: userInfo
+            context: context
         )
     }
 
@@ -136,7 +136,7 @@ public final class Tambo {
         functionName: String,
         filePath: String,
         lineNumber: Int,
-        userInfo: [String: Any]?,
+        context: [String: Any]?,
         time: Date = Date()) {
 
         let log = TLog(
@@ -148,7 +148,7 @@ public final class Tambo {
             functionName: functionName,
             filePath: filePath,
             lineNumber: lineNumber,
-            userInfo: userInfo
+            context: context
         )
         protectedStreams.read { streams in
             DispatchQueue

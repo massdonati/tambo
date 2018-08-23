@@ -43,7 +43,7 @@ class TLogToJSONConverterTests: XCTestCase {
                        functionName: function,
                        filePath: filePath,
                        lineNumber: line,
-                       userInfo: nil)
+                       context: nil)
 
         let jsonDict = converter.dictionary(from: log)
         let fileName = Utility.filename(from: filePath)
@@ -78,7 +78,7 @@ class TLogToJSONConverterTests: XCTestCase {
                        functionName: function,
                        filePath: filePath,
                        lineNumber: line,
-                       userInfo: userInfo)
+                       context: userInfo)
 
         let jsonDict = converter.dictionary(from: log)
         let fileName = Utility.filename(from: filePath)
@@ -93,7 +93,7 @@ class TLogToJSONConverterTests: XCTestCase {
         XCTAssertEqual((jsonDict["file"] as! String), fileName)
         XCTAssertEqual((jsonDict["line"] as! Int), line)
 
-        XCTAssertEqual((jsonDict["user_info"] as! [String: String]),
+        XCTAssertEqual((jsonDict["context"] as! [String: String]),
                        ["one": "-[TLogToJSONConverterTests testLogToJSONWithUserInfo]"])
     }
 }
