@@ -14,31 +14,43 @@ public protocol TLogToDictConversionProtocol {
 public class TLogToJSONConverter: TLogToDictConversionProtocol {
 
     /**
-     The date formatter to be used to produce the string value.
-     - note: The default one will format the date using `yyyy-MM-dd HH:mm:ss Z`.
+     The date formatter to be used to produce the string value of the log object's date.
      */
-    public var dateFormatter: DateFormatter
+    public let dateFormatter: DateFormatter
 
-    /// Designated initializer.
-    public init() {
-        dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+    /**
+     Convenience initializer.
+     - note: configures the dateFormatter to use `yyyy-MM-dd HH:mm:ss Z`.
+     */
+    public convenience init() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        self.init(dateFormatter: formatter)
+    }
+
+    /**
+     Designated initializer
+     - parameter dateFormatter: the date formatter to be used to format the timestamp
+        of the log object.
+     */
+    public init(dateFormatter: DateFormatter) {
+        self.dateFormatter = dateFormatter
     }
 
     public func dictionary(from log: TLog) -> TJSONType {
-        var json: TJSONType = [:]
-
-        json["logger_id"] = log.loggerID
-        json["level"] = log.level.name
-        json["date"] = dateFormatter.string(from: log.date)
-        json["message"] = log.message()
-        json["thread"] = log.threadName
-        json["function"] = log.functionName
-        json["file"] = log.fileName
-        json["line"] = log.lineNumber
+        var json: TJSONType = [
+            "logger_id": log.loggerID,
+            "level": log.level.name,
+            "date": dateFormatter.string(from: log.date),
+            "message": log.message(),
+            "thread": log.threadName,
+            "function": log.functionName,
+            "file": log.fileName,
+            "line": log.lineNumber
+        ]
 
         if var ctx = log.context {
-            ctx.jsonify()
+            ctx.makeJsonEncodable()
             json["context"] = ctx
         }
 
@@ -62,9 +74,9 @@ public class TLogJSONDataFormatter: TLogFormatterProtocol {
     public func format(_ log: TLog) -> Data {
         var logDict = logToDictConverter.dictionary(from: log)
         if !JSONSerialization.isValidJSONObject(logDict) {
-            logDict.jsonify()
+            logDict.makeJsonEncodable()
         }
 
-        return try! JSONSerialization.data(withJSONObject: logDict)
+        return try! JSONSerialization.data(withJSONObject: logDict, options: .sortedKeys)
     }
 }

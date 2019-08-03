@@ -21,32 +21,38 @@ class TLogJSONDataFormatterTests: XCTestCase {
     }
 
     func testLogToJSONObject() {
-        let loggerId = "logger_id"
-        let expectedDate = Date()
-        let message = "some message"
-        let thread = "main"
-        let function = "test()"
-        let filePath = "/proj/MainVC.swift"
-        let line = 123
-        let context = ["one": self]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        formatter = TLogJSONDataFormatter(
+            with: TLogToJSONConverter(dateFormatter: dateFormatter)
+        )
 
-        let log = TLog(loggerID: loggerId,
+        let logTimestamp = Date()
+        let log = TLog(loggerID: "logger_id",
                        level: .debug,
-                       date: expectedDate,
-                       message: { return message },
-                       threadName: thread,
-                       functionName: function,
-                       filePath: filePath,
-                       lineNumber: line,
-                       context: context)
+                       date: logTimestamp,
+                       message: { return "some message" },
+                       threadName: "main",
+                       functionName: "test()",
+                       filePath: "/proj/MainVC.swift",
+                       lineNumber: 123,
+                       context: ["one": self])
 
-        let jsonDict = TLogToJSONConverter().dictionary(from: log)
-
-        let expectedJsonData = try! JSONSerialization.data(withJSONObject: jsonDict)
+        let expectedJsonString = """
+            {"context":{"one":"-[TLogJSONDataFormatterTests testLogToJSONObject]"},\
+            "date":"\(dateFormatter.string(from: logTimestamp))",\
+            "file":"MainVC",\
+            "function":"test()",\
+            "level":"debug",\
+            "line":123,\
+            "logger_id":"logger_id",\
+            "message":"some message",\
+            "thread":"main"}
+            """
 
         let logData = formatter.format(log)
-
-        XCTAssertEqual(logData, expectedJsonData)
+        let logJSONSstring = String(data: logData, encoding: .utf8)!
+        XCTAssertEqual(logJSONSstring, expectedJsonString)
     }
 
     func testInvalidJSONObject() {
@@ -69,7 +75,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
 
         jsonConverter.jsonDict = invalidJSONObject
 
-        invalidJSONObject.jsonify()
+        invalidJSONObject.makeJsonEncodable()
 
         let expectedJsonData = try! JSONSerialization
             .data(withJSONObject: invalidJSONObject)

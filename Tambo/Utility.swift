@@ -41,14 +41,20 @@ struct Utility {
     }
 }
 
-extension Dictionary where Key : StringProtocol, Value : Any {
-    mutating func jsonify() {
-        for (key, value) in self {
-            if (JSONSerialization.isValidJSONObject(value) == false
-                && (value is Encodable) == false) {
+extension Dictionary where Key: StringProtocol, Value: Any {
 
-                self[key] = String(describing: value) as? Value
-            }
+    /**
+     Converts any values of self which is not encodable or not a valid json object to a
+     string discribing that value.
+     - note: the values which are already encodable or valid json objects will not be
+        modified.
+     */
+    mutating func makeJsonEncodable() {
+        forEach { (key, value) in
+            guard (JSONSerialization.isValidJSONObject(value) == false
+                && (value is Encodable) == false) else { return }
+
+            self[key] = String(describing: value) as? Value
         }
     }
 }
