@@ -103,6 +103,7 @@
 		56FB6500211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
 		56FB6501211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
 		56FB6502211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
+		7913E9AC22F6118900A05EBD /* TLog+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913E9AB22F6118900A05EBD /* TLog+Equatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,7 @@
 		56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamProtocolTests.swift; sourceTree = "<group>"; };
 		56FB64FB211D578000BA00D6 /* TamboMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboMocks.swift; sourceTree = "<group>"; };
 		56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamFormattableTests.swift; sourceTree = "<group>"; };
+		7913E9AB22F6118900A05EBD /* TLog+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TLog+Equatable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 			children = (
 				56049B5C2106E7F300EAFC44 /* TLog.swift */,
 				56049B5F2106E86A00EAFC44 /* TLogLevel.swift */,
+				7913E9AB22F6118900A05EBD /* TLog+Equatable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -528,11 +531,11 @@
 				TargetAttributes = {
 					56049B332106DEE100EAFC44 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1100;
 					};
 					56049B3C2106DEE100EAFC44 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1100;
 					};
 					561C840B210AB959001D28DB = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -562,6 +565,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 56049B2A2106DEE100EAFC44;
 			productRefGroup = 56049B352106DEE100EAFC44 /* Products */;
@@ -647,6 +651,7 @@
 				56128DE521251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
 				56C6954E210E7349002E7F2D /* TypeAliases.swift in Sources */,
 				561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */,
+				7913E9AC22F6118900A05EBD /* TLog+Equatable.swift in Sources */,
 				56049B662106EFC600EAFC44 /* TLogFormatter.swift in Sources */,
 				56049B5D2106E7F300EAFC44 /* TLog.swift in Sources */,
 				56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */,
@@ -938,7 +943,7 @@
 				PRODUCT_NAME = Tambo;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -964,7 +969,7 @@
 				PRODUCT_MODULE_NAME = Tambo;
 				PRODUCT_NAME = Tambo;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -982,7 +987,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1000,7 +1005,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

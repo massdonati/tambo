@@ -66,7 +66,7 @@ public struct TLog {
     public var contextJSONString: String? {
         guard var info = context else { return nil }
 
-        info.jsonify()
+        info.makeJsonEncodable()
 
         let data = try! JSONSerialization.data(withJSONObject: info,
                                                options: .prettyPrinted)
