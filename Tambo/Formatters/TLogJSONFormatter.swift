@@ -50,15 +50,29 @@ public class TLogToJSONConverter: TLogToDictConversionProtocol {
         ]
 
         if var ctx = log.context {
-            ctx.makeJsonEncodable()
+            ctx.makeValidJsonObject()
             json["context"] = ctx
         }
 
         return json
     }
+
+    public func string(from log: TLog,
+                       writingOption: JSONSerialization.WritingOptions = .sortedKeys) throws -> String {
+        var dict = dictionary(from: log)
+        dict.makeValidJsonObject()
+
+        let data = try JSONSerialization.data(withJSONObject: dict, options: writingOption)
+
+        guard let formattedString = String(data: data, encoding: .utf8) else {
+            throw "can't format log"
+        }
+
+        return formattedString
+    }
 }
 
-public class TLogJSONDataFormatter: TLogFormatterProtocol {
+public class TLogJSONFormatter: TLogFormatterProtocol {
     public typealias FormattedType = Data
     public var logToDictConverter: TLogToDictConversionProtocol
 
@@ -74,9 +88,13 @@ public class TLogJSONDataFormatter: TLogFormatterProtocol {
     public func format(_ log: TLog) -> Data {
         var logDict = logToDictConverter.dictionary(from: log)
         if !JSONSerialization.isValidJSONObject(logDict) {
-            logDict.makeJsonEncodable()
+            logDict.makeValidJsonObject()
         }
 
         return try! JSONSerialization.data(withJSONObject: logDict, options: .sortedKeys)
     }
+}
+
+extension String: LocalizedError {
+    public var errorDescription: String? { return self }
 }

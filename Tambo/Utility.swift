@@ -44,15 +44,13 @@ struct Utility {
 extension Dictionary where Key: StringProtocol, Value: Any {
 
     /**
-     Converts any values of self which is not encodable or not a valid json object to a
-     string discribing that value.
-     - note: the values which are already encodable or valid json objects will not be
-        modified.
-     */
-    mutating func makeJsonEncodable() {
+    Converts any values of self which is not a valid json object to a string discribing
+     that value.
+    - note: the values which are already valid json objects will not be modified.
+    */
+    mutating func makeValidJsonObject() {
         forEach { (key, value) in
-            guard (JSONSerialization.isValidJSONObject(value) == false
-                && (value is Encodable) == false) else { return }
+            guard JSONSerialization.isValidJSONObject(value) == false else { return }
 
             self[key] = String(describing: value) as? Value
         }
@@ -62,7 +60,8 @@ extension Dictionary where Key: StringProtocol, Value: Any {
 public class TThreadProtector<T> {
     private var resource: T
     private let recLock = NSRecursiveLock()
-    init(_ resource: T) {
+
+    public init(_ resource: T) {
         recLock.name = "TThreadProtector.recLock"
         self.resource = resource
     }

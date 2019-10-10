@@ -32,7 +32,7 @@ class TLogTests: XCTestCase {
                        lineNumber: 24,
                        context: context)
 
-        context.makeJsonEncodable()
+        context.makeValidJsonObject()
         XCTAssertNoThrow(try JSONSerialization.data(withJSONObject: context,
                                                     options: .prettyPrinted))
 

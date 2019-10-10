@@ -66,10 +66,14 @@ public struct TLog {
     public var contextJSONString: String? {
         guard var info = context else { return nil }
 
-        info.makeJsonEncodable()
+        info.makeValidJsonObject()
 
-        let data = try! JSONSerialization.data(withJSONObject: info,
-                                               options: .prettyPrinted)
-        return String(data: data, encoding: .utf8)
+        do {
+            let data = try JSONSerialization.data(withJSONObject: info,
+                                                  options: .prettyPrinted)
+            return String(data: data, encoding: .utf8)
+        } catch {
+            return nil
+        }
     }
 }

@@ -9,11 +9,11 @@ import XCTest
 @testable import Tambo
 
 class TLogJSONDataFormatterTests: XCTestCase {
-    var formatter: TLogJSONDataFormatter!
+    var formatter: TLogJSONFormatter!
 
     override func setUp() {
         super.setUp()
-        formatter = TLogJSONDataFormatter()
+        formatter = TLogJSONFormatter()
     }
 
     override func tearDown() {
@@ -23,7 +23,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
     func testLogToJSONObject() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        formatter = TLogJSONDataFormatter(
+        formatter = TLogJSONFormatter(
             with: TLogToJSONConverter(dateFormatter: dateFormatter)
         )
 
@@ -71,11 +71,11 @@ class TLogJSONDataFormatterTests: XCTestCase {
                        context: nil)
 
         let jsonConverter = JSONConverterMock()
-        let jsonDataFormatter = TLogJSONDataFormatter(with: jsonConverter)
+        let jsonDataFormatter = TLogJSONFormatter(with: jsonConverter)
 
         jsonConverter.jsonDict = invalidJSONObject
 
-        invalidJSONObject.makeJsonEncodable()
+        invalidJSONObject.makeValidJsonObject()
 
         let expectedJsonData = try! JSONSerialization
             .data(withJSONObject: invalidJSONObject)
