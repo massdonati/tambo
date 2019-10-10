@@ -50,10 +50,32 @@ extension Dictionary where Key: StringProtocol, Value: Any {
     */
     mutating func makeValidJsonObject() {
         forEach { (key, value) in
+
             guard JSONSerialization.isValidJSONObject(value) == false else { return }
 
-            self[key] = String(describing: value) as? Value
+            var validValue: Any = String(describing: value)
+
+            if let ancodedData = (value as? Encodable)?.toJSONData() {
+
+                do {
+                    validValue = try JSONSerialization.jsonObject(with: ancodedData, options: .allowFragments)
+                } catch {
+                    // print error
+                }
+            }
+            self[key] = validValue as? Value
         }
+    }
+}
+
+extension Encodable {
+    /**
+     Converts, if possible, the current encodable object into data using `JesonEncoder`
+     - returns: a json representation `Data` object of this object. nil if the encoding
+        faild
+     */
+    func toJSONData() -> Data? {
+        return try? JSONEncoder().encode(self)
     }
 }
 

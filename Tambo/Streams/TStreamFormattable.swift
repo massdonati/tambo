@@ -35,7 +35,7 @@ extension TStreamFormattable {
         if isAsync {
             queue.async(execute: processClosure)
         } else {
-            queue.sync(execute: processClosure)
+            processClosure()
         }
     }
 }
