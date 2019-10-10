@@ -12,10 +12,16 @@ import Foundation
  It provides two ways to log:
     1. A `default`, singleton, logger instance with a console stream already
         cofigured in it.
-    2. Create a Tambo instance.
+    2. Create a Tambo instance. In this case the user is also required to add the
+        appropriate [streams](x-source-tag://T.TStreamProtocol).
+ - note: Tambo already provides `TConsoleStream` and `TOSLogStream`
  */
 public final class Tambo {
     private(set) var identifier: String
+
+    /**
+     Default logger with `com.tambo.default.logger` as identifier
+     */
     static public var `default`: Tambo = {
         let logger = Tambo(identifier: "com.tambo.default.logger")
         let console = TConsoleStream(
@@ -28,10 +34,21 @@ public final class Tambo {
 
     private var protectedStreams = TThreadProtector([TStreamProtocol]())
 
+    /**
+     Designated initializer.
+     - parameter identifier: the "name" of the log object. a best practice is to name
+        your log instances with a reverse hostname format i.e. "com.tambo.default.logger"
+     */
     public init(identifier: String) {
         self.identifier = identifier
     }
 
+    /**
+     Adds the [stream](x-source-tag://T.TStreamProtocol) to the log streams.
+     - note: Although the framework doesn't enforce the streams to have unique identifiers
+        it is definitely a best practice in order to uniquely identify a where a log
+        message was generated from.
+     */
     public func add(stream: TStreamProtocol) {
         protectedStreams.write { streams in
             streams.append(stream)
@@ -45,6 +62,7 @@ public final class Tambo {
     }
 
     // MARK: - logging methods
+
     public func verbose(
         _ msgClosure: @autoclosure @escaping () -> Any,
         functionName: StaticString = #function,
@@ -129,6 +147,8 @@ public final class Tambo {
             context: context
         )
     }
+
+    // MARK: - Propagate log to streams
 
     private func propagateLog(
         msgClosure: @escaping () -> Any,

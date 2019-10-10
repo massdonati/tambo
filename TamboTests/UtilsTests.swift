@@ -24,7 +24,7 @@ class UtilsTests: XCTestCase {
         var invalidJSONDict: [String: Any] = ["key": self, "number": 2]
         XCTAssertFalse(JSONSerialization.isValidJSONObject(invalidJSONDict))
 
-        invalidJSONDict.makeJsonEncodable()
+        invalidJSONDict.makeValidJsonObject()
 
         XCTAssertTrue(JSONSerialization.isValidJSONObject(invalidJSONDict))
 

@@ -44,25 +44,46 @@ struct Utility {
 extension Dictionary where Key: StringProtocol, Value: Any {
 
     /**
-     Converts any values of self which is not encodable or not a valid json object to a
-     string discribing that value.
-     - note: the values which are already encodable or valid json objects will not be
-        modified.
-     */
-    mutating func makeJsonEncodable() {
+    Converts any values of self which is not a valid json object to a string discribing
+     that value.
+    - note: the values which are already valid json objects will not be modified.
+    */
+    mutating func makeValidJsonObject() {
         forEach { (key, value) in
-            guard (JSONSerialization.isValidJSONObject(value) == false
-                && (value is Encodable) == false) else { return }
 
-            self[key] = String(describing: value) as? Value
+            guard JSONSerialization.isValidJSONObject(value) == false else { return }
+
+            var validValue: Any = String(describing: value)
+
+            if let ancodedData = (value as? Encodable)?.toJSONData() {
+
+                do {
+                    validValue = try JSONSerialization.jsonObject(with: ancodedData, options: .allowFragments)
+                } catch {
+                    // print error
+                }
+            }
+            self[key] = validValue as? Value
         }
+    }
+}
+
+extension Encodable {
+    /**
+     Converts, if possible, the current encodable object into data using `JesonEncoder`
+     - returns: a json representation `Data` object of this object. nil if the encoding
+        faild
+     */
+    func toJSONData() -> Data? {
+        return try? JSONEncoder().encode(self)
     }
 }
 
 public class TThreadProtector<T> {
     private var resource: T
     private let recLock = NSRecursiveLock()
-    init(_ resource: T) {
+
+    public init(_ resource: T) {
         recLock.name = "TThreadProtector.recLock"
         self.resource = resource
     }
