@@ -71,7 +71,8 @@ public struct TLog {
         do {
             let data = try JSONSerialization.data(withJSONObject: info,
                                                   options: .prettyPrinted)
-            return String(data: data, encoding: .utf8)
+            return String(data: data, encoding: .utf8)?
+                .replacingOccurrences(of: "\\", with: "")
         } catch {
             return nil
         }
