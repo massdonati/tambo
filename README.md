@@ -1,6 +1,6 @@
 ![Tambo banner image](https://github.com/massdonati/tambo/raw/master/assets/Banner.jpg)
 
-![supported platforms](https://img.shields.io/badge/platforms-ios%20macOS%20tvOS%20watchOS-blue.svg?longCache=true&style=flat) ![programming language](https://img.shields.io/badge/swift-4.2-orange.svg?longCache=true&style=flat) ![cocoapod](https://img.shields.io/badge/cocoapods-supported-red.svg?longCache=true&style=flat) ![cocoapod](https://img.shields.io/badge/licence-MIT-green.svg?longCache=true&style=flat)
+![supported platforms](https://img.shields.io/badge/platforms-ios%20macOS%20tvOS%20watchOS-blue.svg?longCache=true&style=flat) ![programming language](https://img.shields.io/badge/swift-5-orange.svg?longCache=true&style=flat) ![cocoapod](https://img.shields.io/badge/cocoapods-supported-red.svg?longCache=true&style=flat) ![cocoapod](https://img.shields.io/badge/licence-MIT-green.svg?longCache=true&style=flat)
 
 
 
