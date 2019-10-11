@@ -53,6 +53,14 @@ extension Dictionary where Key: StringProtocol, Value: Any {
 
             guard JSONSerialization.isValidJSONObject(value) == false else { return }
 
+            /*
+             In case the value is a basic type i.e. an integer
+            `JSONSerialization.isValidJSONObject(value)` returns false
+             but JSONSerialization.isValidJSONObject([value]) returns true. we don't need
+             to do anything.
+             */
+            guard JSONSerialization.isValidJSONObject([value]) == false else { return }
+
             var validValue: Any = String(describing: value)
 
             if let ancodedData = (value as? Encodable)?.toJSONData() {
