@@ -941,7 +941,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tambo.Tambo;
 				PRODUCT_MODULE_NAME = Tambo;
 				PRODUCT_NAME = Tambo;
@@ -970,7 +970,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tambo.Tambo;
 				PRODUCT_MODULE_NAME = Tambo;
 				PRODUCT_NAME = Tambo;
@@ -1038,7 +1038,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tambo.Tambo-macOS";
 				PRODUCT_NAME = Tambo;
 				SDKROOT = macosx;
@@ -1067,7 +1067,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tambo.Tambo-macOS";
 				PRODUCT_NAME = Tambo;
 				SDKROOT = macosx;
@@ -1138,7 +1138,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tambo.Tambo-watchOS";
 				PRODUCT_NAME = Tambo;
 				SDKROOT = watchos;
@@ -1167,7 +1167,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tambo.Tambo-watchOS";
 				PRODUCT_NAME = Tambo;
 				SDKROOT = watchos;
@@ -1195,7 +1195,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tambo.Tambo-tvOS";
 				PRODUCT_NAME = Tambo;
 				SDKROOT = appletvos;
@@ -1223,7 +1223,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tambo.Tambo-tvOS";
 				PRODUCT_NAME = Tambo;
 				SDKROOT = appletvos;
