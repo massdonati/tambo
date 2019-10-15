@@ -30,32 +30,34 @@ public protocol TLogFilterer: class {
      - note: The default implementation will evaluate all the filters
         and reduce the result of each filter into a final decision.
      */
-    func should(filter log: TLog) -> Bool
+    func should(filterOut log: TLog) -> Bool
 
     /**
-     Helper method to to add a filter.
+     Helper method to add a filter.
      - parameter f: the filter to add to the list.
      */
-    func add(filter f: @escaping TFilterClosure)
+    func addFilterOutClosure(_ f: @escaping TFilterClosure)
 
     /// Removes all the filters currently in the list.
     func removeFilters()
 }
 
 extension TLogFilterer {
-    public func should(filter log: TLog) -> Bool {
+    public func should(filterOut log: TLog) -> Bool {
         return filters.read { (underlyingFilters) -> Bool in
             if underlyingFilters.isEmpty { return false }
 
             let result = underlyingFilters
-                .map { $0(log) }
-                .reduce(false) { $0 || $1 }
+                .map { $0(log) } // [true, false, false, ...]
+                .filter { $0 == true } // [true, true, true, ...] || []
+                // if the filtered array is not empty the log needs to be discarded
+                .isEmpty == false
 
             return result
         }
     }
 
-    public func add(filter f: @escaping TFilterClosure) {
+    public func addFilterOutClosure(_ f: @escaping TFilterClosure) {
         filters.write { filters in
             filters.append(f)
         }

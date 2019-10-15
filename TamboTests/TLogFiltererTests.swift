@@ -29,7 +29,7 @@ class TLogFiltererTests: XCTestCase {
     }
 
     func testNoFilters() {
-        let shouldIt = filterableClass.should(filter: logMock)
+        let shouldIt = filterableClass.should(filterOut: logMock)
         XCTAssertFalse(shouldIt)
     }
 
@@ -39,7 +39,7 @@ class TLogFiltererTests: XCTestCase {
                 log.loggerID == "test"
             }
         }
-        let shouldIt = filterableClass.should(filter: logMock)
+        let shouldIt = filterableClass.should(filterOut: logMock)
         XCTAssertTrue(shouldIt)
     }
 
@@ -49,7 +49,7 @@ class TLogFiltererTests: XCTestCase {
                 log.loggerID == "test message"
             }
         }
-        let shouldIt = filterableClass.should(filter: logMock)
+        let shouldIt = filterableClass.should(filterOut: logMock)
         XCTAssertFalse(shouldIt)
     }
 
@@ -66,15 +66,15 @@ class TLogFiltererTests: XCTestCase {
             }
         }
 
-        let shouldIt = filterableClass.should(filter: logMock)
-        XCTAssertTrue(shouldIt)
+        let shouldIt = filterableClass.should(filterOut: logMock)
+        XCTAssertTrue(shouldIt, "the log message doesn't satisfy the first predicate")
     }
 
     func testHelperMethods() {
         let count = filterableClass.filters.read { $0.count }
         XCTAssertEqual(count, 0)
 
-        filterableClass.add { (log) -> Bool in
+        filterableClass.addFilterOutClosure { (log) -> Bool in
             log.loggerID == "test message"
         }
 

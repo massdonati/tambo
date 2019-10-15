@@ -28,7 +28,7 @@ class StreamMock: TStreamProtocol {
         processClosure?(log)
     }
 
-    public func should(filter log: TLog) -> Bool {
+    public func should(filterOut log: TLog) -> Bool {
         return shouldFilterClosure?(log) ?? false
     }
 }

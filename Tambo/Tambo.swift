@@ -176,7 +176,7 @@ public final class Tambo {
                     let stream = streams[index]
                     guard
                         stream.isEnabled(for: level),
-                        stream.should(filter: log) == false
+                        stream.should(filterOut: log) == false
                         else { return }
 
                     stream.process(log)
