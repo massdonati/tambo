@@ -21,29 +21,35 @@ public final class TConsoleStream: TStreamFormattable {
     public var isAsync: Bool = false
     public var identifier: String
     public var outputLevel: TLogLevel
-    public var queue = DispatchQueue(label: "")
+    public var queue = DispatchQueue.global()
     public var logFormatter = TLogStringFormatter()
     private var printMode: TConsolePrintMode = .print
 
+    /**
+     Designated initializer
+     - parameter identifier: a string identifier for the stream used to name the queue
+        it'll dispatch the processing of the log structs if `isAsync` is `true`.
+     - parameter printMode: tells the stream which primitive tu use to print the formatted
+        log message to the console.
+     - parameter dispatchQueue: the dispatch queue used to defer the processing of the log
+        structs if `isAsync` is `true`.
+     */
     public init(identifier: String,
-                printMode: TConsolePrintMode) {
+                printMode: TConsolePrintMode,
+                dispatchQueue: DispatchQueue? = nil) {
         self.printMode = printMode
         self.identifier = identifier
         outputLevel = .verbose
         filters = TThreadProtector<[TFilterClosure]>([])
-        self.queue = streamQueue()
+        queue = streamQueue(target: dispatchQueue)
     }
     
     public func output(log: TLog, formattedLog: String) {
-        tamboPrint(message: formattedLog)
-    }
-
-    private func tamboPrint(message: String) {
         switch printMode {
         case .print:
-            print(message)
+            print(formattedLog)
         case .nsLog:
-            NSLog("%@", message)
+            NSLog("%@", formattedLog)
         }
     }
 }

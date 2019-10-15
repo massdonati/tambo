@@ -543,7 +543,7 @@
 					};
 					561C8413210AB959001D28DB = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1100;
 					};
 					56AC70D62109A52E00FF04BB = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1096,7 +1096,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1118,7 +1118,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tambo.tamboTests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

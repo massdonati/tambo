@@ -14,7 +14,7 @@ import os
  - important: everything logged by this stream will use the "{public}@" format.
  */
 public final class TOSLogStream: TStreamFormattable {
-    static let defaultFormat = """
+    static let osLogFormat = """
         S F:# f - M
         C
         """
@@ -22,8 +22,8 @@ public final class TOSLogStream: TStreamFormattable {
     public var isAsync: Bool = true
     public var identifier: String
     public var outputLevel: TLogLevel = .verbose
-    public var queue: DispatchQueue = DispatchQueue(label: "")
-    public var logFormatter = TLogStringFormatter(with: defaultFormat)
+    public var queue = DispatchQueue.global()
+    public var logFormatter = TLogStringFormatter(with: osLogFormat)
     let osLog: OSLog
     let mapping: TOSLogTypeMapper
 
@@ -52,7 +52,7 @@ public final class TOSLogStream: TStreamFormattable {
         osLog = OSLog(subsystem: subsystem, category: category)
         self.mapping = mapping
         filters = TThreadProtector<[TFilterClosure]>([])
-        self.queue = streamQueue(with: queue)
+        self.queue = streamQueue(target: queue)
     }
     
     public func output(log: TLog, formattedLog: String) {

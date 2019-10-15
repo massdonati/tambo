@@ -51,13 +51,13 @@ public enum TOSLogTypeMapper {
     internal func osLogType(for level: TLogLevel) -> OSLogType {
         switch self {
         case .default:
-                switch level {
-                case .verbose: return .debug
-                case .debug: return .debug
-                case .info: return .info
-                case .warning: return .error
-                case .error: return .fault
-                }
+            switch level {
+            case .verbose: return .debug
+            case .debug: return .debug
+            case .info: return .info
+            case .warning: return .error
+            case .error: return .fault
+            }
 
         case .function(let mapperFunc):
             return mapperFunc(level)

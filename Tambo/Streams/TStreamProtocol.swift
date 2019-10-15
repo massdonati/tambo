@@ -22,6 +22,8 @@ public protocol TStreamProtocol: TLogFilterer {
     var outputLevel: TLogLevel {get set}
 
     /// The queue the base stream is serially dispatching to.
+    /// - note: you can use the `streamQueue(target:)` method to set the queue to one that
+    ///     follows the Tambo convention.
     var queue: DispatchQueue {get set}
 
     /**
@@ -45,7 +47,7 @@ public protocol TStreamProtocol: TLogFilterer {
 
 extension TStreamProtocol {
 
-    public func streamQueue(with q: DispatchQueue? = nil) -> DispatchQueue {
+    public func streamQueue(target q: DispatchQueue? = nil) -> DispatchQueue {
         return DispatchQueue(
             label: "com.tambo.stream.\(identifier)",
             qos: .background,

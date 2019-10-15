@@ -23,7 +23,7 @@ class TOSLogStreamTests: XCTestCase {
                                        subsystem: "subsystem",
                                        category:"category")
 
-        XCTAssertEqual(osLogStream.logFormatter.logFormat, TOSLogStream.defaultFormat)
+        XCTAssertEqual(osLogStream.logFormatter.logFormat, TOSLogStream.osLogFormat)
 
         let log = Tambo(identifier: "test-logger")
 
