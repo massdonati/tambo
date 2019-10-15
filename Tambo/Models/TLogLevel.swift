@@ -32,11 +32,11 @@ public enum TLogLevel: Int {
     /// The symble associated to each level.
     var symbol: String {
         switch self {
-        case .error: return "❌"
-        case .warning: return "⚠️"
-        case .info: return "ℹ️"
+        case .error: return "♦️"
+        case .warning: return "🔶"
+        case .info: return "🔷"
         case .debug: return "🐞"
-        case .verbose: return "⚪️"
+        case .verbose: return "🔊"
         }
     }
 }
