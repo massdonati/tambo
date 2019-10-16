@@ -11,6 +11,9 @@ import Foundation
  Data structure to hold all info about a log, passed to stream classes.
  This struct is generated anytime the user calls any logging api i.e.
  Tambo.default.info("log message", ["user_id": "123"])
+
+ - note: if you need a valid JSON disctionary you can use the `jsonObject` property,
+    if you need the encoded `Data` you can use the `jsonData` one.
  */
 public struct TLog {
 

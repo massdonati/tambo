@@ -41,6 +41,23 @@ struct Utility {
     }
 }
 
+enum JSON {
+    static func validObject(from: Any) -> Any {
+        var validValue: Any = String(describing: from)
+
+        if let ancodedData = (from as? Encodable)?.toJSONData() {
+
+            do {
+                validValue = try JSONSerialization.jsonObject(with: ancodedData, options: .allowFragments)
+            } catch {
+                // print error
+            }
+        }
+
+        return validValue
+    }
+}
+
 extension Dictionary where Key: StringProtocol, Value: Any {
 
     /**
@@ -60,18 +77,7 @@ extension Dictionary where Key: StringProtocol, Value: Any {
              to do anything.
              */
             guard JSONSerialization.isValidJSONObject([value]) == false else { return }
-
-            var validValue: Any = String(describing: value)
-
-            if let ancodedData = (value as? Encodable)?.toJSONData() {
-
-                do {
-                    validValue = try JSONSerialization.jsonObject(with: ancodedData, options: .allowFragments)
-                } catch {
-                    // print error
-                }
-            }
-            self[key] = validValue as? Value
+            self[key] = JSON.validObject(from: value) as? Value
         }
     }
 }
