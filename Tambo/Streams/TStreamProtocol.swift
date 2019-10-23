@@ -27,6 +27,16 @@ public protocol TStreamProtocol: TLogFilterer {
     var queue: DispatchQueue {get set}
 
     /**
+     Any additional metadata that will be added to the `Tlog.context` dictionary.
+     - note: use this dictionary to set any additional metadata that the `Tlog` struct
+        before is precessed by the stream. This can contain, for example, the OS version,
+        app version, a UUID used to group logs messages triggered on the same "session"
+        or any additional information, common to every log message, that is usefull to
+        give more context.
+     */
+    var metadata: [String: Any]? {get set}
+
+    /**
      Process the log details.
      - parameter logDetails: Structure with all of the details for the log to
         process.

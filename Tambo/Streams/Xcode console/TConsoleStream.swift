@@ -24,6 +24,7 @@ public final class TConsoleStream: TStreamFormattable {
     public var queue = DispatchQueue.global()
     public var logFormatter = TLogStringFormatter()
     private var printMode: TConsolePrintMode = .print
+    public var metadata: [String : Any]?
 
     /**
      Designated initializer

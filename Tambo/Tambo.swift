@@ -159,7 +159,7 @@ public final class Tambo {
         context: [String: Any]?,
         time: Date = Date()) {
 
-        let log = TLog(
+        var log = TLog(
             loggerID: self.identifier,
             level: level,
             date: time,
@@ -178,6 +178,13 @@ public final class Tambo {
                         stream.isEnabled(for: level),
                         stream.should(filterOut: log) == false
                         else { return }
+
+                    // injecting stream's metadata
+                    if let metadata = stream.metadata {
+                        var currentContext = log.context ?? [:]
+                        currentContext["metadata"] = metadata
+                        log.context = currentContext
+                    }
 
                     stream.process(log)
             }

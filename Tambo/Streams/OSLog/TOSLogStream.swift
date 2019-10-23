@@ -14,6 +14,7 @@ import os
  - important: everything logged by this stream will use the "{public}@" format.
  */
 public final class TOSLogStream: TStreamFormattable {
+
     static let osLogFormat = """
         S F:# f - M
         C
@@ -26,6 +27,7 @@ public final class TOSLogStream: TStreamFormattable {
     public var logFormatter = TLogStringFormatter(with: osLogFormat)
     let osLog: OSLog
     let mapping: TOSLogTypeMapper
+    public var metadata: [String : Any]?
 
     /**
      Designated initializer.

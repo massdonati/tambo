@@ -30,7 +30,8 @@ class TLogTests: XCTestCase {
                        functionName: "test()",
                        filePath: "TLogTests",
                        lineNumber: 24,
-                       context: context)
+                       context: context
+        )
 
         context.makeValidJsonObject()
         XCTAssertNoThrow(try JSONSerialization.data(withJSONObject: context,

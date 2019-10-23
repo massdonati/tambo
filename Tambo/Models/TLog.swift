@@ -58,7 +58,7 @@ public struct TLog {
     public let lineNumber: Int
 
     /// Dictionary to store useful metadata about the log.
-    public let context: [String: Any]?
+    public internal(set) var context: [String: Any]?
 
     /**
      Computed property to convert the userInfo dictionary into a `prettyPrinted`
