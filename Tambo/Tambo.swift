@@ -20,6 +20,11 @@ public final class Tambo {
     private(set) var identifier: String
 
     /**
+     Entity responsible to concurrently dispatch the processing of a log struct
+     to the streams registered with the Tambo instance.
+     */
+    var concurrentDispatcher: ConcurrentDispatcherProtocol = ConcurrentDispatcher()
+    /**
      Default logger with `com.tambo.default.logger` as identifier
      */
     static public var `default`: Tambo = {
@@ -63,59 +68,21 @@ public final class Tambo {
 
     // MARK: - logging methods
 
-    public func verbose(
-        _ msgClosure: @autoclosure @escaping () -> Any,
-        functionName: StaticString = #function,
-        filePath: StaticString = #file,
-        lineNumber: Int = #line,
-        context: [String: Any]? = nil) {
-
-        propagateLog(
-            msgClosure: msgClosure,
-            level: .verbose,
-            functionName: String(describing: functionName),
-            filePath: String(describing: filePath),
-            lineNumber: lineNumber,
-            context: context
-        )
-    }
-
-    public func info(
-        _ msgClosure: @autoclosure @escaping () -> Any,
-        functionName: StaticString = #function,
-        filePath: StaticString = #file,
-        lineNumber: Int = #line,
-        context: [String: Any]? = nil) {
-
-        propagateLog(
-            msgClosure: msgClosure,
-            level: .info,
-            functionName: String(describing: functionName),
-            filePath: String(describing: filePath),
-            lineNumber: lineNumber,
-            context: context
-        )
-    }
-
-    public func debug(
-        _ msgClosure: @autoclosure @escaping () -> Any,
-        functionName: StaticString = #function,
-        filePath: StaticString = #file,
-        lineNumber: Int = #line,
-        context: [String: Any]? = nil) {
-
-        propagateLog(
-            msgClosure: msgClosure,
-            level: .debug,
-            functionName: String(describing: functionName),
-            filePath: String(describing: filePath),
-            lineNumber: lineNumber,
-            context: context
-        )
-    }
-
+    /**
+    Logs a message with a `error` log level
+    - parameter msgClosure: the log message or anything that the user needs to
+        log investigate.
+    - parameter condition: if false this log message would not be processed
+    - parameter functionName: the name of the function the log api was invoked
+        from.
+    - parameter filePath: the file path the log api was invoked from.
+    - parameter lineNumber: the line number the log api is situated.
+    - parameter context: any additional information that the user needs to
+        provide more context to a logging event
+    */
     public func error(
         _ msgClosure: @autoclosure @escaping () -> Any,
+        condition: Bool? = nil,
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
@@ -123,6 +90,7 @@ public final class Tambo {
 
         propagateLog(
             msgClosure: msgClosure,
+            condition: condition,
             level: .error,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
@@ -131,8 +99,21 @@ public final class Tambo {
         )
     }
 
+    /**
+    Logs a message with a `warning` log level
+    - parameter msgClosure: the log message or anything that the user needs to
+        log investigate.
+    - parameter condition: if false this log message would not be processed
+    - parameter functionName: the name of the function the log api was invoked
+        from.
+    - parameter filePath: the file path the log api was invoked from.
+    - parameter lineNumber: the line number the log api is situated.
+    - parameter context: any additional information that the user needs to
+        provide more context to a logging event
+    */
     public func warning(
         _ msgClosure: @autoclosure @escaping () -> Any,
+        condition: Bool = true,
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
@@ -140,7 +121,101 @@ public final class Tambo {
 
         propagateLog(
             msgClosure: msgClosure,
+            condition: condition,
             level: .warning,
+            functionName: String(describing: functionName),
+            filePath: String(describing: filePath),
+            lineNumber: lineNumber,
+            context: context
+        )
+    }
+
+    /**
+    Logs a message with a `info` log level
+    - parameter msgClosure: the log message or anything that the user needs to
+        log investigate.
+    - parameter condition: if false this log message would not be processed
+    - parameter functionName: the name of the function the log api was invoked
+        from.
+    - parameter filePath: the file path the log api was invoked from.
+    - parameter lineNumber: the line number the log api is situated.
+    - parameter context: any additional information that the user needs to
+        provide more context to a logging event
+    */
+    public func info(
+        _ msgClosure: @autoclosure @escaping () -> Any,
+        condition: Bool? = nil,
+        functionName: StaticString = #function,
+        filePath: StaticString = #file,
+        lineNumber: Int = #line,
+        context: [String: Any]? = nil) {
+
+        propagateLog(
+            msgClosure: msgClosure,
+            condition: condition,
+            level: .info,
+            functionName: String(describing: functionName),
+            filePath: String(describing: filePath),
+            lineNumber: lineNumber,
+            context: context
+        )
+    }
+
+    /**
+    Logs a message with a `debug` log level
+    - parameter msgClosure: the log message or anything that the user needs to
+        log investigate.
+    - parameter condition: if false this log message would not be processed
+    - parameter functionName: the name of the function the log api was invoked
+        from.
+    - parameter filePath: the file path the log api was invoked from.
+    - parameter lineNumber: the line number the log api is situated.
+    - parameter context: any additional information that the user needs to
+        provide more context to a logging event
+    */
+    public func debug(
+        _ msgClosure: @autoclosure @escaping () -> Any,
+        condition: Bool? = nil,
+        functionName: StaticString = #function,
+        filePath: StaticString = #file,
+        lineNumber: Int = #line,
+        context: [String: Any]? = nil) {
+
+        propagateLog(
+            msgClosure: msgClosure,
+            condition: condition,
+            level: .debug,
+            functionName: String(describing: functionName),
+            filePath: String(describing: filePath),
+            lineNumber: lineNumber,
+            context: context
+        )
+    }
+
+    /**
+     Logs a message with a `verbose` log level
+     - parameter msgClosure: the log message or anything that the user needs to
+         log investigate.
+     - parameter condition: if false this log message would not be processed
+     - parameter functionName: the name of the function the log api was invoked
+         from.
+     - parameter filePath: the file path the log api was invoked from.
+     - parameter lineNumber: the line number the log api is situated.
+     - parameter context: any additional information that the user needs to
+         provide more context to a logging event
+     */
+    public func verbose(
+        _ msgClosure: @autoclosure @escaping () -> Any,
+        condition: Bool? = nil,
+        functionName: StaticString = #function,
+        filePath: StaticString = #file,
+        lineNumber: Int = #line,
+        context: [String: Any]? = nil) {
+
+        propagateLog(
+            msgClosure: msgClosure,
+            condition: condition,
+            level: .verbose,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,
@@ -152,6 +227,7 @@ public final class Tambo {
 
     private func propagateLog(
         msgClosure: @escaping () -> Any,
+        condition: Bool? = nil,
         level: TLogLevel,
         functionName: String,
         filePath: String,
@@ -159,11 +235,12 @@ public final class Tambo {
         context: [String: Any]?,
         time: Date = Date()) {
 
-        var log = TLog(
+        let log = TLog(
             loggerID: self.identifier,
             level: level,
             date: time,
             message: msgClosure,
+            condition: condition ?? true,
             threadName: Utility.threadName(),
             functionName: functionName,
             filePath: filePath,
@@ -171,23 +248,29 @@ public final class Tambo {
             context: context
         )
         protectedStreams.read { streams in
-            DispatchQueue
+            concurrentDispatcher
                 .concurrentPerform(iterations: streams.count) { index in
                     let stream = streams[index]
-                    guard
-                        stream.isEnabled(for: level),
-                        stream.should(filterOut: log) == false
-                        else { return }
-
-                    // injecting stream's metadata
-                    if let metadata = stream.metadata {
-                        var currentContext = log.context ?? [:]
-                        currentContext["metadata"] = metadata
-                        log.context = currentContext
-                    }
-
-                    stream.process(log)
+                    self.processLog(log, to: stream)
             }
         }
+    }
+
+    func processLog(_ log: TLog, to stream: TStreamProtocol) {
+        var editableLog = log
+        guard
+            editableLog.condition,
+            stream.isEnabled(for: editableLog.level),
+            stream.should(filterOut: editableLog) == false
+            else { return }
+
+        // injecting stream's metadata
+        if let metadata = stream.metadata {
+            var currentContext = editableLog.context ?? [:]
+            currentContext["metadata"] = metadata
+            editableLog.context = currentContext
+        }
+
+        stream.process(editableLog)
     }
 }

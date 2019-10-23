@@ -14,6 +14,7 @@ class TLogFiltererTests: XCTestCase {
                        level: .info,
                        date: Date(),
                        message: { return "" },
+                       condition: true,
                        threadName: "main",
                        functionName: "",
                        filePath: "nil",

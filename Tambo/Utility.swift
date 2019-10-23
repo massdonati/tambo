@@ -118,3 +118,13 @@ public class TThreadProtector<T> {
         return closure(&resource)
     }
 }
+
+protocol ConcurrentDispatcherProtocol {
+    func concurrentPerform(iterations: Int, execute work: (Int) -> Void)
+}
+
+class ConcurrentDispatcher: ConcurrentDispatcherProtocol {
+    func concurrentPerform(iterations: Int, execute work: (Int) -> Void) {
+        DispatchQueue.concurrentPerform(iterations: iterations, execute: work)
+    }
+}

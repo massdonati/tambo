@@ -6,13 +6,18 @@
 //
 
 import XCTest
-import Tambo
+@testable import Tambo
 
 class TamboTests: XCTestCase {
     var logger: Tambo!
+    var mockStream: StreamMock!
 
     override func setUp() {
         super.setUp()
+        logger = Tambo(identifier: "test")
+        logger.concurrentDispatcher = SyncConcurrentDispatcher()
+        mockStream = StreamMock()
+        logger.add(stream: mockStream)
     }
     
     override func tearDown() {
@@ -21,15 +26,9 @@ class TamboTests: XCTestCase {
     }
 
     func testDefaultTambo() {
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
         mockStream.outputLevel = .verbose
-        logger.add(stream: mockStream)
         let context: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
-
-        let exp = expectation(description: "Wait for the log to be processed")
         var processClosureCalled = false
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .info)
@@ -38,95 +37,61 @@ class TamboTests: XCTestCase {
             XCTAssertEqual(log.context!["some"] as! String, "info")
             XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
-            exp.fulfill()
         }
 
         logger.info(message, context: context)
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
 
         XCTAssertTrue(processClosureCalled)
     }
 
     func testStreamNotEnabledForLevel() {
         XCTAssertTrue(Tambo.default === Tambo.default)
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
         mockStream.outputLevel = .info
-        logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
-        let exp = expectation(description: "Wait for the log to be processed")
+        var processClosureCalled = false
         mockStream.processClosure = { log in
-            XCTFail("""
-                with an `info` outputLevel the stream should not procees a \
-                verbose message
-                """)
+            processClosureCalled = true
         }
 
         logger.verbose(message, context: userinfo)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            exp.fulfill()
-        }
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
+        XCTAssertFalse(processClosureCalled, """
+            with an `info` outputLevel the stream should not procees a \
+            verbose message
+            """
+        )
     }
 
     func testStreamSholdNotProcess() {
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
         mockStream.outputLevel = .verbose
         logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
-        let exp = expectation(description: "Wait for the log to be processed")
         mockStream.processClosure = { log in
             XCTFail("""
                 with an `info` outputLevel the stream should not procees a \
                 verbose message
                 """)
         }
-        var shouldProcessClosureCalled = false
-        mockStream.shouldFilterClosure = { _ in
-            shouldProcessClosureCalled = true
+        var shouldFilterOutClosureCalled = false
+        mockStream.shouldFilterOutClosure = { _ in
+            shouldFilterOutClosureCalled = true
             return true
         }
 
         logger.verbose(message, context: userinfo)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            exp.fulfill()
-        }
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
-
-        XCTAssertTrue(shouldProcessClosureCalled)
+        XCTAssertTrue(shouldFilterOutClosureCalled)
     }
 
     func testVerboseLevel() {
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
+
         mockStream.outputLevel = .verbose
-        logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
-
-        let exp = expectation(description: "Wait for the log to be processed")
         var processClosureCalled = false
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .verbose)
@@ -135,29 +100,17 @@ class TamboTests: XCTestCase {
             XCTAssertEqual(log.context!["some"] as! String, "info")
             XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
-            exp.fulfill()
         }
 
         logger.verbose(message, context: userinfo)
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
-
         XCTAssertTrue(processClosureCalled)
     }
 
     func testDebugLevel() {
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
         mockStream.outputLevel = .verbose
-        logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
-        let exp = expectation(description: "Wait for the log to be processed")
         var processClosureCalled = false
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .debug)
@@ -166,29 +119,17 @@ class TamboTests: XCTestCase {
             XCTAssertEqual(log.context!["some"] as! String, "info")
             XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
-            exp.fulfill()
         }
 
         logger.debug(message, context: userinfo)
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
-
         XCTAssertTrue(processClosureCalled)
     }
 
     func testInfoLevel() {
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
         mockStream.outputLevel = .verbose
-        logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
-        let exp = expectation(description: "Wait for the log to be processed")
         var processClosureCalled = false
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .info)
@@ -197,29 +138,19 @@ class TamboTests: XCTestCase {
             XCTAssertEqual(log.context!["some"] as! String, "info")
             XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
-            exp.fulfill()
         }
 
         logger.info(message, context: userinfo)
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
-
         XCTAssertTrue(processClosureCalled)
     }
 
     func testWarningLevel() {
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
+
         mockStream.outputLevel = .verbose
         logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
-        let exp = expectation(description: "Wait for the log to be processed")
         var processClosureCalled = false
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .warning)
@@ -228,29 +159,17 @@ class TamboTests: XCTestCase {
             XCTAssertEqual(log.context!["some"] as! String, "info")
             XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
-            exp.fulfill()
         }
 
         logger.warning(message, context: userinfo)
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
-
         XCTAssertTrue(processClosureCalled)
     }
 
     func testErrorLevel() {
-        logger = Tambo.default
-        logger.removeAllStreams()
-        let mockStream = StreamMock()
         mockStream.outputLevel = .verbose
-        logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
-        let exp = expectation(description: "Wait for the log to be processed")
         var processClosureCalled = false
         mockStream.processClosure = { log in
             XCTAssertEqual(log.level, .error)
@@ -259,16 +178,9 @@ class TamboTests: XCTestCase {
             XCTAssertEqual(log.context!["some"] as! String, "info")
             XCTAssertEqual(log.context!["test"] as! XCTestCase, self)
             processClosureCalled = true
-            exp.fulfill()
         }
 
         logger.error(message, context: userinfo)
-
-        waitForExpectations(timeout: 6) { error in
-            guard let err = error else { return }
-            XCTFail("Expectation timed out with error: \(String(describing: err))")
-        }
-
         XCTAssertTrue(processClosureCalled)
     }
 
@@ -289,5 +201,43 @@ class TamboTests: XCTestCase {
                 description i.e. "-[TamboTests testOSLogInfoLevel]".
                 """)
         }
+    }
+
+    func testLogWithoutCondition() {
+        let uuid = UUID().uuidString
+        var processClosureCalled = false
+        mockStream.processClosure = { log in
+            processClosureCalled = true
+            XCTAssertEqual(log.message() as! String, uuid)
+        }
+
+        logger.error(uuid, condition: nil)
+
+        XCTAssertTrue(processClosureCalled)
+    }
+
+    func testLogWithTrueCondition() {
+        let uuid = UUID().uuidString
+        var processClosureCalled = false
+        mockStream.processClosure = { log in
+            processClosureCalled = true
+            XCTAssertEqual(log.message() as! String, uuid)
+        }
+
+        logger.error(uuid, condition: true)
+
+        XCTAssertTrue(processClosureCalled)
+    }
+
+    func testLogWithFalseCondition() {
+        let uuid = UUID().uuidString
+        var processClosureCalled = false
+        mockStream.processClosure = { _ in
+            processClosureCalled = true
+        }
+
+        logger.error(uuid, condition: false)
+
+        XCTAssertFalse(processClosureCalled)
     }
 }

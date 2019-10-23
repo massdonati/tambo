@@ -47,5 +47,7 @@ class TStreamFormattableTests: XCTestCase {
                 XCTFail("timeout with error: \(err)")
             }
         }
+
+        XCTAssertTrue(outputLogClosureCalled)
     }
 }
