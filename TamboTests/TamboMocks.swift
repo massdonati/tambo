@@ -17,7 +17,7 @@ class JSONConverterMock: TLogToDictConversionProtocol {
 
 class StreamMock: TStreamProtocol {
     var metadata: [String : Any]?
-    var filters = TThreadProtector<[TFilterClosure]>([])
+    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
     var isAsync: Bool = true
     var identifier: String = ""
     var outputLevel: TLogLevel = .debug
@@ -36,7 +36,7 @@ class StreamMock: TStreamProtocol {
 
 class FormattableStreamMock: TStreamFormattable {
     var metadata: [String : Any]?
-    var filters = TThreadProtector<[TFilterClosure]>([])
+    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
     var logFormatter = FormatterMock()
     var isAsync: Bool = true
     var identifier: String = ""

@@ -93,32 +93,6 @@ extension Encodable {
     }
 }
 
-public class TThreadProtector<T> {
-    private var resource: T
-    private let recLock = NSRecursiveLock()
-
-    public init(_ resource: T) {
-        recLock.name = "TThreadProtector.recLock"
-        self.resource = resource
-    }
-
-    func read<U>(_ closure: (T) -> U) -> U {
-        recLock.lock()
-        defer {
-            recLock.unlock()
-        }
-        return closure(resource)
-    }
-
-    func write<U>(_ closure: (inout T) -> U) -> U {
-        recLock.lock()
-        defer {
-            recLock.unlock()
-        }
-        return closure(&resource)
-    }
-}
-
 protocol ConcurrentDispatcherProtocol {
     func concurrentPerform(iterations: Int, execute work: (Int) -> Void)
 }

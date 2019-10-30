@@ -19,7 +19,9 @@ public final class TOSLogStream: TStreamFormattable {
         S F:# f - M
         C
         """
-    public let filters: TThreadProtector<[TFilterClosure]>
+
+    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
+
     public var isAsync: Bool = true
     public var identifier: String
     public var outputLevel: TLogLevel = .verbose
@@ -53,7 +55,6 @@ public final class TOSLogStream: TStreamFormattable {
         self.identifier = identifier
         osLog = OSLog(subsystem: subsystem, category: category)
         self.mapping = mapping
-        filters = TThreadProtector<[TFilterClosure]>([])
         self.queue = streamQueue(target: queue)
     }
     

@@ -17,7 +17,9 @@ import Foundation
  - note: Tambo already provides `TConsoleStream` and `TOSLogStream`
  */
 public final class Tambo {
-    private(set) var identifier: String
+
+    /// A string that identifies uniquely the logger instance
+    let identifier: String
 
     /**
      Entity responsible to concurrently dispatch the processing of a log struct
@@ -37,7 +39,7 @@ public final class Tambo {
         return logger
     }()
 
-    private var protectedStreams = TThreadProtector([TStreamProtocol]())
+    @TAtomicWrite var streams: [TStreamProtocol] = []
 
     /**
      Designated initializer.
@@ -55,15 +57,11 @@ public final class Tambo {
         message was generated from.
      */
     public func add(stream: TStreamProtocol) {
-        protectedStreams.write { streams in
-            streams.append(stream)
-        }
+        _streams.mutate { $0.append(stream) }
     }
 
     public func removeAllStreams() {
-        protectedStreams.write { streams in
-            streams.removeAll()
-        }
+        _streams.mutate { $0.removeAll() }
     }
 
     // MARK: - logging methods
@@ -247,12 +245,9 @@ public final class Tambo {
             lineNumber: lineNumber,
             context: context
         )
-        protectedStreams.read { streams in
-            concurrentDispatcher
-                .concurrentPerform(iterations: streams.count) { index in
-                    let stream = streams[index]
-                    self.processLog(log, to: stream)
-            }
+        concurrentDispatcher
+            .concurrentPerform(iterations: streams.count) { index in
+                self.processLog(log, to: streams[index])
         }
     }
 

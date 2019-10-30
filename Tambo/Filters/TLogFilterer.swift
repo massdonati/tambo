@@ -22,7 +22,7 @@ public protocol TLogFilterer: class {
      Array of filters that will be used to check if a `TLog` instance
      should be filtered or not.
      */
-    var filters: TThreadProtector<[TFilterClosure]> {get}
+    var filters: TAtomicWrite<[TFilterClosure]> {get set}
 
     /**
      - returns: true wether a TLog should be discarded, false otherwise.
@@ -44,28 +44,22 @@ public protocol TLogFilterer: class {
 
 extension TLogFilterer {
     public func should(filterOut log: TLog) -> Bool {
-        return filters.read { (underlyingFilters) -> Bool in
-            if underlyingFilters.isEmpty { return false }
+        if filters.value.isEmpty { return false }
 
-            let result = underlyingFilters
-                .map { $0(log) } // [true, false, false, ...]
-                .filter { $0 == true } // [true, true, true, ...] || []
-                // if the filtered array is not empty the log needs to be discarded
-                .isEmpty == false
+        let result = filters.value
+            .map { $0(log) } // [true, false, false, ...]
+            .filter { $0 == true } // [true, true, true, ...] || []
+            // if the filtered array is not empty the log needs to be discarded
+            .isEmpty == false
 
-            return result
-        }
+        return result
     }
 
     public func addFilterOutClosure(_ f: @escaping TFilterClosure) {
-        filters.write { filters in
-            filters.append(f)
-        }
+        filters.mutate { $0.append(f) }
     }
 
     public func removeFilters() {
-        filters.write { filters in
-            filters.removeAll()
-        }
+        filters.mutate { $0.removeAll() }
     }
 }

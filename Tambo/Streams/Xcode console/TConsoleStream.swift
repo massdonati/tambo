@@ -17,7 +17,7 @@ public enum TConsolePrintMode {
 
 /// The Xcode console stream. It will output the logs to the Xcode console.
 public final class TConsoleStream: TStreamFormattable {
-    public let filters: TThreadProtector<[TFilterClosure]>
+    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
     public var isAsync: Bool = false
     public var identifier: String
     public var outputLevel: TLogLevel
@@ -41,7 +41,6 @@ public final class TConsoleStream: TStreamFormattable {
         self.printMode = printMode
         self.identifier = identifier
         outputLevel = .verbose
-        filters = TThreadProtector<[TFilterClosure]>([])
         queue = streamQueue(target: dispatchQueue)
     }
     

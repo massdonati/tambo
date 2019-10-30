@@ -9,7 +9,7 @@ import XCTest
 @testable import Tambo
 
 class TLogFiltererTests: XCTestCase {
-    var filterableClass: FilterableClass!
+    var filterableClass: FilterableClassMock!
     let logMock = TLog(loggerID: "test",
                        level: .info,
                        date: Date(),
@@ -22,7 +22,7 @@ class TLogFiltererTests: XCTestCase {
                        context: ["hello": "world"])
 
     override func setUp() {
-        filterableClass = FilterableClass()
+        filterableClass = FilterableClassMock()
     }
 
     override func tearDown() {
@@ -35,59 +35,54 @@ class TLogFiltererTests: XCTestCase {
     }
 
     func testPositiveFilter() {
-        filterableClass.filters.write { filters in
-            filters.append { (log) -> Bool in
-                log.loggerID == "test"
-            }
+        filterableClass.filters.value.append { (log) -> Bool in
+            log.loggerID == "test"
         }
+
         let shouldIt = filterableClass.should(filterOut: logMock)
         XCTAssertTrue(shouldIt)
     }
 
     func testNegativeFilter() {
-        filterableClass.filters.write { filters in
-            filters.append { (log) -> Bool in
-                log.loggerID == "test message"
-            }
+        filterableClass.filters.value.append { (log) -> Bool in
+            log.loggerID == "test message"
         }
+
         let shouldIt = filterableClass.should(filterOut: logMock)
         XCTAssertFalse(shouldIt)
     }
 
     func testMultipleFilters() {
-        filterableClass.filters.write { filters in
-            filters.append { (log) -> Bool in
-                log.loggerID == "test message"
-            }
+        filterableClass.filters.value.append { (log) -> Bool in
+            log.loggerID == "test message"
         }
 
-        filterableClass.filters.write { filters in
-            filters.append { (log) -> Bool in
-                log.threadName == "main"
-            }
+        filterableClass.filters.value.append { (log) -> Bool in
+            log.threadName == "main"
         }
+
 
         let shouldIt = filterableClass.should(filterOut: logMock)
         XCTAssertTrue(shouldIt, "the log message doesn't satisfy the first predicate")
     }
 
     func testHelperMethods() {
-        let count = filterableClass.filters.read { $0.count }
+        let count = filterableClass.filters.value.count
         XCTAssertEqual(count, 0)
 
         filterableClass.addFilterOutClosure { (log) -> Bool in
             log.loggerID == "test message"
         }
 
-        let count1 = filterableClass.filters.read { $0.count }
+        let count1 = filterableClass.filters.value.count
         XCTAssertEqual(count1, 1)
 
         filterableClass.removeFilters()
-        let count0 = filterableClass.filters.read { $0.count }
+        let count0 = filterableClass.filters.value.count
         XCTAssertEqual(count0, 0)
     }
 }
 
-class FilterableClass: TLogFilterer {
-    var filters = TThreadProtector<[TFilterClosure]>([])
+class FilterableClassMock: TLogFilterer {
+    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
 }
