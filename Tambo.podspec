@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Tambo"
-  s.version      = "0.2.6"
+  s.version      = "1.0.0"
   s.summary      = "Logging framework for linux and Apple platforms."
 
   # This description is used to generate tags and improve search results.
