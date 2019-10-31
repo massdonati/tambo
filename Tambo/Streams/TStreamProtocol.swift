@@ -57,7 +57,7 @@ public protocol TStreamProtocol: TLogFilterer {
 
 extension TStreamProtocol {
 
-    public func streamQueue(target q: DispatchQueue? = nil) -> DispatchQueue {
+    func streamQueue(target q: DispatchQueue? = nil) -> DispatchQueue {
         return DispatchQueue(
             label: "com.tambo.stream.\(identifier)",
             qos: .background,
