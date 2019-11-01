@@ -7,7 +7,7 @@ lane :test do
   if is_ci
     setup_travis
   end
-  scan(scheme: "Tambo iOS", device: "iPhone 11")
-  scan(scheme: "Tambo tvOS", device: "Apple TV")
+  scan(scheme: "Tambo iOS", project: "Tambo.xcodeproj", device: "iPhone 11")
+  scan(scheme: "Tambo tvOS", project: "Tambo.xcodeproj", device: "Apple TV")
   test_on_mac
 end
