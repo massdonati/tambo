@@ -2,13 +2,13 @@
 #
 # Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
 #
-version: 2
+version: 2.1
 jobs:
-  build:
+  test:
 
     # Specify the Xcode version to use
     macos:
-      xcode: "11.1"
+      xcode: "11.1.0"
 
     steps:
       - checkout
@@ -16,10 +16,7 @@ jobs:
       # Build the app and run tests
       - run:
           name: Build and run tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone X
-            SCAN_SCHEME: TamboTests
+          command: xcodebuild test -project Tambo.xcodeproj -scheme Tambo -destination 'platform=iPhone X'
 
       # Collect XML test results data to show in the UI,
       # and save the same XML files under test-results folder
