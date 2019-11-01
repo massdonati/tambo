@@ -26,7 +26,7 @@ class TamboTests: XCTestCase {
     }
 
     func testDefaultTambo() {
-        mockStream.outputLevel = .verbose
+        mockStream.outputLevel = .trace
         let context: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
         var processClosureCalled = false
@@ -55,7 +55,7 @@ class TamboTests: XCTestCase {
             processClosureCalled = true
         }
 
-        logger.verbose(message, context: userinfo)
+        logger.trace(message, context: userinfo)
 
         XCTAssertFalse(processClosureCalled, """
             with an `info` outputLevel the stream should not procees a \
@@ -65,7 +65,7 @@ class TamboTests: XCTestCase {
     }
 
     func testStreamSholdNotProcess() {
-        mockStream.outputLevel = .verbose
+        mockStream.outputLevel = .trace
         logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
@@ -82,19 +82,19 @@ class TamboTests: XCTestCase {
             return true
         }
 
-        logger.verbose(message, context: userinfo)
+        logger.trace(message, context: userinfo)
 
         XCTAssertTrue(shouldFilterOutClosureCalled)
     }
 
     func testVerboseLevel() {
 
-        mockStream.outputLevel = .verbose
+        mockStream.outputLevel = .trace
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
         var processClosureCalled = false
         mockStream.processClosure = { log in
-            XCTAssertEqual(log.level, .verbose)
+            XCTAssertEqual(log.level, .trace)
             XCTAssertEqual(log.message() as! String, message)
             XCTAssertEqual(log.context!.keys.count, 2)
             XCTAssertEqual(log.context!["some"] as! String, "info")
@@ -102,12 +102,12 @@ class TamboTests: XCTestCase {
             processClosureCalled = true
         }
 
-        logger.verbose(message, context: userinfo)
+        logger.trace(message, context: userinfo)
         XCTAssertTrue(processClosureCalled)
     }
 
     func testDebugLevel() {
-        mockStream.outputLevel = .verbose
+        mockStream.outputLevel = .trace
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
@@ -126,7 +126,7 @@ class TamboTests: XCTestCase {
     }
 
     func testInfoLevel() {
-        mockStream.outputLevel = .verbose
+        mockStream.outputLevel = .trace
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
@@ -146,7 +146,7 @@ class TamboTests: XCTestCase {
 
     func testWarningLevel() {
 
-        mockStream.outputLevel = .verbose
+        mockStream.outputLevel = .trace
         logger.add(stream: mockStream)
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
@@ -166,7 +166,7 @@ class TamboTests: XCTestCase {
     }
 
     func testErrorLevel() {
-        mockStream.outputLevel = .verbose
+        mockStream.outputLevel = .trace
         let userinfo: TJSONType = ["some": "info", "test": self]
         let message = "ciccio"
 
