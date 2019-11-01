@@ -21,14 +21,14 @@ class TStreamProtocolTests: XCTestCase {
     func testIsEnabledForLevel() {
         let stream = StreamMock()
         stream.outputLevel = .info
-        XCTAssertFalse(stream.isEnabled(for: .verbose))
+        XCTAssertFalse(stream.isEnabled(for: .trace))
         XCTAssertFalse(stream.isEnabled(for: .debug))
         XCTAssertTrue(stream.isEnabled(for: .info))
         XCTAssertTrue(stream.isEnabled(for: .warning))
         XCTAssertTrue(stream.isEnabled(for: .error))
 
-        stream.outputLevel = .verbose
-        XCTAssertTrue(stream.isEnabled(for: .verbose))
+        stream.outputLevel = .trace
+        XCTAssertTrue(stream.isEnabled(for: .trace))
         XCTAssertTrue(stream.isEnabled(for: .debug))
         XCTAssertTrue(stream.isEnabled(for: .info))
         XCTAssertTrue(stream.isEnabled(for: .warning))

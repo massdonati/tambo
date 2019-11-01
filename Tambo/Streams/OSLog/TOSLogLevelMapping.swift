@@ -31,7 +31,7 @@ public enum TOSLogTypeMapper {
      and is not recommended unless you have a specific need for this.
      LogSeverity|OSLogType
      -----------|---------
-     `.verbose` | `.debug`
+     `.trace` | `.debug`
      `.debug`   | `.debug`
      `.info`    | `.info`
      `.warning` | `.error`
@@ -52,7 +52,7 @@ public enum TOSLogTypeMapper {
         switch self {
         case .default:
             switch level {
-            case .verbose: return .debug
+            case .trace: return .debug
             case .debug: return .debug
             case .info: return .info
             case .warning: return .error

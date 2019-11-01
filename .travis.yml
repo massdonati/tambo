@@ -1,0 +1,8 @@
+os: osx
+osx_image: xcode11.1
+language: swift
+install:
+  - bundle install
+script:
+  - xcodebuild -project Tambo.xcodeproj -scheme 'Tambo macOS' -destination 'platform=OS X,arch=x86_64' build test
+  # - fastlane test
