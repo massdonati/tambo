@@ -9,4 +9,4 @@ xcode_destination: platform=macOS
 install:
   - bundle install
 script:
-  - fastlane tests
+  - fastlane test
