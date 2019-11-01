@@ -2,9 +2,11 @@ require_relative 'utility.rb'
 
 fastlane_version "2.28.3"
 
-
 desc "Runs all the tests"
 lane :test do
+  if is_ci
+    setup_travis
+  end
   scan(scheme: "Tambo iOS", device: "iPhone 11")
   scan(scheme: "Tambo tvOS", device: "Apple TV")
   test_on_mac
