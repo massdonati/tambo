@@ -40,7 +40,7 @@ public final class TConsoleStream: TStreamFormattable {
                 dispatchQueue: DispatchQueue? = nil) {
         self.printMode = printMode
         self.identifier = identifier
-        outputLevel = .verbose
+        outputLevel = .trace
         queue = streamQueue(target: dispatchQueue)
     }
     

@@ -202,7 +202,7 @@ public final class Tambo {
      - parameter context: any additional information that the user needs to
          provide more context to a logging event
      */
-    public func verbose(
+    public func trace(
         _ msgClosure: @autoclosure @escaping () -> Any,
         condition: Bool? = nil,
         functionName: StaticString = #function,
@@ -213,7 +213,7 @@ public final class Tambo {
         propagateLog(
             msgClosure: msgClosure,
             condition: condition,
-            level: .verbose,
+            level: .trace,
             functionName: String(describing: functionName),
             filePath: String(describing: filePath),
             lineNumber: lineNumber,

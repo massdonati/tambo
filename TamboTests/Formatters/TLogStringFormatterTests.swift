@@ -123,7 +123,7 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testLevelNameOnly() {
-        let levels: [TLogLevel] = [.info, .debug, .error, .verbose, .warning]
+        let levels: [TLogLevel] = [.info, .debug, .error, .trace, .warning]
         levels.forEach { level in
             formatter.logFormat = "l"
 
@@ -150,7 +150,7 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testLevelSymbolOnly() {
-        let levels: [TLogLevel] = [.info, .debug, .error, .verbose, .warning]
+        let levels: [TLogLevel] = [.info, .debug, .error, .trace, .warning]
         levels.forEach { level in
             formatter.logFormat = "S"
 

@@ -40,7 +40,7 @@ class FormattableStreamMock: TStreamFormattable {
     var logFormatter = FormatterMock()
     var isAsync: Bool = true
     var identifier: String = ""
-    var outputLevel: TLogLevel = .verbose
+    var outputLevel: TLogLevel = .trace
     var queue: DispatchQueue = DispatchQueue(label: "")
     var outputLogClosure: (TLog, String) -> Void = {_,_ in}
 

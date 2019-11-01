@@ -24,7 +24,7 @@ public final class TOSLogStream: TStreamFormattable {
 
     public var isAsync: Bool = true
     public var identifier: String
-    public var outputLevel: TLogLevel = .verbose
+    public var outputLevel: TLogLevel = .trace
     public var queue = DispatchQueue.global()
     public var logFormatter = TLogStringFormatter(with: osLogFormat)
     let osLog: OSLog
