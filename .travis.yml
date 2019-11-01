@@ -1,12 +1,8 @@
 os: osx
 osx_image: xcode11.1
 language: swift
-xcode_project: Tambo.xcodeproj 
-xcode_scheme: TamboTests
-xcode_destination: platform=iOS Simulator,OS=13.1,name=iPhone X
-xcode_destination: platform=tvOS Simulator,OS=13.1,name=Apple TV 4K
-xcode_destination: platform=macOS
 install:
   - bundle install
 script:
-  - fastlane test
+  - xcodebuild -project Tambo.xcodeproj -scheme 'Tambo macOS' -destination 'platform=OS X,arch=x86_64' build test
+  # - fastlane test
