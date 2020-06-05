@@ -177,6 +177,8 @@
 		56FB64FB211D578000BA00D6 /* TamboMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboMocks.swift; sourceTree = "<group>"; };
 		56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamFormattableTests.swift; sourceTree = "<group>"; };
 		7913E9AB22F6118900A05EBD /* TLog+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TLog+Equatable.swift"; sourceTree = "<group>"; };
+		7915AAA2236BA5D20010C71D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		7915AAA3236BA6370010C71D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		798EABD0235685500004855B /* TLog+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TLog+JSON.swift"; sourceTree = "<group>"; };
 		79925CC42368EC55003FAF0A /* TAtomicWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAtomicWrite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,8 @@
 		56049B2A2106DEE100EAFC44 = {
 			isa = PBXGroup;
 			children = (
+				7915AAA3236BA6370010C71D /* README.md */,
+				7915AAA2236BA5D20010C71D /* Package.swift */,
 				56049B362106DEE100EAFC44 /* Tambo */,
 				56049B412106DEE100EAFC44 /* TamboTests */,
 				56049B352106DEE100EAFC44 /* Products */,
