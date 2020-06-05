@@ -5,6 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "Tambo",
+    platforms:[
+        .iOS("13.5"),
+        .watchOS("6.2"),
+        .tvOS("13.3"),
+        .macOS("10.15")
+    ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
