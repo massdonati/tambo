@@ -38,7 +38,7 @@ class TStreamProtocolTests: XCTestCase {
     func testStreamMetadata() {
         let logger = Tambo(identifier: "test")
         let stream = StreamMock()
-        var tLog: TLog!
+        var tLog: Log!
         let exp = XCTestExpectation(
             description: "wait for the process closure to be called"
         )

@@ -22,7 +22,7 @@ class TOSLogTypeMapperTests: XCTestCase {
     }
 
     func testTLogLevelToOsLevel() {
-        let defaultMapping = TOSLogTypeMapper.default
+        let defaultMapping = OSLogTypeMapper.default
 
         XCTAssertEqual(defaultMapping.osLogType(for: .trace), .debug)
         XCTAssertEqual(defaultMapping.osLogType(for: .debug), .debug)
@@ -30,7 +30,7 @@ class TOSLogTypeMapperTests: XCTestCase {
         XCTAssertEqual(defaultMapping.osLogType(for: .warning), .error)
         XCTAssertEqual(defaultMapping.osLogType(for: .error), .fault)
 
-        let custom = TOSLogTypeMapper.function(customMapping)
+        let custom = OSLogTypeMapper.function(customMapping)
 
         XCTAssertEqual(custom.osLogType(for: .trace), .default)
         XCTAssertEqual(custom.osLogType(for: .debug), .default)
@@ -39,7 +39,7 @@ class TOSLogTypeMapperTests: XCTestCase {
         XCTAssertEqual(custom.osLogType(for: .error), .default)
     }
 
-    func customMapping(_ level: TLogLevel) -> OSLogType {
+    func customMapping(_ level: LogLevel) -> OSLogType {
         switch level {
         case .trace: return .default
         case .debug: return .default

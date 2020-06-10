@@ -27,7 +27,7 @@ class TLogToJSONConverterTests: XCTestCase {
 
     func testLogToJSONWithoutUserInfo() {
         let loggerId = "logger_id"
-        let level = TLogLevel.debug.name
+        let level = LogLevel.debug.name
         let expectedDate = Date()
         let message = "some message"
         let thread = "main"
@@ -35,7 +35,7 @@ class TLogToJSONConverterTests: XCTestCase {
         let filePath = "/proj/MainVC.swift"
         let line = 123
 
-        let log = TLog(loggerID: loggerId,
+        let log = Log(loggerID: loggerId,
                        level: .debug,
                        date: expectedDate,
                        message: { return message },
@@ -62,7 +62,7 @@ class TLogToJSONConverterTests: XCTestCase {
 
     func testLogToJSONWithUserInfo() {
         let loggerId = "logger_id"
-        let level = TLogLevel.debug.name
+        let level = LogLevel.debug.name
         let expectedDate = Date()
         let message = "some message"
         let thread = "main"
@@ -71,7 +71,7 @@ class TLogToJSONConverterTests: XCTestCase {
         let line = 123
         let userInfo = ["one": self]
 
-        let log = TLog(loggerID: loggerId,
+        let log = Log(loggerID: loggerId,
                        level: .debug,
                        date: expectedDate,
                        message: { return message },

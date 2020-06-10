@@ -9,10 +9,10 @@ import XCTest
 @testable import Tambo
 
 class TLogStringFormatterTests: XCTestCase {
-    var formatter: TLogStringFormatter!
+    var formatter: LogStringFormatter!
     override func setUp() {
         super.setUp()
-        formatter = TLogStringFormatter()
+        formatter = LogStringFormatter()
     }
 
     override func tearDown() {
@@ -23,7 +23,7 @@ class TLogStringFormatterTests: XCTestCase {
     func testDefaultFormatString() {
         XCTAssertEqual(formatter.logFormat, "[D] [L] T S F:# f - M\nC")
         let format = "some string format"
-        formatter = TLogStringFormatter(with: format)
+        formatter = LogStringFormatter(with: format)
         XCTAssertEqual(formatter.logFormat, format)
     }
 
@@ -32,9 +32,9 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testLogFormatDoesntChange() {
-        let formatter = TLogStringFormatter()
+        let formatter = LogStringFormatter()
         let format = formatter.logFormat
-        let log = TLog(loggerID: "id",
+        let log = Log(loggerID: "id",
                        level: .info,
                        date: Date(),
                        message: { return ""},
@@ -53,7 +53,7 @@ class TLogStringFormatterTests: XCTestCase {
     func testDateOnly() {
         formatter.logFormat = "D"
         let date = Date()
-        let log = TLog(loggerID: "test",
+        let log = Log(loggerID: "test",
                        level: .debug,
                        date: date,
                        message: { return "" },
@@ -77,7 +77,7 @@ class TLogStringFormatterTests: XCTestCase {
     func testLoggerNameOnly() {
         formatter.logFormat = "L"
         let loggerID = "com.tambo.logger"
-        let log = TLog(loggerID: loggerID,
+        let log = Log(loggerID: loggerID,
                        level: .debug,
                        date: Date(),
                        message: { return "" },
@@ -101,7 +101,7 @@ class TLogStringFormatterTests: XCTestCase {
     func testThreadNameOnly() {
         formatter.logFormat = "T"
         let threadName = "main"
-        let log = TLog(loggerID: "test",
+        let log = Log(loggerID: "test",
                        level: .debug,
                        date: Date(),
                        message: { return "" },
@@ -123,11 +123,11 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testLevelNameOnly() {
-        let levels: [TLogLevel] = [.info, .debug, .error, .trace, .warning]
+        let levels: [LogLevel] = [.info, .debug, .error, .trace, .warning]
         levels.forEach { level in
             formatter.logFormat = "l"
 
-            let log = TLog(loggerID: "test",
+            let log = Log(loggerID: "test",
                            level: level,
                            date: Date(),
                            message: { return "" },
@@ -150,11 +150,11 @@ class TLogStringFormatterTests: XCTestCase {
     }
 
     func testLevelSymbolOnly() {
-        let levels: [TLogLevel] = [.info, .debug, .error, .trace, .warning]
+        let levels: [LogLevel] = [.info, .debug, .error, .trace, .warning]
         levels.forEach { level in
             formatter.logFormat = "S"
 
-            let log = TLog(loggerID: "test",
+            let log = Log(loggerID: "test",
                            level: level,
                            date: Date(),
                            message: { return "" },
@@ -181,7 +181,7 @@ class TLogStringFormatterTests: XCTestCase {
         let filePath = "/proj/\(fileName).swift"
         formatter.logFormat = "F"
 
-        let log = TLog(loggerID: "test",
+        let log = Log(loggerID: "test",
                        level: .info,
                        date: Date(),
                        message: { return "" },
@@ -206,7 +206,7 @@ class TLogStringFormatterTests: XCTestCase {
         let functionName = "viewDidLoad()"
         formatter.logFormat = "f"
 
-        let log = TLog(loggerID: "test",
+        let log = Log(loggerID: "test",
                        level: .info,
                        date: Date(),
                        message: { return "" },
@@ -231,7 +231,7 @@ class TLogStringFormatterTests: XCTestCase {
         let lineNumber = 24
         formatter.logFormat = "#"
 
-        let log = TLog(loggerID: "test",
+        let log = Log(loggerID: "test",
                        level: .info,
                        date: Date(),
                        message: { return "" },
@@ -256,7 +256,7 @@ class TLogStringFormatterTests: XCTestCase {
         let messageText = "some info message"
         formatter.logFormat = "M"
 
-        let log = TLog(loggerID: "test",
+        let log = Log(loggerID: "test",
                        level: .info,
                        date: Date(),
                        message: { return messageText },
@@ -281,7 +281,7 @@ class TLogStringFormatterTests: XCTestCase {
         let context = ["one": 1]
         formatter.logFormat = "C"
 
-        let log = TLog(loggerID: "test",
+        let log = Log(loggerID: "test",
                        level: .info,
                        date: Date(),
                        message: { return context },

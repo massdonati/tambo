@@ -10,9 +10,9 @@ import Foundation
 /**
  Defines a public interface that every user-defined formatter needs to
  conform to.
- - Tag: T.TLogFormatterProtocol
+ - Tag: T.LogFormatterProtocol
  */
-public protocol TLogFormatterProtocol {
+public protocol LogFormatterProtocol {
     associatedtype FormattedType
     /**
      Formats a [TLog](x-source-tag://T.TLog) object into anything.
@@ -23,5 +23,5 @@ public protocol TLogFormatterProtocol {
      - note: This function will be invoked right befor outputting the log
         from watever stream this message was invoked.
      */
-    func format(_ log: TLog) -> FormattedType
+    func format(_ log: Log) -> FormattedType
 }

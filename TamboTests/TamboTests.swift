@@ -186,7 +186,7 @@ class TamboTests: XCTestCase {
 
     func testXcodeConsoleInfoLevel() {
         logger = Tambo(identifier: "loggerIdentifier")
-        let consoleStream = TConsoleStream(
+        let consoleStream = ConsoleStream(
             identifier: "consoleID",
             printMode: .print
         )

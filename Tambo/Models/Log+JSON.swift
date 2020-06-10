@@ -1,5 +1,5 @@
 //
-//  TLog+JSON.swift
+//  Log+JSON.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 10/15/19.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension TLog {
+extension Log {
 
     /**
      - returns: A valid encoded JSON Data. nil if

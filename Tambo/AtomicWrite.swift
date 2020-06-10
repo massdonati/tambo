@@ -1,5 +1,5 @@
 //
-//  TAtomicWrite.swift
+//  AtomicWrite.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 10/29/19.
@@ -8,7 +8,7 @@
 import Foundation
 
 @propertyWrapper
-public struct TAtomicWrite<Value> {
+public struct AtomicWrite<Value> {
 
     let lock = NSRecursiveLock()
     var value: Value

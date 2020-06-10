@@ -1,5 +1,5 @@
 //
-//  SLOSLogStream.swift
+//  OSLogStream.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
@@ -13,22 +13,22 @@ import os
  - seealso: [Apple logging](https://developer.apple.com/documentation/os/logging)
  - important: everything logged by this stream will use the "{public}@" format.
  */
-public final class TOSLogStream: TStreamFormattable {
+public final class OSLogStream: StreamFormattable {
 
     static let osLogFormat = """
         S F:# f - M
         C
         """
 
-    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
+    public var filters: AtomicWrite<[FilterClosure]> = AtomicWrite(wrappedValue: [])
 
     public var isAsync: Bool = true
     public var identifier: String
-    public var outputLevel: TLogLevel = .trace
+    public var outputLevel: LogLevel = .trace
     public var queue = DispatchQueue.global()
-    public var logFormatter = TLogStringFormatter(with: osLogFormat)
+    public var logFormatter = LogStringFormatter(with: osLogFormat)
     let osLog: OSLog
-    let mapping: TOSLogTypeMapper
+    let mapping: OSLogTypeMapper
     public var metadata: [String : Any]?
 
     /**
@@ -50,7 +50,7 @@ public final class TOSLogStream: TStreamFormattable {
         queue: DispatchQueue? = nil,
         subsystem: String,
         category: String,
-        mapping: TOSLogTypeMapper = .default) {
+        mapping: OSLogTypeMapper = .default) {
 
         self.identifier = identifier
         osLog = OSLog(subsystem: subsystem, category: category)
@@ -58,7 +58,7 @@ public final class TOSLogStream: TStreamFormattable {
         self.queue = streamQueue(target: queue)
     }
     
-    public func output(log: TLog, formattedLog: String) {
+    public func output(log: Log, formattedLog: String) {
 
         let type = mapping.osLogType(for: log.level)
         os_log("%{public}@", log: osLog, type: type, formattedLog)
