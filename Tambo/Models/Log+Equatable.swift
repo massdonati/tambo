@@ -1,5 +1,5 @@
 //
-//  TLog+Equatable.swift
+//  Log+Equatable.swift
 //  Tambo iOS
 //
 //  Created by Massimo Donati on 8/3/19.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension TLog: Equatable {
-    public static func == (lhs: TLog, rhs: TLog) -> Bool {
+extension Log: Equatable {
+    public static func == (lhs: Log, rhs: Log) -> Bool {
         return lhs.loggerID == rhs.loggerID
         && lhs.level == rhs.level
         && lhs.date == rhs.date

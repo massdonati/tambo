@@ -22,16 +22,37 @@ import Foundation
     - variable values in business logic.
  - `trace`:
  */
-public enum TLogLevel: Int {
-    case error = 0
-    case warning = 1
-    case info = 2
-    case debug = 3
-    case trace = 4
+public enum LogLevel: Int {
+    
+    /// Appropriate for critical error conditions that usually require immediate
+    /// attention.
+    ///
+    /// When a `critical` message is logged, the logging backend (`LogHandler`) is free to perform
+    /// more heavy-weight operations to capture system state (such as capturing stack traces) to facilitate
+    /// debugging.
+    case critical = 0
+    
+    /// Appropriate for error conditions.
+    case error = 1
+    
+    /// Appropriate for messages that are not error conditions
+    case warning = 2
+    
+    /// Appropriate for informational messages.
+    case info = 3
+    
+    /// Appropriate for messages that contain information normally of use only when
+    /// debugging a program.
+    case debug = 4
+    
+    /// Appropriate for messages that contain information normally of use only when
+    /// tracing the execution of a program.
+    case trace = 5
 
     /// The string name associated to each level.
     var name: String {
         switch self {
+        case .critical: return "critical"
         case .error: return "error"
         case .warning: return "warning"
         case .info: return "info"
@@ -43,6 +64,7 @@ public enum TLogLevel: Int {
     /// The symble associated to each level.
     var symbol: String {
         switch self {
+        case .critical: return "💥"
         case .error: return "♦️"
         case .warning: return "🔶"
         case .info: return "🔷"
@@ -52,9 +74,9 @@ public enum TLogLevel: Int {
     }
 }
 
-extension TLogLevel: Comparable, Equatable {
+extension LogLevel: Comparable, Equatable {
     /// two levels are `the same` if their raw value is the same.
-    public static func < (lhs: TLogLevel, rhs: TLogLevel) -> Bool {
+    public static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
 }

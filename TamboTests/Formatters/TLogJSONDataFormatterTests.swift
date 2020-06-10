@@ -9,11 +9,11 @@ import XCTest
 @testable import Tambo
 
 class TLogJSONDataFormatterTests: XCTestCase {
-    var formatter: TLogJSONFormatter!
+    var formatter: LogJSONFormatter!
 
     override func setUp() {
         super.setUp()
-        formatter = TLogJSONFormatter()
+        formatter = LogJSONFormatter()
     }
 
     override func tearDown() {
@@ -23,12 +23,12 @@ class TLogJSONDataFormatterTests: XCTestCase {
     func testLogToJSONObject() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        formatter = TLogJSONFormatter(
+        formatter = LogJSONFormatter(
             with: TLogToJSONConverter(dateFormatter: dateFormatter)
         )
 
         let logTimestamp = Date()
-        let log = TLog(loggerID: "logger_id",
+        let log = Log(loggerID: "logger_id",
                        level: .debug,
                        date: logTimestamp,
                        message: { return "some message" },
@@ -61,7 +61,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
 
         XCTAssertFalse(JSONSerialization.isValidJSONObject(invalidJSONObject))
 
-        let log = TLog(loggerID: "loggerId",
+        let log = Log(loggerID: "loggerId",
                        level: .debug,
                        date: Date(),
                        message: { return "message" },
@@ -73,7 +73,7 @@ class TLogJSONDataFormatterTests: XCTestCase {
                        context: nil)
 
         let jsonConverter = JSONConverterMock()
-        let jsonDataFormatter = TLogJSONFormatter(with: jsonConverter)
+        let jsonDataFormatter = LogJSONFormatter(with: jsonConverter)
 
         jsonConverter.jsonDict = invalidJSONObject
 

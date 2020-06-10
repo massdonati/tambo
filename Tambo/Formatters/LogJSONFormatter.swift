@@ -7,11 +7,11 @@
 
 import Foundation
 
-public protocol TLogToDictConversionProtocol {
-    func dictionary(from log: TLog) -> TJSONType
+public protocol LogToDictionaryConverting {
+    func dictionary(from log: Log) -> TJSONType
 }
 
-public class TLogToJSONConverter: TLogToDictConversionProtocol {
+public class TLogToJSONConverter: LogToDictionaryConverting {
 
     /**
      The date formatter to be used to produce the string value of the log object's date.
@@ -37,7 +37,7 @@ public class TLogToJSONConverter: TLogToDictConversionProtocol {
         self.dateFormatter = dateFormatter
     }
 
-    public func dictionary(from log: TLog) -> TJSONType {
+    public func dictionary(from log: Log) -> TJSONType {
         var json: TJSONType = [
             "logger_id": log.loggerID,
             "level": log.level.name,
@@ -57,7 +57,7 @@ public class TLogToJSONConverter: TLogToDictConversionProtocol {
         return json
     }
 
-    public func string(from log: TLog,
+    public func string(from log: Log,
                        writingOption: JSONSerialization.WritingOptions = .sortedKeys) throws -> String {
         var dict = dictionary(from: log)
         dict.makeValidJsonObject()
@@ -72,12 +72,12 @@ public class TLogToJSONConverter: TLogToDictConversionProtocol {
     }
 }
 
-public class TLogJSONFormatter: TLogFormatterProtocol {
+public class LogJSONFormatter: LogFormatterProtocol {
     public typealias FormattedType = Data
-    public var logToDictConverter: TLogToDictConversionProtocol
+    public var logToDictConverter: LogToDictionaryConverting
 
     /// Designated initializer.
-    public init(with logConverter: TLogToDictConversionProtocol? = nil) {
+    public init(with logConverter: LogToDictionaryConverting? = nil) {
         if let converter = logConverter {
             logToDictConverter = converter
         } else {
@@ -85,7 +85,7 @@ public class TLogJSONFormatter: TLogFormatterProtocol {
         }
     }
 
-    public func format(_ log: TLog) -> Data {
+    public func format(_ log: Log) -> Data {
         var logDict = logToDictConverter.dictionary(from: log)
         if !JSONSerialization.isValidJSONObject(logDict) {
             logDict.makeValidJsonObject()

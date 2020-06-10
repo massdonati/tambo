@@ -22,7 +22,7 @@ class TLogTests: XCTestCase {
 
     func testcontextJSONString() {
         var context: [String: Any] = ["test_instance": self, "val": 2]
-        let log = TLog(loggerID: "some.logger",
+        let log = Log(loggerID: "some.logger",
                        level: .trace,
                        date: Date(),
                        message: { return "" },
@@ -49,7 +49,7 @@ class TLogTests: XCTestCase {
     }
 
     func testNilcontextJSONString() {
-        let log = TLog(loggerID: "some.logger",
+        let log = Log(loggerID: "some.logger",
                        level: .trace,
                        date: Date(),
                        message: { return "" },
@@ -65,7 +65,7 @@ class TLogTests: XCTestCase {
     }
 
     func testEmptyFileName() {
-        let log = TLog(loggerID: "some.logger",
+        let log = Log(loggerID: "some.logger",
                        level: .trace,
                        date: Date(),
                        message: { return "" },

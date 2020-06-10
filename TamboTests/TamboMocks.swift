@@ -8,57 +8,57 @@
 import Foundation
 @testable import Tambo
 
-class JSONConverterMock: TLogToDictConversionProtocol {
+class JSONConverterMock: LogToDictConversionProtocol {
     var jsonDict: TJSONType = [:]
-    func dictionary(from log: TLog) -> TJSONType {
+    func dictionary(from log: Log) -> TJSONType {
         return jsonDict
     }
 }
 
-class StreamMock: TStreamProtocol {
+class StreamMock: StreamProtocol {
     var metadata: [String : Any]?
-    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
+    public var filters: TAtomicWrite<[FilterClosure]> = TAtomicWrite(wrappedValue: [])
     var isAsync: Bool = true
     var identifier: String = ""
-    var outputLevel: TLogLevel = .debug
+    var outputLevel: LogLevel = .debug
     var queue: DispatchQueue = DispatchQueue(label: "")
-    var processClosure: ((TLog) -> Void)? = nil
-    var shouldFilterOutClosure: ((TLog) -> Bool)? = nil
+    var processClosure: ((Log) -> Void)? = nil
+    var shouldFilterOutClosure: ((Log) -> Bool)? = nil
 
-    func process(_ log: TLog) {
+    func process(_ log: Log) {
         processClosure?(log)
     }
 
-    public func should(filterOut log: TLog) -> Bool {
+    public func should(filterOut log: Log) -> Bool {
         return shouldFilterOutClosure?(log) ?? false
     }
 }
 
-class FormattableStreamMock: TStreamFormattable {
+class FormattableStreamMock: StreamFormattable {
     var metadata: [String : Any]?
-    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
+    public var filters: TAtomicWrite<[FilterClosure]> = TAtomicWrite(wrappedValue: [])
     var logFormatter = FormatterMock()
     var isAsync: Bool = true
     var identifier: String = ""
-    var outputLevel: TLogLevel = .trace
+    var outputLevel: LogLevel = .trace
     var queue: DispatchQueue = DispatchQueue(label: "")
-    var outputLogClosure: (TLog, String) -> Void = {_,_ in}
+    var outputLogClosure: (Log, String) -> Void = {_,_ in}
 
-    func output(log: TLog, formattedLog: String) {
+    func output(log: Log, formattedLog: String) {
         outputLogClosure(log, formattedLog)
     }
 }
 
-class FormatterMock: TLogFormatterProtocol {
+class FormatterMock: LogFormatterProtocol {
     var formattedLogString: String?
     typealias FormattedType = String
 
-    func format(_ log: TLog) -> String {
+    func format(_ log: Log) -> String {
         return formattedLogString ?? ""
     }
 }
 
-let logMock = TLog(loggerID: "test",
+let logMock = Log(loggerID: "test",
                level: .info,
                date: Date(),
                message: { return "" },
@@ -77,7 +77,7 @@ class SyncConcurrentDispatcher: ConcurrentDispatcherProtocol {
 
 enum Fixture {
     static func mockTLog(loggerID: String = "test",
-    level: TLogLevel = .info,
+    level: LogLevel = .info,
     date: Date = Date(),
     message: @escaping (() -> Any) = { return "" },
     condition: Bool = true,
@@ -85,9 +85,9 @@ enum Fixture {
     functionName: String = "somefunction",
     filePath: String = "path",
     lineNumber: Int = 0,
-    context: [String: Any]? = nil) -> TLog {
+    context: [String: Any]? = nil) -> Log {
 
-        return TLog(
+        return Log(
             loggerID: loggerID,
             level: level,
             date: date,

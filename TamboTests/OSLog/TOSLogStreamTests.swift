@@ -19,11 +19,11 @@ class TOSLogStreamTests: XCTestCase {
     }
 
     func testOSLogging() {
-        let osLogStream = TOSLogStream(identifier: "some_id",
+        let osLogStream = OSLogStream(identifier: "some_id",
                                        subsystem: "subsystem",
                                        category:"category")
 
-        XCTAssertEqual(osLogStream.logFormatter.logFormat, TOSLogStream.osLogFormat)
+        XCTAssertEqual(osLogStream.logFormatter.logFormat, OSLogStream.osLogFormat)
 
         let log = Tambo(identifier: "test-logger")
 

@@ -1,5 +1,5 @@
 //
-//  TConsoleStream.swift
+//  ConsoleStream.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/26/18.
@@ -11,19 +11,20 @@ import Foundation
  Defines whether the console stream should use the print function
  or the NSLog one
  */
-public enum TConsolePrintMode {
+public enum ConsolePrintMode {
     case print, nsLog
 }
 
 /// The Xcode console stream. It will output the logs to the Xcode console.
-public final class TConsoleStream: TStreamFormattable {
-    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
+public final class ConsoleStream: StreamFormattable {
+
+    public var filters: AtomicWrite<[FilterClosure]> = AtomicWrite(wrappedValue: [])
     public var isAsync: Bool = false
     public var identifier: String
-    public var outputLevel: TLogLevel
+    public var outputLevel: LogLevel
     public var queue = DispatchQueue.global()
-    public var logFormatter = TLogStringFormatter()
-    private var printMode: TConsolePrintMode = .print
+    public var logFormatter = LogStringFormatter()
+    private var printMode: ConsolePrintMode = .print
     public var metadata: [String : Any]?
 
     /**
@@ -36,7 +37,7 @@ public final class TConsoleStream: TStreamFormattable {
         structs if `isAsync` is `true`.
      */
     public init(identifier: String,
-                printMode: TConsolePrintMode,
+                printMode: ConsolePrintMode,
                 dispatchQueue: DispatchQueue? = nil) {
         self.printMode = printMode
         self.identifier = identifier
@@ -44,7 +45,7 @@ public final class TConsoleStream: TStreamFormattable {
         queue = streamQueue(target: dispatchQueue)
     }
     
-    public func output(log: TLog, formattedLog: String) {
+    public func output(log: Log, formattedLog: String) {
         switch printMode {
         case .print:
             print(formattedLog)

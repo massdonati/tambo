@@ -10,7 +10,7 @@ import XCTest
 
 class TLogFiltererTests: XCTestCase {
     var filterableClass: FilterableClassMock!
-    let logMock = TLog(loggerID: "test",
+    let logMock = Log(loggerID: "test",
                        level: .info,
                        date: Date(),
                        message: { return "" },
@@ -83,6 +83,6 @@ class TLogFiltererTests: XCTestCase {
     }
 }
 
-class FilterableClassMock: TLogFilterer {
-    public var filters: TAtomicWrite<[TFilterClosure]> = TAtomicWrite(wrappedValue: [])
+class FilterableClassMock: LogFilterer {
+    public var filters: TAtomicWrite<[FilterClosure]> = TAtomicWrite(wrappedValue: [])
 }

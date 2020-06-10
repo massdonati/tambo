@@ -13,7 +13,7 @@ import Foundation
     1. A `default`, singleton, logger instance with a console stream already
         cofigured in it.
     2. Create a Tambo instance. In this case the user is also required to add the
-        appropriate [streams](x-source-tag://T.TStreamProtocol).
+        appropriate [streams](x-source-tag://T.StreamProtocol).
  - note: Tambo already provides `TConsoleStream` and `TOSLogStream`
  */
 public final class Tambo {
@@ -31,7 +31,7 @@ public final class Tambo {
      */
     static public var `default`: Tambo = {
         let logger = Tambo(identifier: "com.tambo.default.logger")
-        let console = TConsoleStream(
+        let console = ConsoleStream(
             identifier: "com.tambo.default.consoleStream",
             printMode: .print
         )
@@ -39,7 +39,7 @@ public final class Tambo {
         return logger
     }()
 
-    @TAtomicWrite var streams: [TStreamProtocol] = []
+    @AtomicWrite var streams: [StreamProtocol] = []
 
     /**
      Designated initializer.
@@ -56,7 +56,7 @@ public final class Tambo {
         it is definitely a best practice in order to uniquely identify a where a log
         message was generated from.
      */
-    public func add(stream: TStreamProtocol) {
+    public func add(stream: StreamProtocol) {
         _streams.mutate { $0.append(stream) }
     }
 
@@ -226,14 +226,14 @@ public final class Tambo {
     private func propagateLog(
         msgClosure: @escaping () -> Any,
         condition: Bool? = nil,
-        level: TLogLevel,
+        level: LogLevel,
         functionName: String,
         filePath: String,
         lineNumber: Int,
         context: [String: Any]?,
         time: Date = Date()) {
 
-        let log = TLog(
+        let log = Log(
             loggerID: self.identifier,
             level: level,
             date: time,
@@ -251,16 +251,15 @@ public final class Tambo {
         }
     }
 
-    func processLog(_ log: TLog, to stream: TStreamProtocol) {
-        var editableLog = log
+    func processLog(_ log: Log, to stream: StreamProtocol) {
         guard
-            editableLog.condition,
-            stream.isEnabled(for: editableLog.level),
-            stream.should(filterOut: editableLog) == false
-            else { return }
-
-        // injecting stream's metadata
+            log.condition,
+            stream.isEnabled(for: log.level),
+            stream.should(filterOut: log) == false else { return }
+        
+        var editableLog = log
         if let metadata = stream.metadata {
+            // injecting stream's metadata
             var currentContext = editableLog.context ?? [:]
             currentContext["metadata"] = metadata
             editableLog.context = currentContext

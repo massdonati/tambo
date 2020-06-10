@@ -10,34 +10,34 @@
 		56049B3E2106DEE100EAFC44 /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56049B342106DEE100EAFC44 /* Tambo.framework */; };
 		56049B432106DEE100EAFC44 /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
 		56049B452106DEE100EAFC44 /* Tambo.h in Headers */ = {isa = PBXBuildFile; fileRef = 56049B372106DEE100EAFC44 /* Tambo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		56049B5D2106E7F300EAFC44 /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
-		56049B602106E86A00EAFC44 /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
-		56049B622106EBD300EAFC44 /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
-		56049B662106EFC600EAFC44 /* TLogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatterProtocol.swift */; };
-		56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
-		56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
-		56128DE521251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
-		56128DE621251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
-		56128DE721251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
-		56128DE821251C2B00AD89B1 /* TLogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* TLogFilterer.swift */; };
+		56049B5D2106E7F300EAFC44 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* Log.swift */; };
+		56049B602106E86A00EAFC44 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* LogLevel.swift */; };
+		56049B622106EBD300EAFC44 /* StreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* StreamProtocol.swift */; };
+		56049B662106EFC600EAFC44 /* LogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* LogFormatterProtocol.swift */; };
+		56049B682106F1FC00EAFC44 /* OSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* OSLogStream.swift */; };
+		56049B6A2106F37C00EAFC44 /* OSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* OSLogLevelMapping.swift */; };
+		56128DE521251C2B00AD89B1 /* LogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* LogFilterer.swift */; };
+		56128DE621251C2B00AD89B1 /* LogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* LogFilterer.swift */; };
+		56128DE721251C2B00AD89B1 /* LogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* LogFilterer.swift */; };
+		56128DE821251C2B00AD89B1 /* LogFilterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DE421251C2B00AD89B1 /* LogFilterer.swift */; };
 		56128DEB2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */; };
 		56128DEC2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */; };
 		56128DED2126AC8100AD89B1 /* TLogFiltererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */; };
 		561C8415210AB959001D28DB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561C840C210AB959001D28DB /* Tambo.framework */; };
 		561C8423210AB9AE001D28DB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
 		561C8424210AB9B2001D28DB /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* UtilsTests.swift */; };
-		561C8425210ABA4F001D28DB /* TLogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatterProtocol.swift */; };
-		561C8426210ABA53001D28DB /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
-		561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
-		561C8428210ABA60001D28DB /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
-		561C8429210ABA60001D28DB /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
-		561C842A210ABA60001D28DB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
+		561C8425210ABA4F001D28DB /* LogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* LogFormatterProtocol.swift */; };
+		561C8426210ABA53001D28DB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* Log.swift */; };
+		561C8427210ABA57001D28DB /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* LogLevel.swift */; };
+		561C8428210ABA60001D28DB /* OSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* OSLogStream.swift */; };
+		561C8429210ABA60001D28DB /* OSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* OSLogLevelMapping.swift */; };
+		561C842A210ABA60001D28DB /* StreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* StreamProtocol.swift */; };
 		561C842C210ABA60001D28DB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		561C842D210ABA60001D28DB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
-		561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
-		561C8431210AC594001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
-		561C8432210AC594001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
-		561C8433210AC703001D28DB /* TConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* TConsoleStream.swift */; };
+		561C8430210AC594001D28DB /* ConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* ConsoleStream.swift */; };
+		561C8431210AC594001D28DB /* ConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* ConsoleStream.swift */; };
+		561C8432210AC594001D28DB /* ConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* ConsoleStream.swift */; };
+		561C8433210AC703001D28DB /* ConsoleStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C842F210AC594001D28DB /* ConsoleStream.swift */; };
 		563113952109970700BC84AF /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* UtilsTests.swift */; };
 		5665F18F21166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */; };
 		5665F19021166B5B00D603FF /* TLogStringFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */; };
@@ -51,28 +51,32 @@
 		568D38C021083A1D00BFBF48 /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		568D38C221084F5400BFBF48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC70EE2109A58900FF04BB /* Tambo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC70E52109A58900FF04BB /* Tambo.framework */; };
-		56AC70FC2109A64A00FF04BB /* TLogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatterProtocol.swift */; };
-		56AC70FD2109A64B00FF04BB /* TLogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* TLogFormatterProtocol.swift */; };
-		56AC70FE2109A64F00FF04BB /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
-		56AC70FF2109A64F00FF04BB /* TLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* TLog.swift */; };
-		56AC71002109A65300FF04BB /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
-		56AC71012109A65400FF04BB /* TLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* TLogLevel.swift */; };
-		56AC71022109A65900FF04BB /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
-		56AC71032109A65A00FF04BB /* TOSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* TOSLogStream.swift */; };
-		56AC71042109A65D00FF04BB /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
-		56AC71052109A65E00FF04BB /* TOSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */; };
-		56AC71062109A66200FF04BB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
-		56AC71072109A66200FF04BB /* TStreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* TStreamProtocol.swift */; };
+		56AC70FC2109A64A00FF04BB /* LogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* LogFormatterProtocol.swift */; };
+		56AC70FD2109A64B00FF04BB /* LogFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B652106EFC600EAFC44 /* LogFormatterProtocol.swift */; };
+		56AC70FE2109A64F00FF04BB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* Log.swift */; };
+		56AC70FF2109A64F00FF04BB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5C2106E7F300EAFC44 /* Log.swift */; };
+		56AC71002109A65300FF04BB /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* LogLevel.swift */; };
+		56AC71012109A65400FF04BB /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B5F2106E86A00EAFC44 /* LogLevel.swift */; };
+		56AC71022109A65900FF04BB /* OSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* OSLogStream.swift */; };
+		56AC71032109A65A00FF04BB /* OSLogStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B672106F1FC00EAFC44 /* OSLogStream.swift */; };
+		56AC71042109A65D00FF04BB /* OSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* OSLogLevelMapping.swift */; };
+		56AC71052109A65E00FF04BB /* OSLogLevelMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B692106F37C00EAFC44 /* OSLogLevelMapping.swift */; };
+		56AC71062109A66200FF04BB /* StreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* StreamProtocol.swift */; };
+		56AC71072109A66200FF04BB /* StreamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B612106EBD300EAFC44 /* StreamProtocol.swift */; };
 		56AC710A2109A66900FF04BB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		56AC710B2109A66A00FF04BB /* Tambo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38BF21083A1D00BFBF48 /* Tambo.swift */; };
 		56AC710C2109A66D00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC710D2109A66E00FF04BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D38C121084F5400BFBF48 /* Utility.swift */; };
 		56AC71102109A68800FF04BB /* TamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56049B422106DEE100EAFC44 /* TamboTests.swift */; };
 		56AC71112109A68C00FF04BB /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563113942109970700BC84AF /* UtilsTests.swift */; };
-		56BA605E211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
-		56BA605F211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
-		56BA6060211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
-		56BA6061211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */; };
+		56B8DC24248FED2F007B53FD /* TelegramStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8DC23248FED2F007B53FD /* TelegramStream.swift */; };
+		56B8DC25248FED2F007B53FD /* TelegramStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8DC23248FED2F007B53FD /* TelegramStream.swift */; };
+		56B8DC26248FED2F007B53FD /* TelegramStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8DC23248FED2F007B53FD /* TelegramStream.swift */; };
+		56B8DC27248FED2F007B53FD /* TelegramStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8DC23248FED2F007B53FD /* TelegramStream.swift */; };
+		56BA605E211C9E8700FB54C1 /* StreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* StreamFormattable.swift */; };
+		56BA605F211C9E8700FB54C1 /* StreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* StreamFormattable.swift */; };
+		56BA6060211C9E8700FB54C1 /* StreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* StreamFormattable.swift */; };
+		56BA6061211C9E8700FB54C1 /* StreamFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA605D211C9E8700FB54C1 /* StreamFormattable.swift */; };
 		56BA6063211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */; };
 		56BA6064211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */; };
 		56BA6065211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */; };
@@ -80,14 +84,14 @@
 		56C6954F210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
 		56C69550210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
 		56C69551210E7349002E7F2D /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C6954D210E7349002E7F2D /* TypeAliases.swift */; };
-		56C69554210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
-		56C69555210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
-		56C69556210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
-		56C69557210E761C002E7F2D /* TLogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* TLogStringFormatter.swift */; };
-		56C69559210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONFormatter.swift */; };
-		56C6955A210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONFormatter.swift */; };
-		56C6955B210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONFormatter.swift */; };
-		56C6955C210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* TLogJSONFormatter.swift */; };
+		56C69554210E761C002E7F2D /* LogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* LogStringFormatter.swift */; };
+		56C69555210E761C002E7F2D /* LogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* LogStringFormatter.swift */; };
+		56C69556210E761C002E7F2D /* LogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* LogStringFormatter.swift */; };
+		56C69557210E761C002E7F2D /* LogStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69553210E761C002E7F2D /* LogStringFormatter.swift */; };
+		56C69559210E7689002E7F2D /* LogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* LogJSONFormatter.swift */; };
+		56C6955A210E7689002E7F2D /* LogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* LogJSONFormatter.swift */; };
+		56C6955B210E7689002E7F2D /* LogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* LogJSONFormatter.swift */; };
+		56C6955C210E7689002E7F2D /* LogJSONFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C69558210E7689002E7F2D /* LogJSONFormatter.swift */; };
 		56D18F302122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */; };
 		56D18F312122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */; };
 		56D18F322122B6BE00F05F2B /* TOSLogStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */; };
@@ -103,15 +107,15 @@
 		56FB6500211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
 		56FB6501211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
 		56FB6502211D62F400BA00D6 /* TStreamFormattableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */; };
-		7913E9AC22F6118900A05EBD /* TLog+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913E9AB22F6118900A05EBD /* TLog+Equatable.swift */; };
-		798EABD1235685500004855B /* TLog+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* TLog+JSON.swift */; };
-		798EABD2235685500004855B /* TLog+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* TLog+JSON.swift */; };
-		798EABD3235685500004855B /* TLog+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* TLog+JSON.swift */; };
-		798EABD4235685500004855B /* TLog+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* TLog+JSON.swift */; };
-		79925CC52368EC55003FAF0A /* TAtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* TAtomicWrite.swift */; };
-		79925CC62368EC55003FAF0A /* TAtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* TAtomicWrite.swift */; };
-		79925CC72368EC55003FAF0A /* TAtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* TAtomicWrite.swift */; };
-		79925CC82368EC55003FAF0A /* TAtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* TAtomicWrite.swift */; };
+		7913E9AC22F6118900A05EBD /* Log+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913E9AB22F6118900A05EBD /* Log+Equatable.swift */; };
+		798EABD1235685500004855B /* Log+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* Log+JSON.swift */; };
+		798EABD2235685500004855B /* Log+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* Log+JSON.swift */; };
+		798EABD3235685500004855B /* Log+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* Log+JSON.swift */; };
+		798EABD4235685500004855B /* Log+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798EABD0235685500004855B /* Log+JSON.swift */; };
+		79925CC52368EC55003FAF0A /* AtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* AtomicWrite.swift */; };
+		79925CC62368EC55003FAF0A /* AtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* AtomicWrite.swift */; };
+		79925CC72368EC55003FAF0A /* AtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* AtomicWrite.swift */; };
+		79925CC82368EC55003FAF0A /* AtomicWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79925CC42368EC55003FAF0A /* AtomicWrite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,17 +149,17 @@
 		56049B3D2106DEE100EAFC44 /* Tambo iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56049B422106DEE100EAFC44 /* TamboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboTests.swift; sourceTree = "<group>"; };
 		56049B442106DEE100EAFC44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56049B5C2106E7F300EAFC44 /* TLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLog.swift; sourceTree = "<group>"; };
-		56049B5F2106E86A00EAFC44 /* TLogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogLevel.swift; sourceTree = "<group>"; };
-		56049B612106EBD300EAFC44 /* TStreamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamProtocol.swift; sourceTree = "<group>"; };
-		56049B652106EFC600EAFC44 /* TLogFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFormatterProtocol.swift; sourceTree = "<group>"; };
-		56049B672106F1FC00EAFC44 /* TOSLogStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogStream.swift; sourceTree = "<group>"; };
-		56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogLevelMapping.swift; sourceTree = "<group>"; };
-		56128DE421251C2B00AD89B1 /* TLogFilterer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFilterer.swift; sourceTree = "<group>"; };
+		56049B5C2106E7F300EAFC44 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		56049B5F2106E86A00EAFC44 /* LogLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		56049B612106EBD300EAFC44 /* StreamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamProtocol.swift; sourceTree = "<group>"; };
+		56049B652106EFC600EAFC44 /* LogFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormatterProtocol.swift; sourceTree = "<group>"; };
+		56049B672106F1FC00EAFC44 /* OSLogStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogStream.swift; sourceTree = "<group>"; };
+		56049B692106F37C00EAFC44 /* OSLogLevelMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogLevelMapping.swift; sourceTree = "<group>"; };
+		56128DE421251C2B00AD89B1 /* LogFilterer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFilterer.swift; sourceTree = "<group>"; };
 		56128DEA2126AC8100AD89B1 /* TLogFiltererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogFiltererTests.swift; sourceTree = "<group>"; };
 		561C840C210AB959001D28DB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561C8414210AB959001D28DB /* Tambo macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		561C842F210AC594001D28DB /* TConsoleStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TConsoleStream.swift; sourceTree = "<group>"; };
+		561C842F210AC594001D28DB /* ConsoleStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleStream.swift; sourceTree = "<group>"; };
 		563113942109970700BC84AF /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		5665F18E21166B5B00D603FF /* TLogStringFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogStringFormatterTests.swift; sourceTree = "<group>"; };
 		567A95B621175CB80026383F /* TLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogTests.swift; sourceTree = "<group>"; };
@@ -166,21 +170,22 @@
 		56AC70D72109A52E00FF04BB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AC70E52109A58900FF04BB /* Tambo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tambo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AC70ED2109A58900FF04BB /* Tambo tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tambo tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamFormattable.swift; sourceTree = "<group>"; };
+		56B8DC23248FED2F007B53FD /* TelegramStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramStream.swift; sourceTree = "<group>"; };
+		56BA605D211C9E8700FB54C1 /* StreamFormattable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamFormattable.swift; sourceTree = "<group>"; };
 		56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogJSONDataFormatterTests.swift; sourceTree = "<group>"; };
 		56C6954D210E7349002E7F2D /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
-		56C69553210E761C002E7F2D /* TLogStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogStringFormatter.swift; sourceTree = "<group>"; };
-		56C69558210E7689002E7F2D /* TLogJSONFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLogJSONFormatter.swift; sourceTree = "<group>"; };
+		56C69553210E761C002E7F2D /* LogStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogStringFormatter.swift; sourceTree = "<group>"; };
+		56C69558210E7689002E7F2D /* LogJSONFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogJSONFormatter.swift; sourceTree = "<group>"; };
 		56D18F2F2122B6BE00F05F2B /* TOSLogStreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogStreamTests.swift; sourceTree = "<group>"; };
 		56FB64F3211D51BC00BA00D6 /* TOSLogTypeMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSLogTypeMapperTests.swift; sourceTree = "<group>"; };
 		56FB64F7211D546500BA00D6 /* TStreamProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamProtocolTests.swift; sourceTree = "<group>"; };
 		56FB64FB211D578000BA00D6 /* TamboMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboMocks.swift; sourceTree = "<group>"; };
 		56FB64FF211D62F400BA00D6 /* TStreamFormattableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStreamFormattableTests.swift; sourceTree = "<group>"; };
-		7913E9AB22F6118900A05EBD /* TLog+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TLog+Equatable.swift"; sourceTree = "<group>"; };
+		7913E9AB22F6118900A05EBD /* Log+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+Equatable.swift"; sourceTree = "<group>"; };
 		7915AAA2236BA5D20010C71D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		7915AAA3236BA6370010C71D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		798EABD0235685500004855B /* TLog+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TLog+JSON.swift"; sourceTree = "<group>"; };
-		79925CC42368EC55003FAF0A /* TAtomicWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TAtomicWrite.swift; sourceTree = "<group>"; };
+		798EABD0235685500004855B /* Log+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+JSON.swift"; sourceTree = "<group>"; };
+		79925CC42368EC55003FAF0A /* AtomicWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicWrite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,7 +282,7 @@
 				568D38BF21083A1D00BFBF48 /* Tambo.swift */,
 				568D38C121084F5400BFBF48 /* Utility.swift */,
 				56C6954D210E7349002E7F2D /* TypeAliases.swift */,
-				79925CC42368EC55003FAF0A /* TAtomicWrite.swift */,
+				79925CC42368EC55003FAF0A /* AtomicWrite.swift */,
 			);
 			path = Tambo;
 			sourceTree = "<group>";
@@ -302,10 +307,10 @@
 		56049B5E2106E81300EAFC44 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				56049B5C2106E7F300EAFC44 /* TLog.swift */,
-				56049B5F2106E86A00EAFC44 /* TLogLevel.swift */,
-				7913E9AB22F6118900A05EBD /* TLog+Equatable.swift */,
-				798EABD0235685500004855B /* TLog+JSON.swift */,
+				56049B5C2106E7F300EAFC44 /* Log.swift */,
+				56049B5F2106E86A00EAFC44 /* LogLevel.swift */,
+				7913E9AB22F6118900A05EBD /* Log+Equatable.swift */,
+				798EABD0235685500004855B /* Log+JSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,8 +318,9 @@
 		56049B632106EF6400EAFC44 /* Streams */ = {
 			isa = PBXGroup;
 			children = (
-				56049B612106EBD300EAFC44 /* TStreamProtocol.swift */,
-				56BA605D211C9E8700FB54C1 /* TStreamFormattable.swift */,
+				56B8DC22248FECFC007B53FD /* Telegram */,
+				56049B612106EBD300EAFC44 /* StreamProtocol.swift */,
+				56BA605D211C9E8700FB54C1 /* StreamFormattable.swift */,
 				561C842E210AC56D001D28DB /* Xcode console */,
 				563113912109874200BC84AF /* OSLog */,
 			);
@@ -324,9 +330,9 @@
 		56049B642106EFAF00EAFC44 /* Formatters */ = {
 			isa = PBXGroup;
 			children = (
-				56049B652106EFC600EAFC44 /* TLogFormatterProtocol.swift */,
-				56C69553210E761C002E7F2D /* TLogStringFormatter.swift */,
-				56C69558210E7689002E7F2D /* TLogJSONFormatter.swift */,
+				56049B652106EFC600EAFC44 /* LogFormatterProtocol.swift */,
+				56C69553210E761C002E7F2D /* LogStringFormatter.swift */,
+				56C69558210E7689002E7F2D /* LogJSONFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -334,7 +340,7 @@
 		56128DE9212538E300AD89B1 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
-				56128DE421251C2B00AD89B1 /* TLogFilterer.swift */,
+				56128DE421251C2B00AD89B1 /* LogFilterer.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -342,7 +348,7 @@
 		561C842E210AC56D001D28DB /* Xcode console */ = {
 			isa = PBXGroup;
 			children = (
-				561C842F210AC594001D28DB /* TConsoleStream.swift */,
+				561C842F210AC594001D28DB /* ConsoleStream.swift */,
 			);
 			path = "Xcode console";
 			sourceTree = "<group>";
@@ -350,8 +356,8 @@
 		563113912109874200BC84AF /* OSLog */ = {
 			isa = PBXGroup;
 			children = (
-				56049B672106F1FC00EAFC44 /* TOSLogStream.swift */,
-				56049B692106F37C00EAFC44 /* TOSLogLevelMapping.swift */,
+				56049B672106F1FC00EAFC44 /* OSLogStream.swift */,
+				56049B692106F37C00EAFC44 /* OSLogLevelMapping.swift */,
 			);
 			path = OSLog;
 			sourceTree = "<group>";
@@ -364,6 +370,14 @@
 				56BA6062211CA7A800FB54C1 /* TLogJSONDataFormatterTests.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		56B8DC22248FECFC007B53FD /* Telegram */ = {
+			isa = PBXGroup;
+			children = (
+				56B8DC23248FED2F007B53FD /* TelegramStream.swift */,
+			);
+			path = Telegram;
 			sourceTree = "<group>";
 		};
 		56FB64F2211D519A00BA00D6 /* OSLog */ = {
@@ -657,22 +671,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				568D38C021083A1D00BFBF48 /* Tambo.swift in Sources */,
-				56049B682106F1FC00EAFC44 /* TOSLogStream.swift in Sources */,
-				798EABD1235685500004855B /* TLog+JSON.swift in Sources */,
-				56C69554210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
+				56049B682106F1FC00EAFC44 /* OSLogStream.swift in Sources */,
+				798EABD1235685500004855B /* Log+JSON.swift in Sources */,
+				56C69554210E761C002E7F2D /* LogStringFormatter.swift in Sources */,
 				568D38C221084F5400BFBF48 /* Utility.swift in Sources */,
-				79925CC52368EC55003FAF0A /* TAtomicWrite.swift in Sources */,
-				56049B602106E86A00EAFC44 /* TLogLevel.swift in Sources */,
-				56049B622106EBD300EAFC44 /* TStreamProtocol.swift in Sources */,
-				56C69559210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */,
-				56BA605E211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
-				56128DE521251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
+				79925CC52368EC55003FAF0A /* AtomicWrite.swift in Sources */,
+				56049B602106E86A00EAFC44 /* LogLevel.swift in Sources */,
+				56049B622106EBD300EAFC44 /* StreamProtocol.swift in Sources */,
+				56C69559210E7689002E7F2D /* LogJSONFormatter.swift in Sources */,
+				56BA605E211C9E8700FB54C1 /* StreamFormattable.swift in Sources */,
+				56128DE521251C2B00AD89B1 /* LogFilterer.swift in Sources */,
 				56C6954E210E7349002E7F2D /* TypeAliases.swift in Sources */,
-				561C8430210AC594001D28DB /* TConsoleStream.swift in Sources */,
-				7913E9AC22F6118900A05EBD /* TLog+Equatable.swift in Sources */,
-				56049B662106EFC600EAFC44 /* TLogFormatterProtocol.swift in Sources */,
-				56049B5D2106E7F300EAFC44 /* TLog.swift in Sources */,
-				56049B6A2106F37C00EAFC44 /* TOSLogLevelMapping.swift in Sources */,
+				561C8430210AC594001D28DB /* ConsoleStream.swift in Sources */,
+				7913E9AC22F6118900A05EBD /* Log+Equatable.swift in Sources */,
+				56049B662106EFC600EAFC44 /* LogFormatterProtocol.swift in Sources */,
+				56049B5D2106E7F300EAFC44 /* Log.swift in Sources */,
+				56B8DC24248FED2F007B53FD /* TelegramStream.swift in Sources */,
+				56049B6A2106F37C00EAFC44 /* OSLogLevelMapping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,21 +715,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				561C842C210ABA60001D28DB /* Tambo.swift in Sources */,
-				561C8428210ABA60001D28DB /* TOSLogStream.swift in Sources */,
-				56C69557210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
+				561C8428210ABA60001D28DB /* OSLogStream.swift in Sources */,
+				56C69557210E761C002E7F2D /* LogStringFormatter.swift in Sources */,
+				56B8DC27248FED2F007B53FD /* TelegramStream.swift in Sources */,
 				561C842D210ABA60001D28DB /* Utility.swift in Sources */,
-				79925CC82368EC55003FAF0A /* TAtomicWrite.swift in Sources */,
-				561C842A210ABA60001D28DB /* TStreamProtocol.swift in Sources */,
-				561C8427210ABA57001D28DB /* TLogLevel.swift in Sources */,
-				798EABD4235685500004855B /* TLog+JSON.swift in Sources */,
-				56C6955C210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */,
-				56BA6061211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
-				56128DE821251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
+				79925CC82368EC55003FAF0A /* AtomicWrite.swift in Sources */,
+				561C842A210ABA60001D28DB /* StreamProtocol.swift in Sources */,
+				561C8427210ABA57001D28DB /* LogLevel.swift in Sources */,
+				798EABD4235685500004855B /* Log+JSON.swift in Sources */,
+				56C6955C210E7689002E7F2D /* LogJSONFormatter.swift in Sources */,
+				56BA6061211C9E8700FB54C1 /* StreamFormattable.swift in Sources */,
+				56128DE821251C2B00AD89B1 /* LogFilterer.swift in Sources */,
 				56C69551210E7349002E7F2D /* TypeAliases.swift in Sources */,
-				561C8433210AC703001D28DB /* TConsoleStream.swift in Sources */,
-				561C8425210ABA4F001D28DB /* TLogFormatterProtocol.swift in Sources */,
-				561C8429210ABA60001D28DB /* TOSLogLevelMapping.swift in Sources */,
-				561C8426210ABA53001D28DB /* TLog.swift in Sources */,
+				561C8433210AC703001D28DB /* ConsoleStream.swift in Sources */,
+				561C8425210ABA4F001D28DB /* LogFormatterProtocol.swift in Sources */,
+				561C8429210ABA60001D28DB /* OSLogLevelMapping.swift in Sources */,
+				561C8426210ABA53001D28DB /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,21 +758,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				56AC710B2109A66A00FF04BB /* Tambo.swift in Sources */,
-				56AC71022109A65900FF04BB /* TOSLogStream.swift in Sources */,
-				56C69555210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
+				56AC71022109A65900FF04BB /* OSLogStream.swift in Sources */,
+				56C69555210E761C002E7F2D /* LogStringFormatter.swift in Sources */,
+				56B8DC25248FED2F007B53FD /* TelegramStream.swift in Sources */,
 				56AC710D2109A66E00FF04BB /* Utility.swift in Sources */,
-				79925CC62368EC55003FAF0A /* TAtomicWrite.swift in Sources */,
-				56AC71062109A66200FF04BB /* TStreamProtocol.swift in Sources */,
-				56AC71002109A65300FF04BB /* TLogLevel.swift in Sources */,
-				798EABD2235685500004855B /* TLog+JSON.swift in Sources */,
-				56C6955A210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */,
-				56BA605F211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
-				56128DE621251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
+				79925CC62368EC55003FAF0A /* AtomicWrite.swift in Sources */,
+				56AC71062109A66200FF04BB /* StreamProtocol.swift in Sources */,
+				56AC71002109A65300FF04BB /* LogLevel.swift in Sources */,
+				798EABD2235685500004855B /* Log+JSON.swift in Sources */,
+				56C6955A210E7689002E7F2D /* LogJSONFormatter.swift in Sources */,
+				56BA605F211C9E8700FB54C1 /* StreamFormattable.swift in Sources */,
+				56128DE621251C2B00AD89B1 /* LogFilterer.swift in Sources */,
 				56C6954F210E7349002E7F2D /* TypeAliases.swift in Sources */,
-				561C8431210AC594001D28DB /* TConsoleStream.swift in Sources */,
-				56AC70FC2109A64A00FF04BB /* TLogFormatterProtocol.swift in Sources */,
-				56AC71042109A65D00FF04BB /* TOSLogLevelMapping.swift in Sources */,
-				56AC70FE2109A64F00FF04BB /* TLog.swift in Sources */,
+				561C8431210AC594001D28DB /* ConsoleStream.swift in Sources */,
+				56AC70FC2109A64A00FF04BB /* LogFormatterProtocol.swift in Sources */,
+				56AC71042109A65D00FF04BB /* OSLogLevelMapping.swift in Sources */,
+				56AC70FE2109A64F00FF04BB /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,21 +782,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				56AC710A2109A66900FF04BB /* Tambo.swift in Sources */,
-				56AC71032109A65A00FF04BB /* TOSLogStream.swift in Sources */,
-				56C69556210E761C002E7F2D /* TLogStringFormatter.swift in Sources */,
+				56AC71032109A65A00FF04BB /* OSLogStream.swift in Sources */,
+				56C69556210E761C002E7F2D /* LogStringFormatter.swift in Sources */,
+				56B8DC26248FED2F007B53FD /* TelegramStream.swift in Sources */,
 				56AC710C2109A66D00FF04BB /* Utility.swift in Sources */,
-				79925CC72368EC55003FAF0A /* TAtomicWrite.swift in Sources */,
-				56AC71072109A66200FF04BB /* TStreamProtocol.swift in Sources */,
-				56AC71012109A65400FF04BB /* TLogLevel.swift in Sources */,
-				798EABD3235685500004855B /* TLog+JSON.swift in Sources */,
-				56C6955B210E7689002E7F2D /* TLogJSONFormatter.swift in Sources */,
-				56BA6060211C9E8700FB54C1 /* TStreamFormattable.swift in Sources */,
-				56128DE721251C2B00AD89B1 /* TLogFilterer.swift in Sources */,
+				79925CC72368EC55003FAF0A /* AtomicWrite.swift in Sources */,
+				56AC71072109A66200FF04BB /* StreamProtocol.swift in Sources */,
+				56AC71012109A65400FF04BB /* LogLevel.swift in Sources */,
+				798EABD3235685500004855B /* Log+JSON.swift in Sources */,
+				56C6955B210E7689002E7F2D /* LogJSONFormatter.swift in Sources */,
+				56BA6060211C9E8700FB54C1 /* StreamFormattable.swift in Sources */,
+				56128DE721251C2B00AD89B1 /* LogFilterer.swift in Sources */,
 				56C69550210E7349002E7F2D /* TypeAliases.swift in Sources */,
-				561C8432210AC594001D28DB /* TConsoleStream.swift in Sources */,
-				56AC70FD2109A64B00FF04BB /* TLogFormatterProtocol.swift in Sources */,
-				56AC71052109A65E00FF04BB /* TOSLogLevelMapping.swift in Sources */,
-				56AC70FF2109A64F00FF04BB /* TLog.swift in Sources */,
+				561C8432210AC594001D28DB /* ConsoleStream.swift in Sources */,
+				56AC70FD2109A64B00FF04BB /* LogFormatterProtocol.swift in Sources */,
+				56AC71052109A65E00FF04BB /* OSLogLevelMapping.swift in Sources */,
+				56AC70FF2109A64F00FF04BB /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

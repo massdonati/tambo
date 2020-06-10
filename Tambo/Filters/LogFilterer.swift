@@ -1,5 +1,5 @@
 //
-//  TStreamFilterable.swift
+//  LogFilterer.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 8/15/18.
@@ -8,42 +8,42 @@
 import Foundation
 
 /**
- A closure that will determine if a `TLog` should be filtered or not.
- - parameter log: The TLog instance to be evaluated.
- - returns: true if the `TLog` should be discarded, false otherwise.
+ A closure that will determine if a `Log` should be filtered or not.
+ - parameter log: The Log instance to be evaluated.
+ - returns: true if the `Log` should be discarded, false otherwise.
  */
-public typealias TFilterClosure = (_ log: TLog) -> Bool
+public typealias FilterClosure = (_ log: Log) -> Bool
 
 /**
- Defines the behavior able to filter `TLog` instances.
+ Defines the behavior able to filter `Log` instances.
  */
-public protocol TLogFilterer: class {
+public protocol LogFilterer: AnyObject {
     /**
-     Array of filters that will be used to check if a `TLog` instance
+     Array of filters that will be used to check if a `Log` instance
      should be filtered or not.
      */
-    var filters: TAtomicWrite<[TFilterClosure]> {get set}
+    var filters: AtomicWrite<[FilterClosure]> {get set}
 
     /**
-     - returns: true wether a TLog should be discarded, false otherwise.
-     - parameter log: T `TLog` instance to be evaluated.
+     - returns: true wether a Log should be discarded, false otherwise.
+     - parameter log: T `Log` instance to be evaluated.
      - note: The default implementation will evaluate all the filters
         and reduce the result of each filter into a final decision.
      */
-    func should(filterOut log: TLog) -> Bool
+    func should(filterOut log: Log) -> Bool
 
     /**
      Helper method to add a filter.
      - parameter f: the filter to add to the list.
      */
-    func addFilterOutClosure(_ f: @escaping TFilterClosure)
+    func addFilterOutClosure(_ f: @escaping FilterClosure)
 
     /// Removes all the filters currently in the list.
     func removeFilters()
 }
 
-extension TLogFilterer {
-    public func should(filterOut log: TLog) -> Bool {
+extension LogFilterer {
+    public func should(filterOut log: Log) -> Bool {
         if filters.value.isEmpty { return false }
 
         let result = filters.value
@@ -55,7 +55,7 @@ extension TLogFilterer {
         return result
     }
 
-    public func addFilterOutClosure(_ f: @escaping TFilterClosure) {
+    public func addFilterOutClosure(_ f: @escaping FilterClosure) {
         filters.mutate { $0.append(f) }
     }
 

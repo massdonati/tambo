@@ -1,5 +1,5 @@
 //
-//  TLog.swift
+//  Log.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
@@ -15,13 +15,13 @@ import Foundation
  - note: if you need a valid JSON disctionary you can use the `jsonObject` property,
     if you need the encoded `Data` you can use the `jsonData` one.
  */
-public struct TLog {
+public struct Log {
 
     /// the Logger identifier this object was originated from.
     public let loggerID: String
 
     /// The level of the log i.e. `.info`.
-    public let level: TLogLevel
+    public let level: LogLevel
 
     /// The time this log was originated at.
     public let date: Date

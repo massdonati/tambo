@@ -1,5 +1,5 @@
 //
-//  TStreamProtocol.swift
+//  StreamProtocol.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
@@ -9,9 +9,9 @@ import Foundation
 
 /**
  Protocol for stream classes to conform to.
- - Tag: T.TStreamProtocol
+ - Tag: T.StreamProtocol
  */
-public protocol TStreamProtocol: TLogFilterer {
+public protocol StreamProtocol: LogFilterer {
 
     var isAsync: Bool {get set}
 
@@ -19,7 +19,7 @@ public protocol TStreamProtocol: TLogFilterer {
     var identifier: String {get set}
 
     /// Log level for this stream. All levels > than this one will be ignored.
-    var outputLevel: TLogLevel {get set}
+    var outputLevel: LogLevel {get set}
 
     /// The queue the base stream is serially dispatching to.
     /// - note: you can use the `streamQueue(target:)` method to set the queue to one that
@@ -43,7 +43,7 @@ public protocol TStreamProtocol: TLogFilterer {
      - note: this is called by the logger whenever it receive a log from the
         client.
     */
-    func process(_ log: TLog)
+    func process(_ log: Log)
 
     /**
      Check if the stream's log level is equal to or lower than the
@@ -52,10 +52,10 @@ public protocol TStreamProtocol: TLogFilterer {
      - returns: true if the stream is at the log level specified or lower.
         false otherwise.
      */
-    func isEnabled(for level: TLogLevel) -> Bool
+    func isEnabled(for level: LogLevel) -> Bool
 }
 
-extension TStreamProtocol {
+extension StreamProtocol {
 
     func streamQueue(target q: DispatchQueue? = nil) -> DispatchQueue {
         return DispatchQueue(
@@ -65,7 +65,7 @@ extension TStreamProtocol {
         )
     }
 
-    public func isEnabled(for level: TLogLevel) -> Bool {
+    public func isEnabled(for level: LogLevel) -> Bool {
         return level <= outputLevel
     }
 }

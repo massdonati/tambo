@@ -1,5 +1,5 @@
 //
-//  TLogToStringFormatter.swift
+//  LogStringFormatter.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/29/18.
@@ -14,14 +14,14 @@ import Foundation
         is good enough.
     2. Set the dateFormatter to feet your needs; or not if the default behavior
         is good enough.
- - Tag: T.TLogDefaultStringFormatter
+ - Tag: T.LogStringFormatter
  */
-public class TLogStringFormatter: TLogFormatterProtocol {
+public class LogStringFormatter: LogFormatterProtocol {
 
     /**
      The formate rule this formatter will follow to present the log information.
      - note: The keys are documented in the
-     [SLLogFormatKey](xc-source-tag://T.SLLogFormatKey)
+     [LogFormatKey](xc-source-tag://T.LogFormatKey)
      */
     public var logFormat = """
         [D] [L] T S F:# f - M
@@ -44,34 +44,34 @@ public class TLogStringFormatter: TLogFormatterProtocol {
     }
 
     /**
-     Produces a string from a [TLog](x-source-tag://T.TLog) object.
-     - parameter log: The TLog object we want to convert into a string.
-     - seealso: [TLogToStringFormatterProtocol](x-source-tag://T.TLogToStringFormatterProtocol)
+     Produces a string from a [Log](x-source-tag://T.Log) object.
+     - parameter log: The Log object we want to convert into a string.
+     - seealso: [LogToStringFormatterProtocol](x-source-tag://T.LogToStringFormatterProtocol)
      */
-    public func format(_ log: TLog) -> String  {
+    public func format(_ log: Log) -> String  {
         var outputString = ""
 
         logFormat.forEach { ch in
             switch ch {
-            case SLLogFormatKey.date.rawValue:
+            case LogFormatKey.date.rawValue:
                 outputString += dateFormatter.string(from: log.date)
-            case SLLogFormatKey.logger.rawValue:
+            case LogFormatKey.logger.rawValue:
                 outputString += log.loggerID
-            case SLLogFormatKey.level.rawValue:
+            case LogFormatKey.level.rawValue:
                 outputString += log.level.name
-            case SLLogFormatKey.levelSymbol.rawValue:
+            case LogFormatKey.levelSymbol.rawValue:
                 outputString += log.level.symbol
-            case SLLogFormatKey.message.rawValue:
+            case LogFormatKey.message.rawValue:
                 outputString += String(describing: log.message())
-            case SLLogFormatKey.thread.rawValue:
+            case LogFormatKey.thread.rawValue:
                 outputString += log.threadName
-            case SLLogFormatKey.function.rawValue:
+            case LogFormatKey.function.rawValue:
                 outputString += log.functionName
-            case SLLogFormatKey.file.rawValue:
+            case LogFormatKey.file.rawValue:
                 outputString += log.fileName
-            case SLLogFormatKey.line.rawValue:
+            case LogFormatKey.line.rawValue:
                 outputString += String(describing: log.lineNumber)
-            case SLLogFormatKey.context.rawValue:
+            case LogFormatKey.context.rawValue:
                 if let contextString = log.contextJSONString {
                     outputString += "\(contextString)"
                 }
@@ -87,7 +87,7 @@ public class TLogStringFormatter: TLogFormatterProtocol {
  Defines all the possible keys supported by
  [TLogToStringFormatterProtocol](x-source-tag://T.TLogToStringFormatterProtocol).
  */
-enum SLLogFormatKey: Character {
+enum LogFormatKey: Character {
 
     /// The time the [TLog](x-source-tag://T.TLog) was originated at.
     case date = "D"
@@ -105,7 +105,7 @@ enum SLLogFormatKey: Character {
     case message = "M"
 
     /**
-     The thread name the [TLog](x-source-tag://T.TLog) was originate from.
+     The thread name the [Log](x-source-tag://T.Log) was originate from.
      The possible values are:
         1. "main_thread"
         2. the thread name
@@ -117,7 +117,7 @@ enum SLLogFormatKey: Character {
     case function = "f"
 
     /**
-     The file name the [TLog](x-source-tag://T.TLog) was originated
+     The file name the [Log](x-source-tag://T.Log) was originated
      from i.e. `MyFile`
      - note: this doesn't include the file extension.
      */
