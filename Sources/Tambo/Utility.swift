@@ -41,23 +41,6 @@ struct Utility {
     }
 }
 
-enum JSON {
-    static func validObject(from: Any) -> Any {
-        var validValue: Any = String(describing: from)
-
-        if let ancodedData = (from as? Encodable)?.toJSONData() {
-
-            do {
-                validValue = try JSONSerialization.jsonObject(with: ancodedData, options: .allowFragments)
-            } catch {
-                TamboLogger.default.error("Tambo JSON conversion faild, please file an issue in the github repo with more info as possible", context: ["error": .string("\(error)")])
-            }
-        }
-
-        return validValue
-    }
-}
-
 extension Dictionary where Key == String, Value == LogContextValue {
 
     /**
@@ -76,16 +59,5 @@ extension Dictionary where Key == String, Value == LogContextValue {
         )
         }
         """
-    }
-}
-
-extension Encodable {
-    /**
-     Converts, if possible, the current encodable object into data using `JesonEncoder`
-     - returns: a json representation `Data` object of this object. nil if the encoding
-        faild
-     */
-    func toJSONData() -> Data? {
-        return try? JSONEncoder().encode(self)
     }
 }

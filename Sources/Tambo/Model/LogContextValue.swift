@@ -12,6 +12,7 @@ public enum LogContextValue {
     case customStringConvertible(CustomStringConvertible)
     case array([LogContextValue])
     case dictionary([String: LogContextValue])
+    case error(Error)
 
     var value: Any {
         switch self {
@@ -23,6 +24,8 @@ public enum LogContextValue {
             return array.lazy.map { $0.value }
         case .dictionary(let dictionary):
             return dictionary.mapValues { $0.value }
+        case .error(let error):
+            return String(describing: error)
         }
     }
 }
