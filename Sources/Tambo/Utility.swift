@@ -58,27 +58,24 @@ enum JSON {
     }
 }
 
-extension Dictionary where Key: StringProtocol, Value: Any {
+extension Dictionary where Key == String, Value == LogContextValue {
 
     /**
     Converts any values of self which is not a valid json object to a string discribing
      that value.
     - note: the values which are already valid json objects will not be modified.
     */
-    mutating func makeValidJsonObject() {
-        forEach { (key, value) in
-
-            guard JSONSerialization.isValidJSONObject(value) == false else { return }
-
-            /*
-             In case the value is a basic type i.e. an integer
-            `JSONSerialization.isValidJSONObject(value)` returns false
-             but JSONSerialization.isValidJSONObject([value]) returns true. we don't need
-             to do anything.
-             */
-            guard JSONSerialization.isValidJSONObject([value]) == false else { return }
-            self[key] = JSON.validObject(from: value) as? Value
+    func prettify() -> String? {
+        guard isEmpty == false else { return nil }
+        return """
+        {
+            \(`lazy`
+                .sorted(by: { $0.key < $1.key })
+                .map { "\($0) = \($1)" }
+                .joined(separator: "\n")
+        )
         }
+        """
     }
 }
 

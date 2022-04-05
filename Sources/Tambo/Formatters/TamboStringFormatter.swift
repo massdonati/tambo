@@ -73,7 +73,7 @@ public class TamboStringFormatter: TamboLogFormatter {
             case LogFormatKey.line.rawValue:
                 outputString += String(describing: log.lineNumber)
             case LogFormatKey.context.rawValue:
-                if let context = log.context, let contextString = prettify(context) {
+                if let context = log.context, let contextString = context.prettify() {
                     outputString += contextString
                 }
             default:
@@ -83,18 +83,7 @@ public class TamboStringFormatter: TamboLogFormatter {
         return outputString.trimmingCharacters(in: .whitespaces)
     }
 
-    private func prettify(_ context: [String: LogContextValue]) -> String? {
-        guard context.isEmpty == false else { return nil }
-        return """
-        {
-            \(context.lazy
-                .sorted(by: { $0.key < $1.key })
-                .map { "\($0) = \($1)" }
-                .joined(separator: "\n")
-        )
-        }
-        """
-    }
+
 }
 
 /**

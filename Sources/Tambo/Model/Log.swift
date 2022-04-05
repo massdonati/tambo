@@ -77,6 +77,10 @@ public struct Log {
     /// Dictionary to store useful metadata about the log.
     public internal(set) var context: [String: LogContextValue]?
 
+    public var prettyfiedContext: String? {
+        context?.prettify()
+    }
+
     init(loggerID: String, level: LogLevel, date: Date, message: @autoclosure @escaping () -> Any, condition: Bool, threadName: String, functionName: String, filePath: String, lineNumber: Int, context: [String : LogContextValue]?) {
 
         self.loggerID = loggerID

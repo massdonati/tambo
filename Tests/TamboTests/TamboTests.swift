@@ -3,6 +3,7 @@ import Combine
 @testable import Tambo
 
 final class TamboTests: XCTestCase {
+    var cancellable: AnyCancellable?
     func testIdentifier() throws {
         let identifier = UUID().uuidString
         XCTAssertEqual(TamboLogger(identifier: identifier).identifier, identifier)
@@ -10,7 +11,7 @@ final class TamboTests: XCTestCase {
 
     func testSubscription() throws {
         let logger = TamboLogger(identifier: "abc")
-        let subscription = logger
+        cancellable = logger
             .logStreamPublisher
             .formatWithDefaultStringFormatter()
             .logToConsole().sink { _ in }
