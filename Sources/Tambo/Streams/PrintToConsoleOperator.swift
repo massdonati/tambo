@@ -10,7 +10,7 @@ import Combine
 
 
 extension Publisher where Output == String, Failure == Never {
-    func logToConsole() -> AnyPublisher<Void, Never> {
+    public func logToConsole() -> AnyPublisher<Void, Never> {
             flatMap { string -> AnyPublisher<Void, Never> in
                 Swift.print(string)
                 return Just<Void>(()).eraseToAnyPublisher()
