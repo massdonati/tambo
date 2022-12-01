@@ -12,17 +12,17 @@ struct Utility {
     /**
      returns the current thread name
      */
-    static func threadName() -> String {
+    static func threadType() -> ThreadType {
         if Thread.isMainThread {
-            return "main_thread"
+            return .main
         }
 
         let threadName = Thread.current.name
         if let threadName = threadName, !threadName.isEmpty {
-            return threadName
+            return .background(threadName)
         }
 
-        return String(describing: Thread.current)
+        return .background(String(describing: Thread.current))
     }
 
     /**
@@ -60,4 +60,8 @@ extension Dictionary where Key == String, Value == LogContextValue {
         }
         """
     }
+}
+
+extension Array where Element == LogLevel {
+    public static let all: [LogLevel] = [.error, .critical, .debug, .info, .trace, .warning]
 }

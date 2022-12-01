@@ -65,7 +65,12 @@ public class TamboStringFormatter: TamboLogFormatter {
             case LogFormatKey.message.rawValue:
                 outputString += String(describing: log.message())
             case LogFormatKey.thread.rawValue:
-                outputString += log.threadName
+                switch log.threadType {
+                case .main:
+                    outputString += "main-thread"
+                case .background(let description):
+                    outputString += description
+                }
             case LogFormatKey.function.rawValue:
                 outputString += log.functionName
             case LogFormatKey.file.rawValue:
@@ -82,8 +87,6 @@ public class TamboStringFormatter: TamboLogFormatter {
         }
         return outputString.trimmingCharacters(in: .whitespaces)
     }
-
-
 }
 
 /**

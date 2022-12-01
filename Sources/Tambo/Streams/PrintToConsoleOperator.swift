@@ -8,12 +8,11 @@
 import Foundation
 import Combine
 
-
+private var cancellables: [AnyCancellable] = []
 extension Publisher where Output == String, Failure == Never {
-    public func logToConsole() -> AnyPublisher<Void, Never> {
-            flatMap { string -> AnyPublisher<Void, Never> in
-                Swift.print(string)
-                return Just<Void>(()).eraseToAnyPublisher()
-            }.eraseToAnyPublisher()
+    public func logToConsole() {
+        sink { string in
+            Swift.print(string)
+        }.store(in: &cancellables)
     }
 }

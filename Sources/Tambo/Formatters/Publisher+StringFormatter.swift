@@ -11,7 +11,7 @@ import Combine
 
 public extension Publisher where Output == Log, Failure == Never {
 
-    func formatWithDefaultStringFormatter(_ formatter: TamboStringFormatter = .init() ) -> AnyPublisher<String, Never> {
-        return formatWith(formatter)
+    func formatToString(_ formatter: TamboStringFormatter = .init() ) -> AnyPublisher<String, Never> {
+        return format(with: formatter)
     }
 }

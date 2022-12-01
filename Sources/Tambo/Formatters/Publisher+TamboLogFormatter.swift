@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 public extension Publisher where Output == Log, Failure == Never {
-    func formatWith<T>(_ formatter: T) -> AnyPublisher<T.FormattedType, Never> where T: TamboLogFormatter {
+    func format<T>(with formatter: T) -> AnyPublisher<T.FormattedType, Never> where T: TamboLogFormatter {
         map { formatter.format($0) }.eraseToAnyPublisher()
     }
 }

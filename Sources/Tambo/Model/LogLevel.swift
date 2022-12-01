@@ -22,7 +22,7 @@ import Foundation
     - variable values in business logic.
  - `trace`:
  */
-public enum LogLevel: Int {
+public enum LogLevel {
     
     /// Appropriate for critical error conditions that usually require immediate
     /// attention.
@@ -30,24 +30,24 @@ public enum LogLevel: Int {
     /// When a `critical` message is logged, the logging backend (`LogHandler`) is free to perform
     /// more heavy-weight operations to capture system state (such as capturing stack traces) to facilitate
     /// debugging.
-    case critical = 0
+    case critical
     
     /// Appropriate for error conditions.
-    case error = 1
+    case error
     
     /// Appropriate for messages that are not error conditions
-    case warning = 2
+    case warning
     
     /// Appropriate for informational messages.
-    case info = 3
+    case info
     
     /// Appropriate for messages that contain information normally of use only when
     /// debugging a program.
-    case debug = 4
+    case debug
     
     /// Appropriate for messages that contain information normally of use only when
     /// tracing the execution of a program.
-    case trace = 5
+    case trace
 
     /// The string name associated to each level.
     public var name: String {
@@ -71,12 +71,5 @@ public enum LogLevel: Int {
         case .debug: return "🐞"
         case .trace: return "🔊"
         }
-    }
-}
-
-extension LogLevel: Comparable, Equatable {
-    /// two levels are `the same` if their raw value is the same.
-    public static func < (lhs: LogLevel, rhs: LogLevel) -> Bool {
-        return lhs.rawValue < rhs.rawValue
     }
 }

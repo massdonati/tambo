@@ -50,15 +50,15 @@ public struct Log {
      }
      ```
      */
-    public let condition: Bool
+    let condition: Bool
 
     /**
      The thread name the this log was originate from.
      The possible values are:
-        1. "main_thread"
-        2. "bg_thread_\(thread_id)"
+        1. .main
+        2. .background("bg_thread_\(thread_id)")
      */
-    public let threadName: String
+    public let threadType: ThreadType
 
     /// The name of the function that generated this log.
     public let functionName: String
@@ -79,19 +79,5 @@ public struct Log {
 
     public var prettyfiedContext: String? {
         context?.prettify()
-    }
-
-    public init(loggerID: String, level: LogLevel, date: Date, message: @autoclosure @escaping () -> Any, condition: Bool, threadName: String, functionName: String, filePath: String, lineNumber: Int, context: [String : LogContextValue]?) {
-
-        self.loggerID = loggerID
-        self.level = level
-        self.date = date
-        self.message = message
-        self.condition = condition
-        self.threadName = threadName
-        self.functionName = functionName
-        self.filePath = filePath
-        self.lineNumber = lineNumber
-        self.context = context
     }
 }
