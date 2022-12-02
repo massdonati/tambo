@@ -61,7 +61,3 @@ extension Dictionary where Key == String, Value == LogContextValue {
         """
     }
 }
-
-extension Array where Element == LogLevel {
-    public static let all: [LogLevel] = [.error, .critical, .debug, .info, .trace, .warning]
-}

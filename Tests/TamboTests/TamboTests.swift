@@ -12,7 +12,7 @@ final class TamboTests: XCTestCase {
     func testSubscription() throws {
         let logger = Tambo(identifier: "abc")
         logger
-            .formatToString()
+            .formattedLogsToStringPublisher()
             .printLogs()
             .store(in: &cancellables)
 
@@ -24,10 +24,10 @@ final class TamboTests: XCTestCase {
 
     func testLevels() throws {
         let logger = Tambo(identifier: "abc")
-            .allowLevels([.error])
+            .allowingLevels(.error)
         var logs: [String] = []
         logger
-            .formatToString()
+            .formattedLogsToStringPublisher()
             .sink { message in
                 logs.append(message)
             }.store(in: &cancellables)
@@ -44,11 +44,11 @@ final class TamboTests: XCTestCase {
 
     func testMethods() throws {
         let logger = Tambo(identifier: "abc")
-            .allowLevels(.all)
+            .allowingLevels(.all)
 
         var logs: [String] = []
         let cancellable = logger
-            .formatLog({ String(describing: $0.message) })
+            .formattedLogsPublisher({ String(describing: $0.message) })
             .sink { message in
                 logs.append(message)
             }
@@ -66,11 +66,11 @@ final class TamboTests: XCTestCase {
 
     func testMethodsWithLevels() throws {
         let logger = Tambo(identifier: "abc")
-            .allowLevels([.error])
+            .allowingLevels([.error])
 
         var logs: [String] = []
         let cancellable = logger
-            .formatLog({ String(describing: $0.message) })
+            .formattedLogsPublisher({ String(describing: $0.message) })
             .sink { message in
                 logs.append(message)
             }

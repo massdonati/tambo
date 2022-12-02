@@ -73,3 +73,7 @@ public enum LogLevel {
         }
     }
 }
+
+extension Array where Element == LogLevel {
+    public static let all: [LogLevel] = [.error, .critical, .debug, .info, .trace, .warning]
+}

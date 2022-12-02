@@ -9,22 +9,26 @@ import Foundation
 import Combine
 
 extension Tambo {
-    public func allowLevels(_ levels: [LogLevel]) -> Self {
+    public func allowingLevels(_ levels: LogLevel...) -> Self {
+        return allowingLevels(levels)
+    }
+
+    public func allowingLevels(_ levels: [LogLevel]) -> Self {
         allowedLevels = levels
         return self
     }
 
-    public func formatLog<Output, Formatter>(_ formatter: Formatter) -> AnyPublisher<Output, Never> where Formatter: TamboLogFormatter, Output == Formatter.FormattedType {
-        return formatLog(formatter.format(_:))
+    public func formattedLogsPublisher<Output, Formatter>(_ formatter: Formatter) -> AnyPublisher<Output, Never> where Formatter: TamboLogFormatter, Output == Formatter.FormattedType {
+        return formattedLogsPublisher(formatter.format(_:))
     }
 
-    public func formatLog<Output>(_ closure: @escaping (Log) -> Output) -> AnyPublisher<Output, Never>{
+    public func formattedLogsPublisher<Output>(_ closure: @escaping (Log) -> Output) -> AnyPublisher<Output, Never>{
         return logsPublisher
             .map(closure)
             .eraseToAnyPublisher()
     }
 
-    public func formatToString(_ stringFormat: String? = nil) -> AnyPublisher<String, Never> {
-        return formatLog(TamboStringFormatter(with: stringFormat))
+    public func formattedLogsToStringPublisher(_ stringFormat: String? = nil) -> AnyPublisher<String, Never> {
+        return formattedLogsPublisher(TamboStringFormatter(with: stringFormat))
     }
 }
