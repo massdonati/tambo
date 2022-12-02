@@ -10,7 +10,8 @@ final class TamboTests: XCTestCase {
     }
 
     func testSubscription() throws {
-        let logger = Tambo(identifier: "abc")
+        let logger = Tambo(identifier: "abc",
+                           deliverySistem: .syncToCurrentThread)
         logger
             .formattedLogsToStringPublisher()
             .printLogs()
@@ -23,7 +24,8 @@ final class TamboTests: XCTestCase {
     }
 
     func testLevels() throws {
-        let logger = Tambo(identifier: "abc")
+        let logger = Tambo(identifier: "abc",
+                           deliverySistem: .syncToCurrentThread)
             .allowingLevels(.error)
         var logs: [String] = []
         logger
@@ -43,7 +45,8 @@ final class TamboTests: XCTestCase {
     }
 
     func testMethods() throws {
-        let logger = Tambo(identifier: "abc")
+        let logger = Tambo(identifier: "abc",
+                           deliverySistem: .syncToCurrentThread)
             .allowingLevels(.all)
 
         var logs: [String] = []
@@ -65,7 +68,8 @@ final class TamboTests: XCTestCase {
     }
 
     func testMethodsWithLevels() throws {
-        let logger = Tambo(identifier: "abc")
+        let logger = Tambo(identifier: "abc",
+                           deliverySistem: .syncToCurrentThread)
             .allowingLevels([.error])
 
         var logs: [String] = []

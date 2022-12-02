@@ -21,11 +21,19 @@ public final class Tambo {
 
     /// A string that identifies uniquely the logger instance
     let identifier: String
-
+    let processingQueue: DispatchQueue?
     lazy var logsPublisher: AnyPublisher<Log, Never> = {
-        logStreamPublisher
+        var publisher = logStreamPublisher
             .filter({ self.allowedLevels.contains($0.level) && $0.condition })
-            .eraseToAnyPublisher()
+
+        if let processingQueue {
+            return publisher
+                .receive(on: processingQueue)
+                .eraseToAnyPublisher()
+        } else {
+            return publisher
+                .eraseToAnyPublisher()
+        }
     }()
 
     private var logStreamPublisher = PassthroughSubject<Log, Never>()
@@ -45,8 +53,9 @@ public final class Tambo {
      - parameter identifier: the "name" of the log object. a best practice is to name
         your log instances with a reverse hostname format i.e. "com.tambo.default.logger"
      */
-    public init(identifier: String) {
+    public init(identifier: String, deliverySistem: TamboDeliverySystem = .async(.global(qos: .utility))) {
         self.identifier = identifier
+        self.processingQueue = deliverySistem.queue
     }
 
     // MARK: - Propagate log to streams
