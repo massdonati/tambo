@@ -16,17 +16,17 @@ import Foundation
         is good enough.
  - Tag: T.TamboStringFormatter
  */
-public class TamboStringFormatter: TamboLogFormatter {
-
+struct TamboStringFormatter: TamboLogFormatter {
+    static let defaultFormat = """
+        [D] [L] T S F:# f - M
+        C
+        """
     /**
      The formate rule this formatter will follow to present the log information.
      - note: The keys are documented in the
      [LogFormatKey](xc-source-tag://T.LogFormatKey)
      */
-    public var logFormat = """
-        [D] [L] T S F:# f - M
-        C
-        """
+    let logFormat: String
 
     /**
      The date formatter to be used to produce the string value.
@@ -35,13 +35,10 @@ public class TamboStringFormatter: TamboLogFormatter {
     public var dateFormatter: DateFormatter
 
     /// Designated initializer.
-    public init(with format: String? = nil) {
-        print("new Formatter \(UUID().uuidString)")
+    init(with format: String? = nil) {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss.SSS"
-        if let format = format {
-            logFormat = format
-        }
+        logFormat = format ?? Self.defaultFormat
     }
 
     /**
