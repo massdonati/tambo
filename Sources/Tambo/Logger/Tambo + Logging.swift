@@ -11,7 +11,7 @@ extension Tambo {
     // MARK: - logging methods
 
     @inlinable
-    func error(
+    public func error(
         _ msgClosure: @autoclosure @escaping () -> String,
         condition: Bool? = nil,
         functionName: StaticString = #function,
@@ -31,7 +31,7 @@ extension Tambo {
     }
 
     @inlinable
-    func warning(
+    public func warning(
         _ msgClosure: @autoclosure @escaping () -> String,
         condition: Bool = true,
         functionName: StaticString = #function,
@@ -51,7 +51,7 @@ extension Tambo {
     }
 
     @inlinable
-    func info(
+    public func info(
         _ msgClosure: @autoclosure @escaping () -> String,
         condition: Bool? = nil,
         functionName: StaticString = #function,
@@ -71,7 +71,7 @@ extension Tambo {
     }
 
     @inlinable
-    func debug(
+    public func debug(
         _ msgClosure: @autoclosure @escaping () -> String,
         condition: Bool? = nil,
         functionName: StaticString = #function,
@@ -91,7 +91,7 @@ extension Tambo {
     }
 
     @inlinable
-    func trace(
+    public func trace(
         _ msgClosure: @autoclosure @escaping () -> String,
         condition: Bool? = nil,
         functionName: StaticString = #function,

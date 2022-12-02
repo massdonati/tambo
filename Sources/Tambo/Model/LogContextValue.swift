@@ -14,7 +14,7 @@ public enum LogContextValue {
     case dictionary([String: LogContextValue])
     case error(Error)
 
-    var value: Any {
+    public var value: Any {
         switch self {
         case .string(let string):
             return string
