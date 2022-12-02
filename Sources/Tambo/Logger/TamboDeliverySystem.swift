@@ -8,13 +8,13 @@
 import Foundation
 
 public enum TamboDeliverySystem {
-    case syncToMain
+    case asyncToMain
     case async(DispatchQueue)
     case syncToCurrentThread
 
     var queue: DispatchQueue? {
         switch self {
-        case .syncToMain:
+        case .asyncToMain:
             return .main
         case .async(let queue):
             return queue
