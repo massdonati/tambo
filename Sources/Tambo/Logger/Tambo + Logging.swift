@@ -11,6 +11,26 @@ extension Tambo {
     // MARK: - logging methods
 
     @inlinable
+    public func critical(
+        _ msgClosure: @autoclosure @escaping () -> String,
+        condition: Bool? = nil,
+        functionName: StaticString = #function,
+        filePath: StaticString = #file,
+        lineNumber: Int = #line,
+        context: [String: LogContextValue]? = nil) {
+
+        propagateLog(
+            msgClosure: msgClosure,
+            condition: condition,
+            level: .critical,
+            functionName: String(describing: functionName),
+            filePath: String(describing: filePath),
+            lineNumber: lineNumber,
+            context: context
+        )
+    }
+
+    @inlinable
     public func error(
         _ msgClosure: @autoclosure @escaping () -> String,
         condition: Bool? = nil,
