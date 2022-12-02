@@ -17,6 +17,9 @@ import Foundation
  */
 public struct Log {
 
+    /// a unique identifier of the log instance
+    public let id = UUID()
+
     /// the Logger identifier this object was originated from.
     public let loggerID: String
 
@@ -33,7 +36,7 @@ public struct Log {
         move that computation to a background thread that will alleviate
         the processing at the caller side.
      */
-    public let message: (() -> Any)
+    public let message: (() -> String)
 
     /**
      this condition is set by the user of the `Tambo` apis and is used to provide to the
@@ -47,15 +50,15 @@ public struct Log {
      }
      ```
      */
-    public let condition: Bool
+    let condition: Bool
 
     /**
      The thread name the this log was originate from.
      The possible values are:
-        1. "main_thread"
-        2. "bg_thread_\(thread_id)"
+        1. .main
+        2. .background("bg_thread_\(thread_id)")
      */
-    public let threadName: String
+    public let threadType: ThreadType
 
     /// The name of the function that generated this log.
     public let functionName: String
@@ -72,26 +75,9 @@ public struct Log {
     public let lineNumber: Int
 
     /// Dictionary to store useful metadata about the log.
-    public internal(set) var context: [String: Any]?
+    public internal(set) var context: [String: LogContextValue]?
 
-    /**
-     Computed property to convert the userInfo dictionary into a `prettyPrinted`
-     string.
-     - note: Uses `JSONSerialization` under the hood but it doesn't `throw`
-        eny exception thanks to the `jsonify` `Disctionary` extension method.
-     */
-    public var contextJSONString: String? {
-        guard var info = context else { return nil }
-
-        info.makeValidJsonObject()
-
-        do {
-            let data = try JSONSerialization.data(withJSONObject: info,
-                                                  options: .prettyPrinted)
-            return String(data: data, encoding: .utf8)?
-                .replacingOccurrences(of: "\\", with: "")
-        } catch {
-            return nil
-        }
+    public var prettyfiedContext: String? {
+        context?.prettify()
     }
 }

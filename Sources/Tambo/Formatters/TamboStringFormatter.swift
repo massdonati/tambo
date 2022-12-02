@@ -1,5 +1,5 @@
 //
-//  LogStringFormatter.swift
+//  TamboStringFormatter.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/29/18.
@@ -14,9 +14,9 @@ import Foundation
         is good enough.
     2. Set the dateFormatter to feet your needs; or not if the default behavior
         is good enough.
- - Tag: T.LogStringFormatter
+ - Tag: T.TamboStringFormatter
  */
-public class LogStringFormatter: LogFormatterProtocol {
+public class TamboStringFormatter: TamboLogFormatter {
 
     /**
      The formate rule this formatter will follow to present the log information.
@@ -36,6 +36,7 @@ public class LogStringFormatter: LogFormatterProtocol {
 
     /// Designated initializer.
     public init(with format: String? = nil) {
+        print("new Formatter \(UUID().uuidString)")
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss.SSS"
         if let format = format {
@@ -64,7 +65,12 @@ public class LogStringFormatter: LogFormatterProtocol {
             case LogFormatKey.message.rawValue:
                 outputString += String(describing: log.message())
             case LogFormatKey.thread.rawValue:
-                outputString += log.threadName
+                switch log.threadType {
+                case .main:
+                    outputString += "main-thread"
+                case .background(let description):
+                    outputString += description
+                }
             case LogFormatKey.function.rawValue:
                 outputString += log.functionName
             case LogFormatKey.file.rawValue:
@@ -72,8 +78,8 @@ public class LogStringFormatter: LogFormatterProtocol {
             case LogFormatKey.line.rawValue:
                 outputString += String(describing: log.lineNumber)
             case LogFormatKey.context.rawValue:
-                if let contextString = log.contextJSONString {
-                    outputString += "\(contextString)"
+                if let context = log.context, let contextString = context.prettify() {
+                    outputString += contextString
                 }
             default:
                 outputString += String(ch)
@@ -129,3 +135,5 @@ enum LogFormatKey: Character {
     /// Any additional metadata useful to give more context to the logs.
     case context = "C"
 }
+
+
