@@ -36,7 +36,7 @@ public struct Log {
         move that computation to a background thread that will alleviate
         the processing at the caller side.
      */
-    public let message: (() -> Any)
+    public let message: (() -> String)
 
     /**
      this condition is set by the user of the `Tambo` apis and is used to provide to the

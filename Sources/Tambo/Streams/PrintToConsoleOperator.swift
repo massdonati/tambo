@@ -8,11 +8,10 @@
 import Foundation
 import Combine
 
-private var cancellables: [AnyCancellable] = []
 extension Publisher where Output == String, Failure == Never {
-    public func logToConsole() {
+    public func printLogs() -> AnyCancellable {
         sink { string in
             Swift.print(string)
-        }.store(in: &cancellables)
+        }
     }
 }

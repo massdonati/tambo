@@ -3,7 +3,7 @@ import Combine
 @testable import Tambo
 
 final class TamboTests: XCTestCase {
-    var cancellable: AnyCancellable?
+    var cancellables: [AnyCancellable] = []
     func testIdentifier() throws {
         let identifier = UUID().uuidString
         XCTAssertEqual(Tambo(identifier: identifier).identifier, identifier)
@@ -12,9 +12,9 @@ final class TamboTests: XCTestCase {
     func testSubscription() throws {
         let logger = Tambo(identifier: "abc")
         logger
-            .logsPublisher
             .formatToString()
-            .logToConsole()
+            .printLogs()
+            .store(in: &cancellables)
 
         logger.info("one", context: ["ciccio" : .string("mao")])
         logger.info("one")
@@ -27,13 +27,10 @@ final class TamboTests: XCTestCase {
             .allowLevels([.error])
         var logs: [String] = []
         logger
-            .logsPublisher
             .formatToString()
-            .filter({
-                logs.append($0)
-                return true
-            })
-            .logToConsole()
+            .sink { message in
+                logs.append(message)
+            }.store(in: &cancellables)
 
         logger.info("one", context: ["ciccio" : .string("mao")])
         logger.info("one")
@@ -43,5 +40,49 @@ final class TamboTests: XCTestCase {
         XCTAssertTrue(logs.isEmpty)
         logger.error("some error")
         XCTAssertFalse(logs.isEmpty)
+    }
+
+    func testMethods() throws {
+        let logger = Tambo(identifier: "abc")
+            .allowLevels(.all)
+
+        var logs: [String] = []
+        let cancellable = logger
+            .formatLog({ String(describing: $0.message) })
+            .sink { message in
+                logs.append(message)
+            }
+
+        logger.info("one", context: ["ciccio" : .string("mao")])
+        logger.info("two")
+        logger.info("three")
+        logger.info("four")
+
+        XCTAssertEqual(logs.count, 4)
+        logger.error("some error")
+        XCTAssertEqual(logs.count, 5)
+        print(cancellable)
+    }
+
+    func testMethodsWithLevels() throws {
+        let logger = Tambo(identifier: "abc")
+            .allowLevels([.error])
+
+        var logs: [String] = []
+        let cancellable = logger
+            .formatLog({ String(describing: $0.message) })
+            .sink { message in
+                logs.append(message)
+            }
+
+        logger.info("one", context: ["ciccio" : .string("mao")])
+        logger.info("two")
+        logger.info("three")
+        logger.info("four")
+
+        XCTAssertEqual(logs.count, 0)
+        logger.error("some error")
+        XCTAssertEqual(logs.count, 1)
+        print(cancellable)
     }
 }
