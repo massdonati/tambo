@@ -31,4 +31,6 @@ extension Tambo {
     public func formattedLogsToStringPublisher(_ stringFormat: String? = nil) -> AnyPublisher<String, Never> {
         return formattedLogsPublisher(TamboStringFormatter(with: stringFormat))
     }
+
+    public var unformattedLogsPublisher: AnyPublisher<Log, Never> { logsPublisher }
 }
