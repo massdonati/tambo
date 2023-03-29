@@ -39,20 +39,6 @@ public struct Log {
     public let message: (() -> String)
 
     /**
-     this condition is set by the user of the `Tambo` apis and is used to provide to the
-     user an additional level of filtering. The log message will be discarded if
-     `condition` is false.
-     For Example you could write
-     ```
-     func complete(success: Bool) {
-        log.error("The opration wasn't successfull", condition: success == false)
-        ...
-     }
-     ```
-     */
-    let condition: Bool
-
-    /**
      The thread name the this log was originate from.
      The possible values are:
         1. .main

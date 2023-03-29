@@ -24,7 +24,7 @@ public final class Tambo {
     let processingQueue: DispatchQueue?
     lazy var logsPublisher: AnyPublisher<Log, Never> = {
         var publisher = logStreamPublisher
-            .filter({ self.allowedLevels.contains($0.level) && $0.condition })
+            .filter({ self.allowedLevels.contains($0.level) })
 
         if let processingQueue {
             return publisher
@@ -63,7 +63,6 @@ public final class Tambo {
     @usableFromInline
     func propagateLog(
         msgClosure: @escaping () -> String,
-        condition: Bool? = nil,
         level: LogLevel,
         functionName: String,
         filePath: String,
@@ -75,7 +74,6 @@ public final class Tambo {
             level: level,
             date: time,
             message: msgClosure,
-            condition: condition ?? true,
             threadType: Utility.threadType(),
             functionName: functionName,
             filePath: filePath,
