@@ -20,42 +20,46 @@ import Combine
 public final class Tambo {
 
     /// A string that identifies uniquely the logger instance
-    let identifier: String
-    let processingQueue: DispatchQueue?
+    var identifier: String = "com.tambo.logger"
+    /// The queue in which the logs will be processed and dispatched onto.
+    var processingQueue: DispatchQueue? = .init(label: "com.tambo.logger.queue", qos: .background)
+    /**
+     The publisher for the logs.
+     All logs published are already filtered based on the
+     */
     lazy var logsPublisher: AnyPublisher<Log, Never> = {
-        var publisher = logStreamPublisher
-            .filter({ self.allowedLevels.contains($0.level) })
+        let levelFilter: (Log) -> Bool = { [allowedLevels] log in
+            allowedLevels.contains(log.level)
+        }
 
         if let processingQueue {
-            return publisher
+            return _logsPublisher
                 .receive(on: processingQueue)
+                .filter(levelFilter)
                 .eraseToAnyPublisher()
         } else {
-            return publisher
+            return _logsPublisher
+                .filter(levelFilter)
                 .eraseToAnyPublisher()
         }
     }()
 
-    private var logStreamPublisher = PassthroughSubject<Log, Never>()
+    /// Internal log publisher
+    let _logsPublisher = PassthroughSubject<Log, Never>()
 
     /**
-     Default logger with `com.tambo.default.logger` as identifier
+     the levels that are allowed for this logger instance. the default value
+     is `.all` meaning "very chatty".
      */
-    static public var `default`: Tambo = {
-        let logger = Tambo(identifier: "com.tambo.default.logger")
-        return logger
-    }()
-
     var allowedLevels: [LogLevel] = .all
 
     /**
      Designated initializer.
      - parameter identifier: the "name" of the log object. a best practice is to name
-        your log instances with a reverse hostname format i.e. "com.tambo.default.logger"
+        your log instances with a reverse hostname format i.e. "com.tambo.logger"
      */
-    public init(identifier: String, deliverySistem: TamboDeliverySystem = .async(.global(qos: .utility))) {
+    public init(identifier: String) {
         self.identifier = identifier
-        self.processingQueue = deliverySistem.queue
     }
 
     // MARK: - Propagate log to streams
@@ -80,6 +84,22 @@ public final class Tambo {
             lineNumber: lineNumber,
             context: context
         )
-            logStreamPublisher.send(log)
+            _logsPublisher.send(log)
+    }
+}
+
+extension Tambo {
+    public func processing(_ system: TamboDeliverySystem) -> Self {
+        processingQueue = system.queue
+        return self
+    }
+
+    public func allowingLevels(_ levels: LogLevel...) -> Self {
+        return allowingLevels(levels)
+    }
+
+    public func allowingLevels(_ levels: [LogLevel]) -> Self {
+        allowedLevels = levels
+        return self
     }
 }

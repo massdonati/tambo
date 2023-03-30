@@ -10,10 +10,10 @@ final class TamboTests: XCTestCase {
     }
 
     func testSubscription() throws {
-        let logger = Tambo(identifier: "abc",
-                           deliverySistem: .syncToCurrentThread)
+        let logger = Tambo(identifier: "abc")
+            .processing(.syncToCurrentThread)
         logger
-            .formattedLogsToStringPublisher()
+            .stringFormattedLogsPublisher()
             .printLogs()
             .store(in: &cancellables)
 
@@ -24,12 +24,12 @@ final class TamboTests: XCTestCase {
     }
 
     func testLevels() throws {
-        let logger = Tambo(identifier: "abc",
-                           deliverySistem: .syncToCurrentThread)
+        let logger = Tambo(identifier: "abc")
+            .processing(.syncToCurrentThread)
             .allowingLevels(.error)
         var logs: [String] = []
         logger
-            .formattedLogsToStringPublisher()
+            .stringFormattedLogsPublisher()
             .sink { message in
                 logs.append(message)
             }.store(in: &cancellables)
@@ -45,13 +45,13 @@ final class TamboTests: XCTestCase {
     }
 
     func testMethods() throws {
-        let logger = Tambo(identifier: "abc",
-                           deliverySistem: .syncToCurrentThread)
+        let logger = Tambo(identifier: "abc")
+            .processing(.syncToCurrentThread)
             .allowingLevels(.all)
 
         var logs: [String] = []
         let cancellable = logger
-            .formattedLogsPublisher({ String(describing: $0.message) })
+            .formattedLogsPublisher({ $0.id.uuidString })
             .sink { message in
                 logs.append(message)
             }
@@ -68,8 +68,8 @@ final class TamboTests: XCTestCase {
     }
 
     func testMethodsWithLevels() throws {
-        let logger = Tambo(identifier: "abc",
-                           deliverySistem: .syncToCurrentThread)
+        let logger = Tambo(identifier: "abc")
+            .processing(.syncToCurrentThread)
             .allowingLevels([.error])
 
         var logs: [String] = []

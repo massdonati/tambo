@@ -9,7 +9,7 @@ import Foundation
 
 public enum LogContextValue {
     case string(String)
-    case customStringConvertible(CustomStringConvertible)
+    case csc(CustomStringConvertible)
     case array([LogContextValue])
     case dictionary([String: LogContextValue])
     case error(Error)

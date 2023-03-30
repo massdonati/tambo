@@ -53,8 +53,7 @@ extension Dictionary where Key == String, Value == LogContextValue {
         return """
         {
             \(`lazy`
-                .sorted(by: { $0.key < $1.key })
-                .map { "\($0) = \($1)" }
+                .map { "\($0) = \($1.value)" }
                 .joined(separator: "\n")
         )
         }

@@ -63,7 +63,7 @@ public struct Log {
     /// Dictionary to store useful metadata about the log.
     public internal(set) var context: [String: LogContextValue]?
 
-    public var prettyfiedContext: String? {
+    public var stringFormattedContext: String? {
         context?.prettify()
     }
 }

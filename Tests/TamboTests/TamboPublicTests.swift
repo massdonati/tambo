@@ -15,18 +15,13 @@ final class TamboPublicTests: XCTestCase {
 
     override func setUp() {
         cancellables = []
-        logger = Tambo(identifier: UUID().uuidString, deliverySistem: .syncToCurrentThread)
-    }
-
-    func testPublicInits() {
-        XCTAssertNotNil(Tambo(identifier: "", deliverySistem: .async(.main)))
-        XCTAssertNotNil(Tambo(identifier: "", deliverySistem: .asyncToMain))
-        XCTAssertNotNil(Tambo(identifier: "", deliverySistem: .syncToCurrentThread))
+        logger = Tambo(identifier: UUID().uuidString).processing( .syncToCurrentThread)
     }
 
     func testPublicFormatterAPIWithFormatterObject() throws {
         // test all log levels
-        let logger1 = Tambo(identifier: "", deliverySistem: .syncToCurrentThread)
+        let logger1 = Tambo(identifier: "")
+            .processing( .syncToCurrentThread)
             .allowingLevels(.info, .error, .warning, .critical, .trace, .debug)
             .allowingLevels(.all)
 
@@ -64,7 +59,7 @@ final class TamboPublicTests: XCTestCase {
     func testPublicFormatterAPIWithDefaultStringFormatter() throws {
         var logs: [String] = []
         logger
-            .formattedLogsToStringPublisher("M")
+            .stringFormattedLogsPublisher("M")
             .sink { logs.append($0) }
             .store(in: &cancellables)
 
