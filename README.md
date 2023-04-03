@@ -21,13 +21,13 @@ To start using `Tambo` right away all you need to do is:
 
 ### Full power
 
-In order to use Tambo the way it's ment to be used, you need to create an instance with an identifier (helpfull to track the logging source in complex application that could have multiple Tambo instances).
+In order to use Tambo the way it's meant to be used, you need to create an instance with an identifier (helpful to track the logging source in complex application that could have multiple Tambo instances).
 
 ```
 let log = Tambo(identifier: "com.my.logger")
 ```
 
-Then you need to create a strem object which, in Tambo language, defines where you want the logs to be displayed/sent to. In this example let's create an Xcode console stream using the `TConsoleStream` class:
+Then you need to create a stream object which, in Tambo language, defines where you want the logs to be displayed/sent to. In this example let's create an Xcode console stream using the `TConsoleStream` class:
 
 ```
 let console = TConsoleStream(identifier: "com.my.console", printMode: .print)
@@ -66,7 +66,7 @@ log.info(UIViewController(), context: ["url": request.url])
 4. Linux testing
  
 
-## Desclimer
+## Desclaimer
 This framework is still in development you're welcome to 
 
 1. try it out
