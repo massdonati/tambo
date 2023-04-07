@@ -16,7 +16,7 @@ extension Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        context: [String: LogContextValue]? = nil) {
+        context: Context? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -34,7 +34,7 @@ extension Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        context: [String: LogContextValue]? = nil) {
+        context: Context? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -53,7 +53,7 @@ extension Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        context: [String: LogContextValue]? = nil) {
+        context: Context? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -71,7 +71,7 @@ extension Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        context: [String: LogContextValue]? = nil) {
+        context: Context? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -89,7 +89,7 @@ extension Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        context: [String: LogContextValue]? = nil) {
+        context: Context? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,
@@ -107,7 +107,7 @@ extension Tambo {
         functionName: StaticString = #function,
         filePath: StaticString = #file,
         lineNumber: Int = #line,
-        context: [String: LogContextValue]? = nil) {
+        context: Context? = nil) {
 
         propagateLog(
             msgClosure: msgClosure,

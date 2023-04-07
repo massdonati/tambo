@@ -40,23 +40,3 @@ struct Utility {
         return url.pathComponents.last
     }
 }
-
-extension Dictionary where Key == String, Value == LogContextValue {
-
-    /**
-    Converts any values of self which is not a valid json object to a string discribing
-     that value.
-    - note: the values which are already valid json objects will not be modified.
-    */
-    func prettify() -> String? {
-        guard isEmpty == false else { return nil }
-        return """
-        {
-            \(`lazy`
-                .map { "\($0) = \($1.value)" }
-                .joined(separator: "\n")
-        )
-        }
-        """
-    }
-}

@@ -38,7 +38,7 @@ final class TamboPublicTests: XCTestCase {
             .store(in: &cancellables)
 
         let message = UUID().uuidString
-        logger1.info(message, context: ["non-relevant": .string("info")])
+        logger1.info(message, context: ["non-relevant": "info"])
         let loggedMessage = try XCTUnwrap(logs.first)
         XCTAssertEqual(loggedMessage, message)
     }
@@ -51,7 +51,7 @@ final class TamboPublicTests: XCTestCase {
             .store(in: &cancellables)
 
         let message = UUID().uuidString
-        logger.info(message, context: ["non-relevant": .string("info")])
+        logger.info(message, context: ["non-relevant": "info"])
         let loggedMessage = try XCTUnwrap(logs.first)
         XCTAssertEqual(loggedMessage, message)
     }
@@ -64,7 +64,7 @@ final class TamboPublicTests: XCTestCase {
             .store(in: &cancellables)
 
         let message = UUID().uuidString
-        logger.info(message, context: ["non-relevant": .string("info")])
+        logger.info(message, context: ["non-relevant": "info"])
         let loggedMessage = try XCTUnwrap(logs.first)
         XCTAssertEqual(loggedMessage, message)
     }

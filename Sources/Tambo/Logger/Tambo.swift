@@ -51,7 +51,7 @@ public final class Tambo {
      the levels that are allowed for this logger instance. the default value
      is `.all` meaning "very chatty".
      */
-    var allowedLevels: [LogLevel] = .all
+    var allowedLevels: [EventLevel] = .all
 
     /**
      Designated initializer.
@@ -67,11 +67,11 @@ public final class Tambo {
     @usableFromInline
     func propagateLog(
         msgClosure: @escaping () -> String,
-        level: LogLevel,
+        level: EventLevel,
         functionName: String,
         filePath: String,
         lineNumber: Int,
-        context: [String: LogContextValue]?,
+        context: Context?,
         time: Date = Date()) {
         let log = Event(
             loggerID: self.identifier,
@@ -94,11 +94,11 @@ extension Tambo {
         return self
     }
 
-    public func allowingLevels(_ levels: LogLevel...) -> Self {
+    public func allowingLevels(_ levels: EventLevel...) -> Self {
         return allowingLevels(levels)
     }
 
-    public func allowingLevels(_ levels: [LogLevel]) -> Self {
+    public func allowingLevels(_ levels: [EventLevel]) -> Self {
         allowedLevels = levels
         return self
     }

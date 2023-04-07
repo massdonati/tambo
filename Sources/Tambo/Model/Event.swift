@@ -17,14 +17,14 @@ import Foundation
  */
 public struct Event {
     public init(loggerID: String,
-                level: LogLevel,
+                level: EventLevel,
                 date: Date,
                 message: @escaping (() -> String),
                 threadType: ThreadType,
                 functionName: String,
                 filePath: String,
                 lineNumber: Int,
-                context: [String : LogContextValue]? = nil) {
+                context: Context? = nil) {
         self.loggerID = loggerID
         self.level = level
         self.date = date
@@ -44,7 +44,7 @@ public struct Event {
     public let loggerID: String
 
     /// The level of the log i.e. `.info`.
-    public let level: LogLevel
+    public let level: EventLevel
 
     /// The time this log was originated at.
     public let date: Date
@@ -81,9 +81,5 @@ public struct Event {
     public let lineNumber: Int
 
     /// Dictionary to store useful metadata about the log.
-    public internal(set) var context: [String: LogContextValue]?
-
-    public var stringFormattedContext: String? {
-        context?.prettify()
-    }
+    public internal(set) var context: Context?
 }

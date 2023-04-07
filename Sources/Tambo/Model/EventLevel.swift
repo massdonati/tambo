@@ -1,5 +1,5 @@
 //
-//  TLogLevel.swift
+//  EventLevel.swift
 //  Tambo
 //
 //  Created by Massimo Donati on 7/23/18.
@@ -8,8 +8,8 @@
 import Foundation
 
 /**
- Defines the available levels of severity a log carries the informations of.
- The use of these levels are deffered to the user of this framework.
+ Defines the available levels of severity an event carries the informations of.
+ The use of these levels are deferred to the user of this framework.
  - `error`: used when the application really is in trouble. Users are being affected
     without having a way to work around the issue.
  - `warning`: when something bad happened, but the application still has the chance to
@@ -22,7 +22,7 @@ import Foundation
     - variable values in business logic.
  - `trace`:
  */
-public enum LogLevel {
+public enum EventLevel {
     
     /// Appropriate for critical error conditions that usually require immediate
     /// attention.
@@ -61,7 +61,7 @@ public enum LogLevel {
         }
     }
 
-    /// The symble associated to each level.
+    /// The symbol associated to each level.
     public var symbol: String {
         switch self {
         case .critical: return "💥"
@@ -74,6 +74,6 @@ public enum LogLevel {
     }
 }
 
-extension Array where Element == LogLevel {
-    public static let all: [LogLevel] = [.error, .critical, .debug, .info, .trace, .warning]
+extension Array where Element == EventLevel {
+    public static let all: [EventLevel] = [.error, .critical, .debug, .info, .trace, .warning]
 }

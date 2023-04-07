@@ -17,7 +17,7 @@ final class TamboTests: XCTestCase {
             .printLogs()
             .store(in: &cancellables)
 
-        logger.info("one", context: ["ciccio" : .string("mao")])
+        logger.info("one", context: ["ciccio" : "mao"])
         logger.info("one")
         logger.info("one")
         logger.info("one")
@@ -34,7 +34,7 @@ final class TamboTests: XCTestCase {
                 logs.append(message)
             }.store(in: &cancellables)
 
-        logger.info("one", context: ["ciccio" : .string("mao")])
+        logger.info("one", context: ["ciccio" : "mao"])
         logger.info("one")
         logger.info("one")
         logger.info("one")
@@ -56,7 +56,7 @@ final class TamboTests: XCTestCase {
                 logs.append(message)
             }
 
-        logger.info("one", context: ["ciccio" : .string("mao")])
+        logger.info("one", context: ["ciccio" : "mao"])
         logger.info("two")
         logger.info("three")
         logger.info("four")
@@ -79,7 +79,7 @@ final class TamboTests: XCTestCase {
                 logs.append(message)
             }
 
-        logger.info("one", context: ["ciccio" : .string("mao")])
+        logger.info("one", context: ["ciccio" : "mao"])
         logger.info("two")
         logger.info("three")
         logger.info("four")

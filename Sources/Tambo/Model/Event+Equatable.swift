@@ -1,5 +1,5 @@
 //
-//  Log+Equatable.swift
+//  Event+Equatable.swift
 //  Tambo iOS
 //
 //  Created by Massimo Donati on 8/3/19.
