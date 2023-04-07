@@ -26,7 +26,7 @@ final class TamboPublicTests: XCTestCase {
             .allowingLevels(.all)
 
         struct Formatter: TamboLogFormatter {
-            func format(_ log: Log) -> String {
+            func format(_ log: Event) -> String {
                 return log.message()
             }
         }
@@ -70,7 +70,7 @@ final class TamboPublicTests: XCTestCase {
     }
 
     func testPublicLoggingAPI() throws {
-        var logs: [Log] = []
+        var logs: [Event] = []
         logger.unformattedLogsPublisher
             .sink { logs.append($0) }
             .store(in: &cancellables)

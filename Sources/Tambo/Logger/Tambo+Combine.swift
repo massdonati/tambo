@@ -14,7 +14,7 @@ extension Tambo {
         return formattedLogsPublisher(formatter.format(_:))
     }
 
-    public func formattedLogsPublisher<Output>(_ closure: @escaping (Log) -> Output) -> AnyPublisher<Output, Never>{
+    public func formattedLogsPublisher<Output>(_ closure: @escaping (Event) -> Output) -> AnyPublisher<Output, Never>{
         return logsPublisher
             .map(closure)
             .eraseToAnyPublisher()
@@ -24,5 +24,5 @@ extension Tambo {
         return formattedLogsPublisher(TamboStringFormatter(with: stringFormat))
     }
 
-    public var unformattedLogsPublisher: AnyPublisher<Log, Never> { logsPublisher }
+    public var unformattedLogsPublisher: AnyPublisher<Event, Never> { logsPublisher }
 }

@@ -27,8 +27,8 @@ public final class Tambo {
      The publisher for the logs.
      All logs published are already filtered based on the
      */
-    lazy var logsPublisher: AnyPublisher<Log, Never> = {
-        let levelFilter: (Log) -> Bool = { [allowedLevels] log in
+    lazy var logsPublisher: AnyPublisher<Event, Never> = {
+        let levelFilter: (Event) -> Bool = { [allowedLevels] log in
             allowedLevels.contains(log.level)
         }
 
@@ -45,7 +45,7 @@ public final class Tambo {
     }()
 
     /// Internal log publisher
-    let _logsPublisher = PassthroughSubject<Log, Never>()
+    let _logsPublisher = PassthroughSubject<Event, Never>()
 
     /**
      the levels that are allowed for this logger instance. the default value
@@ -73,7 +73,7 @@ public final class Tambo {
         lineNumber: Int,
         context: [String: LogContextValue]?,
         time: Date = Date()) {
-        let log = Log(
+        let log = Event(
             loggerID: self.identifier,
             level: level,
             date: time,

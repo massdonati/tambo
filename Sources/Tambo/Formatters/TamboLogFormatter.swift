@@ -23,5 +23,5 @@ public protocol TamboLogFormatter {
      - note: This function will be invoked right befor outputting the log
         from watever stream this message was invoked.
      */
-    func format(_ log: Log) -> FormattedType
+    func format(_ log: Event) -> FormattedType
 }

@@ -46,7 +46,7 @@ struct TamboStringFormatter: TamboLogFormatter {
      - parameter log: The Log object we want to convert into a string.
      - seealso: [LogToStringFormatterProtocol](x-source-tag://T.LogToStringFormatterProtocol)
      */
-    public func format(_ log: Log) -> String  {
+    public func format(_ log: Event) -> String  {
         var outputString = ""
 
         logFormat.forEach { ch in

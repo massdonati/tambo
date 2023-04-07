@@ -15,7 +15,27 @@ import Foundation
  - note: if you need a valid JSON disctionary you can use the `jsonObject` property,
     if you need the encoded `Data` you can use the `jsonData` one.
  */
-public struct Log {
+public struct Event {
+    public init(loggerID: String,
+                level: LogLevel,
+                date: Date,
+                message: @escaping (() -> String),
+                threadType: ThreadType,
+                functionName: String,
+                filePath: String,
+                lineNumber: Int,
+                context: [String : LogContextValue]? = nil) {
+        self.loggerID = loggerID
+        self.level = level
+        self.date = date
+        self.message = message
+        self.threadType = threadType
+        self.functionName = functionName
+        self.filePath = filePath
+        self.lineNumber = lineNumber
+        self.context = context
+    }
+
 
     /// a unique identifier of the log instance
     public let id = UUID()

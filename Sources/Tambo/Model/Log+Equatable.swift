@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Log: Equatable {
-    public static func == (lhs: Log, rhs: Log) -> Bool {
+extension Event: Equatable {
+    public static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.id == rhs.id
     }
 }
