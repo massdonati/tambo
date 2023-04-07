@@ -10,19 +10,16 @@ import Foundation
 public enum LogContextValue {
     case string(String)
     case csc(CustomStringConvertible)
-    case array([LogContextValue])
-    case dictionary([String: LogContextValue])
+    case dict([String: LogContextValue])
     case error(Error)
 
     public var value: Any {
         switch self {
         case .string(let string):
             return string
-        case .customStringConvertible(let customStringConvertible):
-            return customStringConvertible
-        case .array(let array):
-            return array.lazy.map { $0.value }
-        case .dictionary(let dictionary):
+        case .csc(let convertible):
+            return convertible.description
+        case .dict(let dictionary):
             return dictionary.mapValues { $0.value }
         case .error(let error):
             return String(describing: error)
